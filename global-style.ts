@@ -52,10 +52,15 @@ export default createGlobalStyle`
   body {
     background-color: #333;
     color: var(--text-main);
+    font-family: var(--ff-body);    
   }
 
   h1, h2, h3, p {
     line-height: 1.6;
+  }
+
+  h1, h2 {
+    font-family: var(--ff-heading);
   }
 
   ul {

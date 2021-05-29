@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import GlobalStyle from "../../global-style"
+import Helmet from "react-helmet"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,26 +26,31 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Helmet>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,800&family=Roboto:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
       <GlobalStyle />
-      <div
+      {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
+      <main>{children}</main>
+      <footer
         style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
+          marginTop: `2rem`,
         }}
       >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
+        © {new Date().getFullYear()}, Designed &amp; Developed by Sid Hayoun Lee
+        with{" "}
+        <span role="image" aria-label="coffee">
+          ☕
+        </span>{" "}
+        and{" "}
+        <span role="image" aria-label="love">
+          ❤️
+        </span>
+      </footer>
     </>
   )
 }
