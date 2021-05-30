@@ -8,7 +8,7 @@ import Projects from "../sections/Projects"
 import Skills from "../sections/Skills"
 import Contact from "../sections/Contact"
 
-const IndexPage = () => (
+const IndexPage: React.FC = () => (
   <Layout>
     <Seo title="Home" />
     <Main />
