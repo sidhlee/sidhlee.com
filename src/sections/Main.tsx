@@ -45,6 +45,7 @@ const StyledMain = styled("section")`
         }
       }
       .sub-headline {
+        max-width: 24em;
         font-size: var(--fz-subheading);
         margin: 1rem 0 2rem;
       }

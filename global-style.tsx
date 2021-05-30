@@ -27,7 +27,7 @@ export default createGlobalStyle`
     --ff-heading: Poppins, sans-serif;
     --ff-body: Roboto, sans-serif;
     --fz-xl: 4.25rem;
-    --fz-subheading: 1.5rem; 
+    --fz-subheading: 1.4rem;     
 
     --height-navbar: 4em;
     --px: Min(Max(1rem, 6vw), 4rem);
@@ -60,7 +60,7 @@ export default createGlobalStyle`
   }
 
   h1, h2, h3 {
-    line-height: 1;
+    line-height: 1;       
   }
   
   p {
