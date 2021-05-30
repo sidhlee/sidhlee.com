@@ -6,14 +6,12 @@ import ButtonLink from "../components/ButtonLink"
 
 // TODO: fix vertical scroll in main section
 const StyledMain = styled("section")`
-  min-height: 100vh;
   // Take mobile UI (keyboard/safari control bar) into account when calculating 100vh
   // https://css-tricks.com/css-fix-for-100vh-in-mobile-webkit/
-  min-height: -webkit-fill-available;
   padding-top: var(--py);
-  overflow-x: hidden;
   background-color: var(--cl-main);
   .grid {
+    min-height: 100vh;
     // https://stackoverflow.com/questions/52861086/why-does-minmax0-1fr-work-for-long-elements-while-1fr-doesnt
     // allows content to overflow the track
     grid-template-columns: auto minmax(0, 1fr);

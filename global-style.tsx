@@ -62,6 +62,7 @@ const globalStyle = css`
     color: var(--text-main);
     font-family: var(--ff-body);
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   p {
