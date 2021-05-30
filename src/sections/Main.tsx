@@ -21,6 +21,7 @@ const StyledMain = styled("section")`
   header {
     grid-row: 1 / 3;
     max-width: 38rem;
+    z-index: 200;
     // https://css-tricks.com/hash-tag-links-padding/
     // fix h1 hidden behind navbar when navigated
     h1::before {
@@ -54,22 +55,33 @@ const StyledMain = styled("section")`
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     align-self: center;
-    margin-left: 2rem;
+    justify-self: center;
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    --size: min(max(300px, 40vw), 570px);
+    width: var(--size);
+    height: calc(var(--size) * 1.3);
     transform: rotate(24deg);
-    transform-origin: 50% 100%;
+    transform-origin: 40% 90%;
     .lid,
     .bed {
       flex-shrink: 0;
     }
     .lid {
       width: 100%;
+      height: 80%;
     }
     .bed {
       width: 80%;
-      transform: translateX(5%) rotate(-5deg);
+      position: relative;
+      margin-top: -1rem;
+      left: 2rem;
+      transform: rotate(-5deg);
+    }
+  }
+  @media (max-width: 840px) {
+    .piano {
+      filter: brightness(0.4);
     }
   }
 `

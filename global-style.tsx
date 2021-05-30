@@ -34,7 +34,7 @@ const globalStyle = css`
 
     --height-navbar: 4em;
     --px: Min(Max(1rem, 6vw), 4rem);
-    --py: Min(Max(1rem, 5vw), 5rem);
+    --py: Min(Max(var(--height-navbar), 5vw), 5rem);
     --max-width-container: 1700px;
 
     --z-navbar: 1000;
