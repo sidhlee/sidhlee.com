@@ -29,7 +29,7 @@ export default createGlobalStyle`
     --fz-xl: 4.25rem;
     --fz-subheading: 1.5rem; 
 
-    --height-navbar: 3em;
+    --height-navbar: 4em;
     --px: Min(Max(1rem, 6vw), 4rem);
     --pt: Min(Max(1rem, 5vw), 5rem);;
     --max-width-container: 1700px;
@@ -55,7 +55,8 @@ export default createGlobalStyle`
     body {
     background-color: #333;
     color: var(--text-main);
-    font-family: var(--ff-body);    
+    font-family: var(--ff-body); 
+    scroll-behavior: smooth;   
   }
 
   h1, h2, h3 {
@@ -76,11 +77,12 @@ export default createGlobalStyle`
   }
 
   a {
-    text-decoration: none;
+    text-decoration: none;        
   }
 
   a, button {
     cursor: pointer;
+    color: var(---text-main);    
   }
 
   .visuallyHidden:not(:focus):not(:active) { position: absolute; width: 1px; height: 1px; margin: -1px;border: 0;padding: 0;white-space: nowrap;clip-path: inset(100%);clip: rect(00 0 0);overflow: hidden;}

@@ -10,6 +10,7 @@ const StyledMain = styled("section")`
   // https://css-tricks.com/css-fix-for-100vh-in-mobile-webkit/
   min-height: -webkit-fill-available;
   padding-top: var(--pt);
+  overflow-x: hidden;
   background-color: var(--cl-main);
   .grid {
     display: grid;
@@ -22,6 +23,16 @@ const StyledMain = styled("section")`
   header {
     grid-row: 1 / 3;
     max-width: 38rem;
+    // https://css-tricks.com/hash-tag-links-padding/
+    // fix h1 hidden behind navbar when navigated
+    h1::before {
+      display: block;
+      content: " ";
+      margin-top: calc(var(--height-navbar) * -1);
+      height: var(--height-navbar);
+      visibility: hidden;
+      pointer-events: none;
+    }
     .intro {
       margin-top: 5rem;
       margin-left: 2rem;
@@ -72,7 +83,7 @@ const Main: React.FC<MainProps> = ({}) => {
       <Container>
         <div className="grid">
           <header>
-            <h1>Sid Lee</h1>
+            <h1 id="main">Sid Lee</h1>
             <div className="intro">
               <p className="headline">
                 Hi! I am a <span>Web Developer</span>
