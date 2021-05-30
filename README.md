@@ -19,6 +19,10 @@ We need to tell TS that we're using jsx since there's no explicit import anymore
 }
 ```
 
+### Why my color picker not working on styled-components
+
+You need to set the file extension as .tsx (not .ts)
+
 ## References
 
 - [React 17 new JSX Transform: ReferenceError: React is not defined](https://github.com/gatsbyjs/gatsby/issues/28657)

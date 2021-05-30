@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components"
 export const mq = {
   landscape: 500,
   tablet: 700,
-  desktop: 1130,
+  desktop: 1440,
   wide: 1600,
 }
 
@@ -13,7 +13,7 @@ export default createGlobalStyle`
     --cl-off-white: #EFF1F3;
     --cl-black: black;
     --cl-main: #084887;
-    --cl-about: #203E6C;
+    --cl-about: #193053;
     --cl-projects: #202020;
     --cl-skills: #333533;
     --cl-contact:var(--cl-main);
@@ -30,8 +30,9 @@ export default createGlobalStyle`
     --fz-subheading: 1.5rem; 
 
     --height-navbar: 3em;
-    --px: Min(Max(.5rem, 4vw), 2rem);
-    --max-width-container: 900px;
+    --px: Min(Max(1rem, 6vw), 4rem);
+    --pt: Min(Max(1rem, 5vw), 5rem);;
+    --max-width-container: 1700px;
 
     --z-navbar: 1000;
     --z-backdrop: 1200;
@@ -43,6 +44,7 @@ export default createGlobalStyle`
     // Take mobile UI (keyboard/safari control bar) into account when calculating 100vh 
     // https://css-tricks.com/css-fix-for-100vh-in-mobile-webkit/
     height: -webkit-fill-available;
+    font-size: min(max(100%, 1.25vw),125%);
   }
   *, *::before, *::after {
     box-sizing: inherit;
@@ -50,17 +52,17 @@ export default createGlobalStyle`
     padding: 0;
   }
 
-  html {
-    font-size: 125%;
-  }
-
-  body {
+    body {
     background-color: #333;
     color: var(--text-main);
     font-family: var(--ff-body);    
   }
 
-  h1, h2, h3, p {
+  h1, h2, h3 {
+    line-height: 1;
+  }
+  
+  p {
     line-height: 1.6;
   }
 
