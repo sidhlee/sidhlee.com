@@ -45,5 +45,8 @@ module.exports = {
   ],
   flags: {
     THE_FLAG: false,
+    // Remove Warning: Expected server HTML to contain a matching <div> in <div>.
+    // https://stackoverflow.com/questions/46865880/react-16-warning-expected-server-html-to-contain-a-matching-div-in-div-due
+    DEV_SSR: false,
   },
 }

@@ -29,11 +29,12 @@ const globalStyle = css`
     --ff-heading: Poppins, sans-serif;
     --ff-body: Roboto, sans-serif;
     --fz-xl: 4.25rem;
+    --fz-h3: 1.7rem;
     --fz-subheading: 1.4rem;
 
     --height-navbar: 4em;
     --px: Min(Max(1rem, 6vw), 4rem);
-    --pt: Min(Max(1rem, 5vw), 5rem);
+    --py: Min(Max(1rem, 5vw), 5rem);
     --max-width-container: 1700px;
 
     --z-navbar: 1000;
@@ -61,12 +62,6 @@ const globalStyle = css`
     color: var(--text-main);
     font-family: var(--ff-body);
     scroll-behavior: smooth;
-  }
-
-  h1,
-  h2,
-  h3 {
-    line-height: 1;
   }
 
   p {
@@ -110,6 +105,28 @@ const globalStyle = css`
     font-size: var(--fz-xl);
     font-weight: bold;
     line-height: 1.3;
+  }
+
+  .heading-sm,
+  h3 {
+    font-family: var(---ff-body);
+    font-size: var(--fz-h3);
+    font-weight: bold;
+  }
+  .text-lg {
+    font-size: var(--fz-subheading);
+  }
+
+  .grid {
+    display: grid;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .mt-3 {
+    margin-top: 1em;
   }
 `
 
