@@ -41,5 +41,9 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-typescript`,
   ],
+  flags: {
+    THE_FLAG: false,
+  },
 }

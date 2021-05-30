@@ -1,0 +1,12 @@
+{
+  // resolves "React is not defined" error
+  // https://github.com/gatsbyjs/gatsby/issues/28657
+  "presets": [
+    [
+      "babel-preset-gatsby",
+      {
+        "reactRuntime": "automatic"
+      }
+    ]
+  ]
+}

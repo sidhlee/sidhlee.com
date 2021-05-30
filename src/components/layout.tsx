@@ -7,23 +7,10 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
 import GlobalStyle from "../../global-style"
 import Helmet from "react-helmet"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+const Layout: React.FC = ({ children }) => {
   return (
     <>
       <Helmet>
@@ -43,11 +30,11 @@ const Layout = ({ children }) => {
       >
         © {new Date().getFullYear()}, Designed &amp; Developed by Sid Hayoun Lee
         with{" "}
-        <span role="image" aria-label="coffee">
+        <span role="img" aria-label="coffee">
           ☕
         </span>{" "}
         and{" "}
-        <span role="image" aria-label="love">
+        <span role="img" aria-label="love">
           ❤️
         </span>
       </footer>
