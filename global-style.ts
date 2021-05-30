@@ -26,6 +26,8 @@ export default createGlobalStyle`
 
     --ff-heading: Poppins, sans-serif;
     --ff-body: Roboto, sans-serif;
+    --fz-xl: 4.25rem;
+    --fz-subheading: 1.5rem; 
 
     --height-navbar: 3em;
     --px: Min(Max(.5rem, 4vw), 2rem);
@@ -38,6 +40,9 @@ export default createGlobalStyle`
 
   html {
     box-sizing: border-box;
+    // Take mobile UI (keyboard/safari control bar) into account when calculating 100vh 
+    // https://css-tricks.com/css-fix-for-100vh-in-mobile-webkit/
+    height: -webkit-fill-available;
   }
   *, *::before, *::after {
     box-sizing: inherit;
@@ -61,6 +66,7 @@ export default createGlobalStyle`
 
   h1, h2 {
     font-family: var(--ff-heading);
+    font-size: var(--fz-xl);
   }
 
   ul {
