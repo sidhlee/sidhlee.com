@@ -37,9 +37,9 @@ const StyledMain = styled("section")`
       margin-top: 5rem;
       margin-left: 2rem;
       .headline {
-        font-size: var(--fz-xl);
+        /* font-size: var(--fz-xl);
         font-weight: bold;
-        line-height: 1.3;
+        line-height: 1.3; */
         span {
           display: block;
         }
@@ -86,7 +86,7 @@ const Main: React.FC<MainProps> = ({}) => {
           <header>
             <h1 id="main">Sid Lee</h1>
             <div className="intro">
-              <p className="headline">
+              <p className="headline heading-xl">
                 Hi! I am a <span>Web Developer</span>
               </p>
               <p className="sub-headline">
