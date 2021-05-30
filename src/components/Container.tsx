@@ -4,8 +4,7 @@ const StyledContainer = styled("div")`
   max-width: var(--max-width-container);
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--px);
-  padding-right: var(--px);
+  padding: var(--py) var(--px);
 `
 
 type ContainerProps = {}

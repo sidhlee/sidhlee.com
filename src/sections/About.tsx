@@ -7,7 +7,6 @@ import { FaLinkedin } from "react-icons/fa"
 
 const StyledAbout = styled("section")`
   background: var(--cl-about);
-  padding: var(--py) 0;
 
   .grid {
     grid-template-columns: 1fr 1.25fr;

@@ -8,7 +8,6 @@ import ButtonLink from "../components/ButtonLink"
 const StyledMain = styled("section")`
   // Take mobile UI (keyboard/safari control bar) into account when calculating 100vh
   // https://css-tricks.com/css-fix-for-100vh-in-mobile-webkit/
-  padding-top: var(--py);
   background-color: var(--cl-main);
   .grid {
     min-height: 100vh;
@@ -62,7 +61,7 @@ const StyledMain = styled("section")`
     width: var(--size);
     height: calc(var(--size) * 1.3);
     transform: rotate(24deg);
-    transform-origin: 40% 90%;
+    transform-origin: 0% 90%;
     .lid,
     .bed {
       flex-shrink: 0;
