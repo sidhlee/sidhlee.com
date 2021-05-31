@@ -37,8 +37,8 @@ export const buttonCss = css<ButtonProps>`
     }
   }
 
-  ${props => (props.outline ? outlineCss : null)}
-  ${props => (props.secondary ? secondaryCss : null)}
+  ${props => (props.$outline ? outlineCss : null)}
+  ${props => (props.$secondary ? secondaryCss : null)}
 `
 
 export const StyledButton = styled("button")<ButtonProps>`

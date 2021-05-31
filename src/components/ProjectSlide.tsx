@@ -1,12 +1,22 @@
 import styled from "styled-components"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
 import ButtonLink from "./ButtonLink"
 import { FaGithub } from "react-icons/fa"
-import ProjectSkills from "./ProjectSkills"
 import ProjectImages from "./ProjectImages"
+import TechStacks from "./TechStacks"
+import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 
 const StyledProjectSlide = styled("div")`
   width: 100%;
+  display: flex;
+  .project-content {
+    width: 30%;
+  }
+  .logo {
+    /* max-height: 3rem; */
+    width: 50%;
+    text-align: left;
+  }
 `
 
 type ProjectSlideProps = {
@@ -15,11 +25,11 @@ type ProjectSlideProps = {
 
 export type Project = {
   title: string
-  logoUrl: string
-  skills: string[]
+  logoImage: FileNode
+  technologies: string[]
   description: string
-  desktopImageUrl: string
-  mobileImageUrl: string
+  desktopImage: FileNode
+  mobileImage: FileNode
   liveUrl: string
   githubUrl: string
 }
@@ -27,23 +37,31 @@ export type Project = {
 const ProjectSlide: React.FC<ProjectSlideProps> = ({ project }) => {
   const {
     title,
-    logoUrl,
-    skills,
+    logoImage,
+    technologies,
     description,
-    desktopImageUrl,
-    mobileImageUrl,
+    desktopImage,
+    mobileImage,
     liveUrl,
     githubUrl,
   } = project
+
+  const logoGatsbyImage = getImage(logoImage) as IGatsbyImageData
+
   return (
     <StyledProjectSlide>
       <div className="project-content">
-        {/* <GatsbyImage className="logo" src={logoUrl} alt={title} /> */}
-        <ProjectSkills skills={skills} />
+        <GatsbyImage
+          className="logo"
+          image={logoGatsbyImage}
+          alt={title}
+          objectFit="contain"
+        />
+        <TechStacks technologies={technologies} />
         <p className="description">{description}</p>
         <div className="buttons">
           <ButtonLink href={liveUrl}>View Live</ButtonLink>
-          <ButtonLink href={githubUrl} outline>
+          <ButtonLink href={githubUrl} $outline>
             <FaGithub />
             <span>GitHub</span>
           </ButtonLink>
@@ -51,8 +69,8 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project }) => {
       </div>
       <ProjectImages
         title={title}
-        mobileImageUrl={mobileImageUrl}
-        desktopImageUrl={desktopImageUrl}
+        mobileImage={mobileImage}
+        desktopImage={desktopImage}
       />
     </StyledProjectSlide>
   )

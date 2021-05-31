@@ -40,6 +40,52 @@ render(
 )
 ```
 
+### Generating types for graphql query
+
+You can easily generate types for your graphql queries with [GraphQL Code Generator](https://www.graphql-code-generator.com/docs/integrations/gatsby)
+
+1. Install dependencies
+
+   `/package.json`
+
+   ```json
+     "devDependencies": {
+       "@graphql-codegen/cli": "^1.21.5",
+       "@graphql-codegen/typescript": "^1.22.1",
+       "@graphql-codegen/typescript-operations": "^1.18.0",
+   ```
+
+   `/codegen.yml`
+
+2. Add config
+
+   ```yml
+   schema: http://localhost:8000/___graphql
+   documents:
+     - ./src/**/*.{ts,tsx}
+     - ./node_modules/gatsby-transformer-sharp/!(node_modules)/**/*.js
+     - ./node_modules/gatsby-transformer-remark/!(node_modules)/**/*.js
+   generates:
+     ./src/graphqlTypes.ts:
+       plugins:
+         - typescript
+         - typescript-operations
+   ```
+
+3. Run
+   `package.json`
+
+   ```json
+   "scripts": {
+       "generate": "graphql-codegen",
+
+   ```
+
+   ```bash
+   npm run generate
+   ```
+
 ## References
 
 - [React 17 new JSX Transform: ReferenceError: React is not defined](https://github.com/gatsbyjs/gatsby/issues/28657)
+- [Migrating from gatsby-image to gatsby-plugin-image](https://www.gatsbyjs.com/docs/reference/release-notes/image-migration-guide)

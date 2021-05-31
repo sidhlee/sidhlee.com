@@ -3,68 +3,55 @@ import { useState } from "react"
 import styled from "styled-components"
 import Container from "../components/Container"
 import ProjectSlide, { Project } from "../components/ProjectSlide"
-import {} from "../../graphql-types"
+import { ProjectsQuery } from "../graphqlTypes"
 
 const StyledProjects = styled("section")`
   background: var(--cl-projects);
   min-height: 100vh;
   .carousel {
     width: 100%;
-    height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-top: 3rem;
   }
 `
 
 type ProjectsProps = {}
 
-const projects: Project[] = [
-  {
-    title: "Traxmeta",
-    logoUrl: "../images/projects/traxmeta-logo.png",
-    skills: ["Sass", "REST API", "OOP", "jQuery"],
-    description:
-      "Check out the track metadata including lyrics and artist bio all in one place from Spotify’s Global Top 200 playlist. Traxmeta combines three different web services  into a single page, Netflix-like user experience.",
-    desktopImageUrl: "../images/projects/traxmeta-desktop.png",
-    mobileImageUrl: "../images/projects/traxmeta-mobile.png",
-    liveUrl: "https://traxmeta.netlify.app/",
-    githubUrl: "https://github.com/sidhlee/traxmeta/tree/local-dev",
-  },
-  {
-    title: "Engram",
-    logoUrl: "../images/projects/engram-logo.png",
-    skills: ["React", "Firebase", "SPA", "OAuth"],
-    description:
-      "Bookmark has been reinvented with one-stop masonry view, ratings button, link annotation, and read count. Engram will be your personal trainer in your journey to become better developer.",
-    desktopImageUrl: "../images/projects/engram-desktop.png",
-    mobileImageUrl: "../images/projects/engram-mobile.png",
-    liveUrl: "https://engram.netlify.app/",
-    githubUrl: "https://github.com/sidhlee/engram",
-  },
-  {
-    title: "Timescraft",
-    logoUrl: "../images/projects/timescraft-logo.png",
-    skills: ["TypeScript", "Next.js", "Redux", "PWA"],
-    description:
-      "Do you have a nephew who loves Minecraft? Now they will love learning math too. Learn times table with your favorite Minecraft character and level up to become a math wizard with Timescraft!",
-    desktopImageUrl: "../images/projects/timescraft-desktop.png",
-    mobileImageUrl: "../images/projects/timescraft-mobile.png",
-    liveUrl: "https://timescraft.netlify.app/",
-    githubUrl: "https://github.com/sidhlee/timescraft",
-  },
-]
-
 const Projects: React.FC<ProjectsProps> = ({}) => {
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
-  const projectsData = useStaticQuery(projectsQuery)
+
+  const projectsData = useStaticQuery<ProjectsQuery>(projectsQuery)
+
+  const projects = projectsData.allMarkdownRemark.edges.map(edge => {
+    if (edge?.node.frontmatter) {
+      const {
+        title,
+        logoImage,
+        technologies,
+        mobileImage,
+        desktopImage,
+        liveUrl,
+        githubUrl,
+      } = edge.node.frontmatter
+
+      return {
+        title: title || "",
+        logoImage: logoImage,
+        technologies: technologies || [],
+        mobileImage: mobileImage,
+        desktopImage: desktopImage,
+        liveUrl: liveUrl || "",
+        githubUrl: githubUrl || "",
+        description: edge.node.excerpt || "",
+      }
+    }
+  })
 
   return (
     <StyledProjects>
       <Container>
         <h2>Projects</h2>
         <div className="carousel">
-          {/* <ProjectSlide project={projects[currentProjectIndex]} /> */}
+          <ProjectSlide project={projects[currentProjectIndex] as Project} />
         </div>
       </Container>
     </StyledProjects>
@@ -82,28 +69,23 @@ const projectsQuery = graphql`
       edges {
         node {
           id
+          excerpt(pruneLength: 500)
           frontmatter {
             title
             logoImage {
               childImageSharp {
-                fluid(maxWidth: 400) {
-                  ...GatsbyImageSharpFluid_noBase64
-                }
+                gatsbyImageData
               }
             }
             technologies
             desktopImage {
               childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid_noBase64
-                }
+                gatsbyImageData
               }
             }
             mobileImage {
               childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid_noBase64
-                }
+                gatsbyImageData
               }
             }
             liveUrl
