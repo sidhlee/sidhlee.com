@@ -13,6 +13,7 @@ const StyledNavbar = styled("nav")`
   align-items: flex-end;
 
   background: var(--cl-main);
+  background: transparent;
   a {
     margin-right: 2em;
     text-transform: uppercase;

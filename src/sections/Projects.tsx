@@ -47,7 +47,7 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
   })
 
   return (
-    <StyledProjects>
+    <StyledProjects id="projects">
       <Container>
         <h2>Projects</h2>
         <div className="carousel">

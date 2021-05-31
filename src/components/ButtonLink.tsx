@@ -15,14 +15,14 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({
   children,
   to,
   href,
-  sm,
-  outline,
-  secondary,
+  $sm,
+  $outline,
+  $secondary,
 }) => {
   let buttonLink
   if (to) {
     buttonLink = (
-      <StyledLink to={to} sm={sm} outline={outline} secondary={secondary}>
+      <StyledLink to={to} $sm={$sm} $outline={$outline} $secondary={$secondary}>
         {children}
       </StyledLink>
     )
@@ -33,9 +33,9 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({
         href={href}
         target="_blank"
         rel="noreferrer"
-        sm={sm}
-        outline={outline}
-        secondary={secondary}
+        $sm={$sm}
+        $outline={$outline}
+        $secondary={$secondary}
       >
         {children}
       </StyledLink>

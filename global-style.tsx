@@ -48,6 +48,7 @@ const globalStyle = css`
     // https://css-tricks.com/css-fix-for-100vh-in-mobile-webkit/
     height: -webkit-fill-available;
     font-size: min(max(100%, 1.25vw), 125%);
+    scroll-behavior: smooth;
   }
   *,
   *::before,
@@ -61,7 +62,6 @@ const globalStyle = css`
     background-color: #333;
     color: var(--text-main);
     font-family: var(--ff-body);
-    scroll-behavior: smooth;
     overflow-x: hidden;
   }
 

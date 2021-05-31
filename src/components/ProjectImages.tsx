@@ -4,29 +4,19 @@ import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 
 // TODO: crop png right up to the image border
 const StyledProjectImages = styled("div")`
-  position: relative;
-  bottom: 5rem;
-  left: 5%;
   display: flex;
-
+  align-items: center;
   width: 65%;
+  margin-left: 2rem;
 
   .mobile {
     width: 25%;
-    margin-right: -30%;
-    margin-top: 25%;
     z-index: 50;
-    img {
-      width: 110%;
-      height: 110%;
-    }
+    margin-right: -20%;
+    margin-top: 10%;
   }
   .desktop {
     width: 100%;
-    img {
-      width: 110%;
-      height: 110%;
-    }
   }
 `
 
