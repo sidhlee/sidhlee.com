@@ -90,6 +90,18 @@ const globalStyle = css`
     color: var(---text-main);
   }
 
+  button {
+    background: transparent;
+    font: inherit;
+    border: 0;
+    &,
+    span,
+    i,
+    svg {
+      vertical-align: middle;
+    }
+  }
+
   .visuallyHidden:not(:focus):not(:active) {
     position: absolute;
     width: 1px;

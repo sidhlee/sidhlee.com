@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby"
 import { useState } from "react"
 import styled from "styled-components"
+import CarouselNav from "../components/CarouselNav"
 import Container from "../components/Container"
 import ProjectSlide, { Project } from "../components/ProjectSlide"
 import { ProjectsQuery } from "../graphqlTypes"
@@ -52,6 +53,7 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
         <h2>Projects</h2>
         <div className="carousel">
           <ProjectSlide project={projects[currentProjectIndex] as Project} />
+          <CarouselNav currentSlideIndex={currentProjectIndex} />
         </div>
       </Container>
     </StyledProjects>
