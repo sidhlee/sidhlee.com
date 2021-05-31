@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components"
 
 export type ButtonProps = {
-  sm?: boolean
-  outline?: boolean
-  secondary?: boolean
+  $sm?: boolean
+  $outline?: boolean
+  $secondary?: boolean
 }
 
 const secondaryCss = css`

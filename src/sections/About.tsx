@@ -73,12 +73,12 @@ const About: React.FC<AboutProps> = ({}) => {
               challenges.
             </p>
             <div className="about-links">
-              <ButtonLink to="#" secondary>
+              <ButtonLink to="#" $secondary>
                 View Resume
               </ButtonLink>
               <ButtonLink
                 href="https://www.linkedin.com/in/sid-hayoun-lee/"
-                outline
+                $outline
               >
                 <FaLinkedin />
                 <span>LinkedIn</span>
