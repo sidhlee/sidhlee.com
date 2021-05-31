@@ -22,7 +22,7 @@ const globalStyle = css`
     --cl-accent: #fdd835;
 
     --text-main: var(--cl-off-white);
-    --text-muted: #686868;
+    --text-muted: #ababab;
 
     --border-radius: 4px;
 
