@@ -60,10 +60,9 @@ const globalStyle = css`
   }
 
   body {
-    background-color: #333;
+    background-color: var(--cl-main);
     color: var(--text-main);
     font-family: var(--ff-body);
-    overflow-x: hidden;
   }
 
   p {

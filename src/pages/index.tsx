@@ -14,10 +14,12 @@ const IndexPage: React.FC = () => (
     <Seo title="Home" />
     <Navbar />
     <Main />
-    <About />
-    <Projects />
-    <Skills />
-    <Contact />
+    <main>
+      <About />
+      <Projects />
+      <Skills />
+      <Contact />
+    </main>
   </Layout>
 )
 

@@ -9,6 +9,18 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import GlobalStyle from "../../global-style"
 import Helmet from "react-helmet"
+import styled from "styled-components"
+
+const StyledLayout = styled.div`
+  overflow-x: hidden;
+  /* scroll-snap-type: y proximity;
+  height: 100vh;
+  overflow-y: scroll;
+
+  section {
+    scroll-snap-align: start;
+  } */
+`
 
 const Layout: React.FC = ({ children }) => {
   return (
@@ -22,22 +34,24 @@ const Layout: React.FC = ({ children }) => {
       </Helmet>
       <GlobalStyle />
       {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
-      <main>{children}</main>
-      <footer
-        style={{
-          marginTop: `2rem`,
-        }}
-      >
-        © {new Date().getFullYear()}, Designed &amp; Developed by Sid Hayoun Lee
-        with{" "}
-        <span role="img" aria-label="coffee">
-          ☕
-        </span>{" "}
-        and{" "}
-        <span role="img" aria-label="love">
-          ❤️
-        </span>
-      </footer>
+      <StyledLayout>
+        {children}
+        <footer
+          style={{
+            marginTop: `2rem`,
+          }}
+        >
+          © {new Date().getFullYear()}, Designed &amp; Developed by Sid Hayoun
+          Lee with{" "}
+          <span role="img" aria-label="coffee">
+            ☕
+          </span>{" "}
+          and{" "}
+          <span role="img" aria-label="love">
+            ❤️
+          </span>
+        </footer>
+      </StyledLayout>
     </>
   )
 }
