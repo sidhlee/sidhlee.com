@@ -9,8 +9,9 @@ const StyledMain = styled("section")`
   // Take mobile UI (keyboard/safari control bar) into account when calculating 100vh
   // https://css-tricks.com/css-fix-for-100vh-in-mobile-webkit/
   background-color: var(--cl-main);
+
   .grid {
-    min-height: 100vh;
+    /* min-height: calc(100vh - var(--py) - var(--height-navbar)); */
     // https://stackoverflow.com/questions/52861086/why-does-minmax0-1fr-work-for-long-elements-while-1fr-doesnt
     // allows content to overflow the track
     grid-template-columns: auto minmax(0, 1fr);
@@ -32,7 +33,7 @@ const StyledMain = styled("section")`
       pointer-events: none;
     }
     .intro {
-      margin-top: 5rem;
+      margin-top: 3rem;
       margin-left: 2rem;
       .headline {
         /* font-size: var(--fz-xl);
@@ -52,7 +53,7 @@ const StyledMain = styled("section")`
 
   .piano {
     grid-column: 2 / 3;
-    grid-row: 2 / 3;
+    grid-row: 1 / 3;
     align-self: center;
     justify-self: center;
     display: flex;
@@ -61,7 +62,7 @@ const StyledMain = styled("section")`
     width: var(--size);
     height: calc(var(--size) * 1.3);
     transform: rotate(24deg);
-    transform-origin: 0% 90%;
+    transform-origin: 20% 100%;
     .lid,
     .bed {
       flex-shrink: 0;
@@ -103,7 +104,9 @@ const Main: React.FC<MainProps> = ({}) => {
                 accessible and responsive web applications that offer great
                 value and experience to the user.
               </p>
-              <ButtonLink to="#">#Open to work!</ButtonLink>
+              <ButtonLink to="#" $size="lg">
+                #Open to work!
+              </ButtonLink>
             </div>
           </header>
           <div className="piano">

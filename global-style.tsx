@@ -30,11 +30,12 @@ const globalStyle = css`
     --ff-body: Roboto, sans-serif;
     --fz-xl: 4.25rem;
     --fz-h3: 1.7rem;
-    --fz-subheading: 1.4rem;
+    --fz-subheading: 1.2rem;
 
     --height-navbar: 4em;
     --px: Min(Max(1rem, 6vw), 4rem);
-    --py: Min(Max(var(--height-navbar), 5vw), 5rem);
+    /* --py: Min(Max(var(--height-navbar), 5vw), 3rem); */
+    --py: calc(var(--px) * 0.75);
     --max-width-container: 1700px;
 
     --z-navbar: 1000;
@@ -47,7 +48,7 @@ const globalStyle = css`
     // Take mobile UI (keyboard/safari control bar) into account when calculating 100vh
     // https://css-tricks.com/css-fix-for-100vh-in-mobile-webkit/
     height: -webkit-fill-available;
-    font-size: min(max(100%, 1.25vw), 125%);
+    font-size: 125%; // 20px
     scroll-behavior: smooth;
   }
   *,

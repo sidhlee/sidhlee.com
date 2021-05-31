@@ -7,6 +7,7 @@ import { FaLinkedin } from "react-icons/fa"
 
 const StyledAbout = styled("section")`
   background: var(--cl-about);
+  min-height: 100vh;
 
   .grid {
     grid-template-columns: 1fr 1.25fr;
@@ -30,6 +31,7 @@ const StyledAbout = styled("section")`
   }
 
   .about-content {
+    margin-top: 2rem;
     max-width: 30rem;
   }
 
@@ -60,7 +62,7 @@ const About: React.FC<AboutProps> = ({}) => {
               <span role="img" aria-label="hand-wave">
                 👋
               </span>
-              , my name is Sid
+              , my name is Sid Hayoun Lee
             </p>
             <p className="text-lg mt-3">
               I'm a web developer whose passion is to build accessible and

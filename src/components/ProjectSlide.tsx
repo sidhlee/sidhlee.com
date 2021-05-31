@@ -9,6 +9,8 @@ import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 const StyledProjectSlide = styled("div")`
   width: 100%;
   display: flex;
+  position: relative;
+  left: 3%;
   .project-content {
     width: 30%;
   }
@@ -16,6 +18,12 @@ const StyledProjectSlide = styled("div")`
     /* max-height: 3rem; */
     width: 50%;
     text-align: left;
+  }
+  .description {
+    margin-bottom: 1em;
+  }
+  .buttons {
+    margin-left: -0.5rem;
   }
 `
 

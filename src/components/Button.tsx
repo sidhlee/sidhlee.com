@@ -1,7 +1,24 @@
 import styled, { css } from "styled-components"
 
+type ButtonSize = "sm" | "md" | "lg" | undefined
+
+const getSize = (size: ButtonSize) => {
+  switch (size) {
+    case "sm":
+      return "0.85rem"
+    case "md":
+      return "1rem"
+    case "lg":
+      return "1.25rem"
+    default:
+      return "1rem"
+  }
+}
+
 export type ButtonProps = {
   $sm?: boolean
+  $lg?: boolean
+  $size?: ButtonSize
   $outline?: boolean
   $secondary?: boolean
 }
@@ -23,7 +40,8 @@ export const buttonCss = css<ButtonProps>`
   border: 2px solid var(--cl-about);
   color: var(--text-main);
   font-family: var(--ff-heading);
-  font-size: ${props => (props.sm ? "0.85rem" : "1.25rem")};
+  /* font-size: ${props => (props.$sm ? "0.85rem" : "1rem")}; */
+  font-size: ${({ $size }) => getSize($size)};
   font-weight: bold;
   text-transform: uppercase;
   margin: 0.5rem;

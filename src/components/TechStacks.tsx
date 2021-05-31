@@ -10,7 +10,8 @@ const StyledTechStacks = styled("ul")`
     padding: 0.25em 0.5em;
     margin: 0.25em;
     font-family: var(--ff-heading);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    border-radius: var(--border-radius);
   }
 `
 
