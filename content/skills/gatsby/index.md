@@ -1,0 +1,10 @@
+---
+title: Gatsby
+related skills: [React, JavaScript, TypeScript, HTML, CSS, Sass]
+related projects: [[sidhlee.com](https://sidhlee.com)]
+icon: "./icon.png"
+tags: ['gatsby', 'SSR', 'react', 'JavaScript', 'ES6', 'Framework', 'Frontend']
+sortIndex: 70
+---
+
+Gatsby is the React framework for building really fast static site with React.
