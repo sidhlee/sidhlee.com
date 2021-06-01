@@ -15,7 +15,7 @@ const globalStyle = css`
     --cl-off-white: #eff1f3;
     --cl-black: black;
     --cl-main: #084887;
-    --cl-about: #193053;
+    --cl-about: #163666;
     --cl-projects: #202020;
     --cl-skills: #333533;
     --cl-contact: var(--cl-main);
@@ -64,7 +64,7 @@ const globalStyle = css`
   }
 
   body {
-    background-color: var(--cl-main);
+    background-color: var(--cl-projects);
     color: var(--text-main);
     font-family: var(--ff-body);
   }

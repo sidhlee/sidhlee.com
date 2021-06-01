@@ -20,6 +20,17 @@ const StyledLayout = styled.div`
   section {
     scroll-snap-align: start;
   } */
+  position: relative;
+
+  footer {
+    padding: 1em;
+    text-align: center;
+    width: 100%;
+    background-color: var(--cl-main);
+    span {
+      margin: 0 0.25em;
+    }
+  }
 `
 
 const Layout: React.FC = ({ children }) => {
@@ -36,11 +47,7 @@ const Layout: React.FC = ({ children }) => {
       {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
       <StyledLayout>
         {children}
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
+        <footer>
           © {new Date().getFullYear()}, Designed &amp; Developed by Sid Hayoun
           Lee with{" "}
           <span role="img" aria-label="coffee">

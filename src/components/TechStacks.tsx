@@ -6,7 +6,7 @@ const StyledTechStacks = styled("ul")`
   margin: 1em;
   margin-left: -0.25em;
   .tech-item {
-    background: var(--cl-about);
+    background: var(--cl-main);
     padding: 0.25em 0.5em;
     margin: 0.25em;
     font-family: var(--ff-heading);
