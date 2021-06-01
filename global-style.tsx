@@ -153,6 +153,29 @@ const globalStyle = css`
   .mt-3 {
     margin-top: 1em;
   }
+
+  @keyframes fade-in-up {
+    // TODO: is "blinking" potential accessibility issue?
+    0% {
+      opacity: 0;
+    }
+    75% {
+      transform: translateY(-12%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-12%);
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `
 
 export default createGlobalStyle`

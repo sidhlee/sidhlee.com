@@ -37,6 +37,7 @@ const outlineCss = css`
 
 export const buttonCss = css<ButtonProps>`
   display: inline-block;
+  min-width: 7rem;
   padding: 0.4em 1.2em;
   background: var(--cl-about);
   border: 2px solid var(--cl-about);

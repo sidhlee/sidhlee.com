@@ -52,7 +52,7 @@ const CarouselNav: React.FC<CarouselNavProps> = ({ currentSlideIndex }) => {
   const navButtons = [...Array(3)].map((_, i) => {
     const active = currentSlideIndex === i
     return (
-      <li>
+      <li key={i}>
         <button className={`nav-button${active ? " active" : ""}`}>
           <span
             role="img"

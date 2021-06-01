@@ -51,7 +51,9 @@ const Skills: React.FC<SkillsProps> = ({}) => {
         <ul className="skill-list">
           {skills.map(skill => {
             const { title, brandColor } = skill
-            return <Skill title={skill.title} brandColor={brandColor} />
+            return (
+              <Skill key={title} title={skill.title} brandColor={brandColor} />
+            )
           })}
         </ul>
       </Container>

@@ -86,7 +86,7 @@ const ContactLinks: React.FC<ContactLinksProps> = ({}) => {
 
       <div className="calendly">
         <h3>Schedule a chat with</h3>
-        <ButtonLink to="https://calendly.com/sidhlee" $size="lg">
+        <ButtonLink href="https://calendly.com/sidhlee" $size="lg">
           <span>Calendly</span>
           <FaRegCalendarPlus />
         </ButtonLink>
