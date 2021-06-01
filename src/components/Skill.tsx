@@ -7,7 +7,7 @@ const StyledSkill = styled("li")<{ brandColor: string }>`
   font-style: italic;
   color: var(--text-muted);
   button {
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-shadow: var(--shadow);
   }
   transition: all 300ms var(--timing-spring);
   &:hover {

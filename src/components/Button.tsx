@@ -21,6 +21,7 @@ export type ButtonProps = {
   $size?: ButtonSize
   $outline?: boolean
   $secondary?: boolean
+  type?: "button" | "submit" | undefined
 }
 
 const secondaryCss = css`
@@ -31,6 +32,7 @@ const secondaryCss = css`
 const outlineCss = css`
   background: transparent;
   border: 2px solid currentColor;
+  /* box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 1); */
 `
 
 export const buttonCss = css<ButtonProps>`
@@ -45,6 +47,7 @@ export const buttonCss = css<ButtonProps>`
   font-weight: bold;
   text-transform: uppercase;
   margin: 0.5rem;
+  /* box-shadow: 4px 4px 0 0 rgba(255, 255, 255, 0.7); */
 
   svg,
   span {
@@ -63,8 +66,8 @@ export const StyledButton = styled("button")<ButtonProps>`
   ${buttonCss}
 `
 
-const Button: React.FC<ButtonProps> = ({ children }) => {
-  return <StyledButton>{children}</StyledButton>
+const Button: React.FC<ButtonProps> = ({ children, type }) => {
+  return <StyledButton type={type}>{children}</StyledButton>
 }
 
 export default Button

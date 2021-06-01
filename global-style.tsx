@@ -32,6 +32,8 @@ const globalStyle = css`
     --fz-h3: 1.7rem;
     --fz-subheading: 1.2rem;
 
+    --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
     --height-navbar: 4em;
     --px: Min(Max(1rem, 6vw), 4rem);
     /* --py: Min(Max(var(--height-navbar), 5vw), 3rem); */
@@ -103,7 +105,15 @@ const globalStyle = css`
     }
   }
 
-  .visuallyHidden:not(:focus):not(:active) {
+  input,
+  textarea {
+    display: block;
+    font: inherit;
+    padding: 0.5em 1em;
+    border-radius: var(--border-radius);
+  }
+
+  .visually-hidden:not(:focus):not(:active) {
     position: absolute;
     width: 1px;
     height: 1px;
