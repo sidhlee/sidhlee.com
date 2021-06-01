@@ -10,14 +10,14 @@ const StyledContactForm = styled("div")`
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-left: -0.25em;
 
-    input,
-    textarea {
-      margin: 0.25em;
+    input:first-of-type {
+      margin-right: 0.5em;
     }
 
     textarea {
+      margin-top: 0.5em;
+      resize: none;
     }
 
     .inputs {
@@ -29,6 +29,7 @@ const StyledContactForm = styled("div")`
 
     button {
       align-self: flex-end;
+      margin-right: 0;
     }
   }
 `
