@@ -3,6 +3,7 @@ title: A11y
 related skills: [HTML, CSS, React]
 related projects: []
 icon: "./icon.png"
+brandColor: "#139FDA"
 tags: ["A11y", "accessibility", "semantic", "WCAG", "AODA", "ADA"]
 sortIndex: 200
 ---

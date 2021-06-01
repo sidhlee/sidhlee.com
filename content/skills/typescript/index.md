@@ -3,6 +3,7 @@ title: TypeScript
 related skills: [JavaScript, OOP, React]
 related projects: []
 icon: "./icon.png"
+brandColor: "#0288D1"
 tags: [typescript, javascript, strongly-typed]
 sortIndex: 90
 ---

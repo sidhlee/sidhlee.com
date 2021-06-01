@@ -3,6 +3,7 @@ title: MongoDB
 related skills: [JavaScript, Node, Express, Backend, Mongoose]
 related projects: []
 icon: "./icon.png"
+brandColor: "#58AA50"
 tags: [mongodb, database, no-sql]
 sortIndex: 120
 ---

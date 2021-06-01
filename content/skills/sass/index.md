@@ -3,6 +3,7 @@ title: Sass
 related skills: [CSS, HTML]
 related projects: []
 icon: "./icon.png"
+brandColor: "#EC407A"
 tags: [Sass, CSS, CSS3, SCSS]
 sortIndex: 30
 ---

@@ -3,6 +3,7 @@ title: Node.js
 related skills: [Express, React, Next.js, Web Scraping]
 related projects: []
 icon: "./icon.png"
+brandColor: "#8BC34A"
 tags: [nodejs, express, backend]
 sortIndex: 140
 ---

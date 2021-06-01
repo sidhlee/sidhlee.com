@@ -41,6 +41,8 @@ const globalStyle = css`
     --z-navbar: 1000;
     --z-backdrop: 1200;
     --z-menu-modal: 1500;
+
+    --timing-spring: cubic-bezier(0.17, 0.67, 0.37, 1.14);
   }
 
   html {

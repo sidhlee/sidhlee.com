@@ -3,6 +3,7 @@ title: jQuery
 related skills: [JavaScript, HTML, RestAPI, D3]
 related projects: []
 icon: "./icon.png"
+brandColor: "#0868AC"
 tags: ["jQuery", "JavaScript", "Framework", "Frontend", "legacy"]
 sortIndex: 50
 ---

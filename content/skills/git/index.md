@@ -3,6 +3,7 @@ title: Git
 related skills: [GitHub Collaboration, Pair Programming]
 related projects: []
 icon: "./icon.png"
+brandColor: "#E64A19"
 tags: [git, github, version_control]
 sortIndex: 180
 ---

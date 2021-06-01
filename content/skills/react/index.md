@@ -3,6 +3,7 @@ title: React
 related skills: [CSS, HTML, Styled Components, A11y, Gatsby, Next.js, Redux]
 related projects: []
 icon: "./icon.png"
+brandColor: "#00BCD4"
 tags: ["react", "JavaScript", "ES6", "Framework", "Frontend"]
 sortIndex: 60
 ---

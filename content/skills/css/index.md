@@ -3,6 +3,7 @@ title: CSS
 related skills: [Sass, Styled Components, A11y]
 related projects: []
 icon: "./icon.png"
+brandColor: "#42A5F5"
 tags: ["stylesheet", "css", "sass", "design", "UI", "UX"]
 sortIndex: 20
 ---

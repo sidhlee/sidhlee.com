@@ -3,6 +3,7 @@ title: Pair Programming
 related skills: [HTML, CSS, JavaScript, Git, Github]
 related projects: []
 icon: "./icon.png"
+brandColor:
 tags: [git, github, collaboration, communication, teamwork]
 sortIndex: 220
 ---
