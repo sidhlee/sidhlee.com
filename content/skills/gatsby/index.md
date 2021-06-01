@@ -1,9 +1,9 @@
 ---
 title: Gatsby
 related skills: [React, JavaScript, TypeScript, HTML, CSS, Sass]
-related projects: [[sidhlee.com](https://sidhlee.com)]
+related projects: []
 icon: "./icon.png"
-tags: ['gatsby', 'SSR', 'react', 'JavaScript', 'ES6', 'Framework', 'Frontend']
+tags: ["gatsby", "SSR", "react", "JavaScript", "ES6", "Framework", "Frontend"]
 sortIndex: 70
 ---
 

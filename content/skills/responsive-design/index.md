@@ -1,7 +1,7 @@
 ---
 title: Responsive Design
 related skills: [CSS, Sass]
-related projects: [[Planted](https://responsive-multipage-site.netlify.app/)]
+related projects: []
 icon: "./icon.png"
 tags: [responsive-design, mobile-first, css, sass]
 sortIndex: 240

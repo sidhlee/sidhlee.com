@@ -1,7 +1,7 @@
 ---
 title: OOP
 related skills: [JavaScript, ES6, Python, TypeScript, Babel]
-related projects: [[Traxmeta](https://traxmeta.netlify.app/)]
+related projects: []
 icon: "./icon.png"
 tags: [oop, javascript, typescript, babel]
 sortIndex: 190

@@ -4,7 +4,7 @@ related skills: [React, Gatsby, Next.js]
 related projects: []
 icon: "./icon.png"
 tags: [jest, TDD, unit-testing, testing]
-sortIndex: 140
+sortIndex: 150
 ---
 
 Jest is the testing framework developed by Facebook.

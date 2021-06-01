@@ -1,9 +1,9 @@
 ---
 title: HTML
 related skills: [A11y, React]
-related projects: [[Planted](https://sid-lee-project-one.netlify.app/)]
+related projects: []
 icon: "./icon.png"
-tags: ['a11y', 'semantic', 'WCAG', 'AODA', 'ADA']
+tags: ["a11y", "semantic", "WCAG", "AODA", "ADA"]
 sortIndex: 10
 ---
 

@@ -1,9 +1,9 @@
 ---
 title: CSS
 related skills: [Sass, Styled Components, A11y]
-related projects: [[Planted](https://sid-lee-project-one.netlify.app/)]
+related projects: []
 icon: "./icon.png"
-tags: ['stylesheet', 'css', 'sass', 'design', 'UI', 'UX']
+tags: ["stylesheet", "css", "sass", "design", "UI", "UX"]
 sortIndex: 20
 ---
 

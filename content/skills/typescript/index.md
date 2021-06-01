@@ -1,7 +1,7 @@
 ---
 title: TypeScript
 related skills: [JavaScript, OOP, React]
-related projects: [[MyPlace](https://myplace-sid.netlify.app)]
+related projects: []
 icon: "./icon.png"
 tags: [typescript, javascript, strongly-typed]
 sortIndex: 90

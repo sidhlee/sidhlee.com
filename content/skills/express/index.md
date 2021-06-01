@@ -1,7 +1,7 @@
 ---
 title: Express
 related skills: [Node, JavaScript, Backend, MongoDB, RestAPI]
-related projects: [[MyPlace](https://myplace.netlify.app/)]
+related projects: []
 icon: "./icon.png"
 tags: [express, server, node, RestAPI, backend]
 sortIndex: 130

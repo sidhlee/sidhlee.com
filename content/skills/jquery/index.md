@@ -1,9 +1,9 @@
 ---
 title: jQuery
 related skills: [JavaScript, HTML, RestAPI, D3]
-related projects: [[Traxmeta](https://traxmeta.netlify.app/)]
+related projects: []
 icon: "./icon.png"
-tags: ['jQuery', 'JavaScript', 'Framework', 'Frontend', 'legacy']
+tags: ["jQuery", "JavaScript", "Framework", "Frontend", "legacy"]
 sortIndex: 50
 ---
 

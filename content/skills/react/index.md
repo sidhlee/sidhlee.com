@@ -1,9 +1,9 @@
 ---
 title: React
 related skills: [CSS, HTML, Styled Components, A11y, Gatsby, Next.js, Redux]
-related projects: [[Engram](https://engram.netlify.app/)]
+related projects: []
 icon: "./icon.png"
-tags: ['react', 'JavaScript', 'ES6', 'Framework', 'Frontend']
+tags: ["react", "JavaScript", "ES6", "Framework", "Frontend"]
 sortIndex: 60
 ---
 

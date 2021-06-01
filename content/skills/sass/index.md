@@ -1,10 +1,10 @@
 ---
-title: React
-related skills: [CSS, HTML, Styled Components, A11y, Gatsby, Next.js, Redux]
-related projects: [[Engram](https://engram.netlify.app/)]
+title: Sass
+related skills: [CSS, HTML]
+related projects: []
 icon: "./icon.png"
-tags: ['react', 'JavaScript', 'ES6', 'Framework', 'Frontend']
-sortIndex: 60
+tags: [Sass, CSS, CSS3, SCSS]
+sortIndex: 30
 ---
 
-React is currently the tool that I feel most comfortable to use when I'm developing websites and applications. The thing that I like about React is that there is a very strong ecosystem of libraries and higher-level framework built on top of React which allows me to focus more on creating great user experience instead of spending time on reinventing wheels. Some of my favorite react library include styled-components, react-router, react-spring, react-use-gesture and formik.
+One of my favorite features of Sass is nested styles because you can structure your style similar to how your components are structured. This makes it easier to read and understand which style is cascading down to the which element.

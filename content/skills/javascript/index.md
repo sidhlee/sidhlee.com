@@ -1,9 +1,9 @@
 ---
 title: JavaScript
 related skills: [React, Node, Express, Gatsby, Next.js, Redux]
-related projects: [[Engram](https://engram.netlify.app/)]
+related projects: []
 icon: "./icon.png"
-tags: ['JavaScript', 'ES6', 'language']
+tags: ["JavaScript", "ES6", "language"]
 sortIndex: 40
 ---
 

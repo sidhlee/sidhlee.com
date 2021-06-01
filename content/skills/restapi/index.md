@@ -1,7 +1,7 @@
 ---
 title: Rest API
 related skills: [JavaScript, jQuery, React, Firebase, MongoDB, Express]
-related projects: [[TraxMeta](https://traxmeta.netlify.app/)]
+related projects: []
 icon: "./icon.png"
 tags: [RestAPI, JavaScript]
 sortIndex: 210
