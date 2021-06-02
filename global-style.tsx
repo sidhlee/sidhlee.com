@@ -33,17 +33,18 @@ const globalStyle = css`
 
     --ff-heading: Poppins, sans-serif;
     --ff-body: Roboto, sans-serif;
-    --fz-xl: 4.25rem;
+    --fz-xl: min(max(2.5rem, calc(15vw - 20px)), 4.25rem);
     --fz-h3: 1.7rem;
-    --fz-subheading: 1.2rem;
+    --fz-subheading: min(max(1.1rem, 4vw), 1.2rem);
 
     --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     --height-navbar: 4em;
-    --px: Min(Max(1rem, 6vw), 4rem);
+    --px: Min(Max(0.5rem, 6vw), 4rem);
     /* --py: Min(Max(var(--height-navbar), 5vw), 3rem); */
-    --py: calc(var(--px) * 0.5);
+    --py: Min(Max(2rem, 6vw), 4rem);
     --max-width-container: 1700px;
+    --mt-section-content: min(max(1rem, 2vw), 2rem);
 
     --z-navbar: 1000;
     --z-backdrop: 1200;

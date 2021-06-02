@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { useLocation } from "@reach/router"
+import { mq } from "../../global-style"
 
 const StyledNavbar = styled("nav")`
   position: fixed;
@@ -57,6 +58,10 @@ const StyledNavbar = styled("nav")`
         background-color: var(--text-main);
       }
     }
+  }
+
+  @media (max-width: 1130px) {
+    display: none;
   }
 `
 

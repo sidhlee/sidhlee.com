@@ -18,11 +18,22 @@ const StyledMain = styled("section")`
     // https://stackoverflow.com/questions/52861086/why-does-minmax0-1fr-work-for-long-elements-while-1fr-doesnt
     // allows content to overflow the track
     grid-template-columns: auto minmax(0, 1fr);
-    grid-template-rows: minmax(1rem, 4rem) auto;
+    /* grid-template-rows: minmax(1rem, 4rem) auto; */
+  }
+
+  .main-content {
+    min-height: 80vh;
+    display: flex;
+
+    align-items: center;
+    position: relative;
   }
 
   header {
-    grid-row: 1 / 3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     max-width: 38rem;
     z-index: 200;
     // https://css-tricks.com/hash-tag-links-padding/
@@ -36,8 +47,8 @@ const StyledMain = styled("section")`
       pointer-events: none;
     }
     .intro {
-      margin-top: 3rem;
-      margin-left: 2rem;
+      margin-top: var(--mt-section-content);
+      margin-left: min(max(0px, 2vw), 2rem);
       .headline {
         /* font-size: var(--fz-xl);
         font-weight: bold;
@@ -55,13 +66,13 @@ const StyledMain = styled("section")`
   }
 
   .piano {
-    grid-column: 2 / 3;
-    grid-row: 1 / 3;
-    align-self: center;
-    justify-self: center;
+    position: absolute;
+    right: min(max(-400px, calc(30vw - 400px)), 200px);
+    top: 0;
     display: flex;
     flex-direction: column;
     --size: min(max(300px, 40vw), 570px);
+    --size: 500px;
     width: var(--size);
     height: calc(var(--size) * 1.3);
     transform: rotate(24deg);
@@ -82,9 +93,9 @@ const StyledMain = styled("section")`
       transform: rotate(-5deg);
     }
   }
-  @media (max-width: 840px) {
+  @media (max-width: 1090px) {
     .piano {
-      filter: brightness(0.4);
+      filter: brightness(0.35);
     }
   }
 `
@@ -95,7 +106,7 @@ const Main: React.FC<MainProps> = ({}) => {
   return (
     <StyledMain>
       <Container>
-        <div className="grid">
+        <div className="main-content">
           <header>
             <h1 id="main">Sid Lee</h1>
             <div className="intro">

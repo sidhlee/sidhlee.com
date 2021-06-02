@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 const StyledContainer = styled("div")`
   max-width: var(--max-width-container);
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
   padding: var(--py) var(--px);
