@@ -68,6 +68,11 @@ const StyledContactLinks = styled("div")`
         height: 100%;
         fill: var(--cl-projects);
       }
+
+      transition: all 250ms ease;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 `
