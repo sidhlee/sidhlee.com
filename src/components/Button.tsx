@@ -88,6 +88,7 @@ export const buttonCss = css<ButtonProps>`
   font-size: ${({ $size }) => getSize($size)};
   font-weight: bold;
   text-transform: uppercase;
+  white-space: nowrap;
   margin: 0.5rem;
   /* box-shadow: 4px 4px 0 0 rgba(255, 255, 255, 0.7); */
   transition: all 250ms ease;

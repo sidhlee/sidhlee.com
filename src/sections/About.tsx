@@ -10,13 +10,15 @@ const StyledAbout = styled("section")`
   background: var(--cl-about);
   min-height: 100vh;
 
-  .grid {
-    grid-template-columns: 1fr 1.25fr;
+  .about-content {
+    display: flex;
+    justify-content: center;
   }
 
   .about-image {
     justify-self: center;
     margin-top: 8rem;
+    margin-right: 3rem;
     max-width: 300px;
     position: relative;
     img {
@@ -26,12 +28,13 @@ const StyledAbout = styled("section")`
     .square {
       position: absolute;
       width: 100%;
+      height: fit-content;
       left: -30%;
       bottom: -15%;
     }
   }
 
-  .about-content {
+  .about-text {
     margin-top: 2rem;
     max-width: 30rem;
   }
@@ -42,6 +45,27 @@ const StyledAbout = styled("section")`
     margin-top: 1em;
     display: flex;
   }
+
+  @media (max-width: 1040px) {
+    .about-content {
+      flex-direction: column;
+      align-items: center;
+    }
+    .about-image {
+      order: 2;
+      align-self: flex-end;
+      margin: 0;
+      position: relative;
+      bottom: 3rem;
+      width: max(30vw, 150px);
+    }
+  }
+  @media (max-width: 380px) {
+    .about-image {
+      bottom: 1rem;
+      left: var(--px);
+    }
+  }
 `
 
 type AboutProps = {}
@@ -51,7 +75,7 @@ const About: React.FC<AboutProps> = ({}) => {
     <StyledAbout id="about">
       <Container>
         <h2>About</h2>
-        <div className="grid">
+        <div className="about-content">
           <div className="about-image">
             <StaticImage
               src="../images/headshot1-bw.png"
@@ -60,7 +84,7 @@ const About: React.FC<AboutProps> = ({}) => {
             />
             <Square className="square" />
           </div>
-          <div className="about-content">
+          <div className="about-text">
             <p className="heading-sm">
               Hi{" "}
               <span role="img" aria-label="hand-wave">
