@@ -24,6 +24,7 @@ const StyledProjectSlide = styled("article")`
   }
   .buttons {
     margin-left: -0.5rem;
+    display: flex;
   }
 `
 
@@ -69,8 +70,10 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project }) => {
         <TechStacks technologies={technologies} />
         <p className="description">{description}</p>
         <div className="buttons">
-          <ButtonLink href={liveUrl}>View Live</ButtonLink>
-          <ButtonLink href={githubUrl} $outline>
+          <ButtonLink href={liveUrl} $theme="main">
+            View Live
+          </ButtonLink>
+          <ButtonLink href={githubUrl} $theme="skills">
             <FaGithub />
             <span>GitHub</span>
           </ButtonLink>

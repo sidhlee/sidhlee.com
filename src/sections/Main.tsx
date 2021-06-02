@@ -3,11 +3,14 @@ import PianoLid from "../images/piano-lid.svg"
 import PianoKeybed from "../images/piano-keybed.svg"
 import Container from "../components/Container"
 import ButtonLink from "../components/ButtonLink"
+import SpringZoom from "../springs/SpringZoom"
 
 // TODO: fix vertical scroll in main section
 const StyledMain = styled("section")`
   // Take mobile UI (keyboard/safari control bar) into account when calculating 100vh
   // https://css-tricks.com/css-fix-for-100vh-in-mobile-webkit/
+  min-height: 100vh;
+
   background-color: var(--cl-main);
 
   .grid {
@@ -104,9 +107,11 @@ const Main: React.FC<MainProps> = ({}) => {
                 accessible and responsive web applications that offer great
                 value and experience to the user.
               </p>
-              <ButtonLink to="#" $size="lg">
-                #Open to work!
-              </ButtonLink>
+              <SpringZoom>
+                <ButtonLink to="/#about" $size="lg">
+                  #Open to work!
+                </ButtonLink>
+              </SpringZoom>
             </div>
           </header>
           <div className="piano">

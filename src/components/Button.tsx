@@ -15,19 +15,16 @@ const getSize = (size: ButtonSize) => {
   }
 }
 
+export type SectionTheme = "main" | "about" | "projects" | "skills"
+
 export type ButtonProps = {
   $sm?: boolean
   $lg?: boolean
   $size?: ButtonSize
   $outline?: boolean
-  $secondary?: boolean
+  $theme?: SectionTheme
   type?: "button" | "submit" | undefined
 }
-
-const secondaryCss = css`
-  background: var(--cl-projects);
-  border: 2px solid var(--cl-projects);
-`
 
 const outlineCss = css`
   background: transparent;
@@ -35,11 +32,55 @@ const outlineCss = css`
   /* box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 1); */
 `
 
+const mainThemeCss = css`
+  background: var(--cl-main);
+  border: 2px solid var(--cl-main);
+`
+const aboutThemeCss = css`
+  background: var(--cl-about);
+  border: 2px solid var(--cl-about);
+  /* &:hover {
+    background: var(--cl-about-dark);
+    border: 2px solid var(--cl-about-dark);
+  } */
+`
+const projectsThemeCss = css`
+  background: var(--cl-projects-light);
+  border: 2px solid var(--cl-projects-light);
+  /* &:hover {
+    background: var(--cl-projects);
+    border: 2px solid var(--cl-projects);
+  } */
+`
+const skillsThemeCss = css`
+  background: var(--cl-skills);
+  border: 2px solid var(--cl-skills);
+`
+
+const getButtonThemeCss = (theme: SectionTheme | undefined) => {
+  switch (theme) {
+    case "main":
+      return mainThemeCss
+    case "about":
+      return aboutThemeCss
+    case "projects":
+      return projectsThemeCss
+    case "skills":
+      return skillsThemeCss
+    default:
+      return aboutThemeCss
+  }
+}
+
 export const buttonCss = css<ButtonProps>`
-  display: inline-block;
+  position: relative; // for animating nested span
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
   min-width: 7rem;
   padding: 0.4em 1.2em;
-  background: var(--cl-about);
   border: 2px solid var(--cl-about);
   color: var(--text-main);
   font-family: var(--ff-heading);
@@ -49,18 +90,16 @@ export const buttonCss = css<ButtonProps>`
   text-transform: uppercase;
   margin: 0.5rem;
   /* box-shadow: 4px 4px 0 0 rgba(255, 255, 255, 0.7); */
+  transition: all 250ms ease;
 
-  svg,
-  span {
-    vertical-align: middle;
-    display: inline-block;
-    &:first-child {
+  svg {
       margin-right: 0.5em;
     }
   }
 
-  ${props => (props.$outline ? outlineCss : null)}
-  ${props => (props.$secondary ? secondaryCss : null)}
+  ${({ $theme }) => getButtonThemeCss($theme)}
+
+  ${props => (props.$outline ? outlineCss : null)}  
 `
 
 export const StyledButton = styled("button")<ButtonProps>`
@@ -68,7 +107,11 @@ export const StyledButton = styled("button")<ButtonProps>`
 `
 
 const Button: React.FC<ButtonProps> = ({ children, type }) => {
-  return <StyledButton type={type}>{children}</StyledButton>
+  return (
+    <StyledButton type={type}>
+      <span>{children}</span>
+    </StyledButton>
+  )
 }
 
 export default Button

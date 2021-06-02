@@ -15,9 +15,14 @@ const globalStyle = css`
     --cl-off-white: #eff1f3;
     --cl-black: black;
     --cl-main: #084887;
+    --cl-main-light: #095199;
     --cl-about: #163666;
+    --cl-about-dark: #0f2546;
     --cl-projects: #202020;
+    --cl-projects-light: #292929;
     --cl-skills: #333533;
+    --cl-skills-dark: #252725;
+
     --cl-contact: var(--cl-main);
     --cl-accent: #fdd835;
 
@@ -37,7 +42,7 @@ const globalStyle = css`
     --height-navbar: 4em;
     --px: Min(Max(1rem, 6vw), 4rem);
     /* --py: Min(Max(var(--height-navbar), 5vw), 3rem); */
-    --py: calc(var(--px) * 0.75);
+    --py: calc(var(--px) * 0.5);
     --max-width-container: 1700px;
 
     --z-navbar: 1000;

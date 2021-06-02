@@ -4,6 +4,7 @@ import ButtonLink from "../components/ButtonLink"
 import Container from "../components/Container"
 import Square from "../images/square.svg"
 import { FaLinkedin } from "react-icons/fa"
+import SpringPaintRight from "../springs/SpringPaintRight"
 
 const StyledAbout = styled("section")`
   background: var(--cl-about);
@@ -36,7 +37,10 @@ const StyledAbout = styled("section")`
   }
 
   .about-links {
+    margin-left: -0.5rem;
+    width: 50%;
     margin-top: 1em;
+    display: flex;
   }
 `
 
@@ -75,16 +79,16 @@ const About: React.FC<AboutProps> = ({}) => {
               challenges.
             </p>
             <div className="about-links">
-              <ButtonLink to="#" $secondary>
+              <ButtonLink to="#" $theme="projects">
                 View Resume
               </ButtonLink>
-              <ButtonLink
+              {/* <ButtonLink
                 href="https://www.linkedin.com/in/sid-hayoun-lee/"
                 $outline
               >
                 <FaLinkedin />
                 <span>LinkedIn</span>
-              </ButtonLink>
+              </ButtonLink> */}
             </div>
           </div>
         </div>

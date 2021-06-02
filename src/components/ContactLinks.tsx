@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa"
 import ButtonLink from "../components/ButtonLink"
 import Square from "../images/square.svg"
+import SpringZoom from "../springs/SpringZoom"
 
 const StyledContactLinks = styled("div")`
   padding: 2rem;
@@ -86,10 +87,12 @@ const ContactLinks: React.FC<ContactLinksProps> = ({}) => {
 
       <div className="calendly">
         <h3>Schedule a chat with</h3>
-        <ButtonLink href="https://calendly.com/sidhlee" $size="lg">
-          <span>Calendly</span>
-          <FaRegCalendarPlus />
-        </ButtonLink>
+        <SpringZoom>
+          <ButtonLink href="https://calendly.com/sidhlee" $size="lg">
+            <FaRegCalendarPlus />
+            <span>Calendly</span>
+          </ButtonLink>
+        </SpringZoom>
       </div>
 
       <div className="lets-connect">
