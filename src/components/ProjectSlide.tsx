@@ -6,7 +6,7 @@ import ProjectImages from "./ProjectImages"
 import TechStacks from "./TechStacks"
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 
-const StyledProjectSlide = styled("div")`
+const StyledProjectSlide = styled("article")`
   width: 100%;
   display: flex;
   position: relative;
@@ -29,6 +29,7 @@ const StyledProjectSlide = styled("div")`
 
 type ProjectSlideProps = {
   project: Project
+  style: any
 }
 
 export type Project = {

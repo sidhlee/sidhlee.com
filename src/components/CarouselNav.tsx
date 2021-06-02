@@ -2,6 +2,8 @@ import styled from "styled-components"
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa"
 
 const StyledCarouselNav = styled("div")`
+  position: relative;
+  z-index: 500;
   margin: 2rem auto 0;
   display: flex;
   align-items: center;
@@ -14,11 +16,31 @@ const StyledCarouselNav = styled("div")`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: transform 250ms ease;
 
     span,
     svg {
       width: 100%;
       height: 100%;
+      transition: all 250ms ease;
+    }
+    &:hover {
+      svg {
+        fill: white;
+      }
+      span {
+        background: white;
+      }
+      span,
+      svg {
+        transform: scale(1.2);
+      }
+    }
+
+    &.carousel-control:active {
+      position: relative;
+      top: 1px;
+      left: 1px;
     }
   }
 
@@ -46,14 +68,25 @@ const StyledCarouselNav = styled("div")`
 
 type CarouselNavProps = {
   currentSlideIndex: number
+  next: () => void
+  prev: () => void
+  navigateTo: (slideIndex: number) => void
 }
 
-const CarouselNav: React.FC<CarouselNavProps> = ({ currentSlideIndex }) => {
+const CarouselNav: React.FC<CarouselNavProps> = ({
+  currentSlideIndex,
+  next,
+  prev,
+  navigateTo,
+}) => {
   const navButtons = [...Array(3)].map((_, i) => {
     const active = currentSlideIndex === i
     return (
       <li key={i}>
-        <button className={`nav-button${active ? " active" : ""}`}>
+        <button
+          className={`nav-button${active ? " active" : ""}`}
+          onClick={() => navigateTo(i)}
+        >
           <span
             role="img"
             aria-label={active ? "current slide" : `show slide ${i + 1}`}
@@ -64,11 +97,11 @@ const CarouselNav: React.FC<CarouselNavProps> = ({ currentSlideIndex }) => {
   })
   return (
     <StyledCarouselNav>
-      <button className="prev-button">
+      <button className="carousel-control prev-button" onClick={prev}>
         <FaCaretLeft aria-label="previous slide" />
       </button>
       <ul className="nav-buttons">{navButtons}</ul>
-      <button className="next-button">
+      <button className="carousel-control next-button" onClick={next}>
         <FaCaretRight aria-label="next slide" />
       </button>
     </StyledCarouselNav>

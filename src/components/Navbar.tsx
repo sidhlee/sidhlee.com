@@ -29,7 +29,7 @@ const StyledNavbar = styled("nav")`
       content: "";
       display: block;
       position: absolute;
-      bottom: -1;
+      bottom: -4px;
       left: 0;
       background: var(--cl-accent);
       width: 100%;
@@ -53,7 +53,7 @@ const StyledNavbar = styled("nav")`
     &.active {
       &::after {
         transform: scaleX(1);
-        opacity: 1;
+        opacity: 0.7;
         background-color: var(--text-main);
       }
     }
