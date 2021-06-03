@@ -64,7 +64,7 @@ const StyledContactLinks = styled("div")`
 
     .connect-item {
       width: 18%;
-      max-width: 60px;
+      max-width: 55px;
       height: auto;
       &:not(:last-child) {
         margin-right: 1em;
@@ -75,16 +75,24 @@ const StyledContactLinks = styled("div")`
         width: 100%;
         height: 100%;
         box-shadow: var(--shadow);
+        transition: all 250ms ease;
       }
       svg {
         width: 100%;
         height: 100%;
         fill: rgba(255, 255, 255, 0.7);
+        transition: fill 250ms ease;
       }
 
       transition: all 250ms ease;
       &:hover {
-        transform: scale(1.1);
+        a,
+        button {
+          box-shadow: 4px 5px 12px 3px rgba(0, 0, 0, 0.4);
+        }
+        svg {
+          fill: rgba(255, 255, 255, 1);
+        }
       }
     }
   }
