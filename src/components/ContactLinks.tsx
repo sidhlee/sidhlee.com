@@ -11,6 +11,8 @@ import {
 import ButtonLink from "../components/ButtonLink"
 import Square from "../images/square.svg"
 import SpringZoom from "../springs/SpringZoom"
+import { useState } from "react"
+import ContactPanel from "./ContactPanel"
 
 const StyledContactLinks = styled("div")`
   width: 100%;
@@ -20,14 +22,18 @@ const StyledContactLinks = styled("div")`
     margin-bottom: 0.5em;
   }
 
-  .contact-modal-wrapper {
+  .contact-panel-wrapper {
     position: relative;
+    width: 100%;
+    height: 27vh;
+    display: flex;
+    align-items: flex-end;
   }
 
   .contact-image {
     position: relative;
-    width: 50vw;
-    height: 50vw;
+    width: 100%;
+    height: 100%;
     max-width: 170px;
     max-height: 170px;
     .gatsby-image-wrapper {
@@ -120,15 +126,29 @@ const StyledContactLinks = styled("div")`
         max-width: initial;
       }
     }
+
+    .contact-panel-wrapper {
+      position: relative;
+      width: 100%;
+      height: 15vw;
+      display: flex;
+      align-items: flex-end;
+    }
   }
 `
 
 type ContactLinksProps = {}
 
 const ContactLinks: React.FC<ContactLinksProps> = ({}) => {
+  const [panelType, setPanelType] = useState<"email" | "phone" | "">("")
+
+  const closePanel = () => setPanelType("")
+
   return (
     <StyledContactLinks>
-      <div className="contact-modal-wrapper">
+      <div className="contact-panel-wrapper">
+        {/* // force rerender on panelType change */}
+        <ContactPanel key={panelType} type={panelType} close={closePanel} />
         <div className="contact-image">
           <StaticImage
             src="../images/sid-big-smile.png"
@@ -170,12 +190,18 @@ const ContactLinks: React.FC<ContactLinksProps> = ({}) => {
             </a>
           </li>
           <li className="connect-item">
-            <button type="button">
+            <button
+              type="button"
+              onClick={() => setPanelType(t => (t === "email" ? "" : "email"))}
+            >
               <FaEnvelopeSquare aria-label="Email" />
             </button>
           </li>
           <li className="connect-item">
-            <button type="button">
+            <button
+              type="button"
+              onClick={() => setPanelType(t => (t === "phone" ? "" : "phone"))}
+            >
               <FaPhoneSquare aria-label="Phone" />
             </button>
           </li>
