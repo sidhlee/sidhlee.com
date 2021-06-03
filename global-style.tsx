@@ -28,6 +28,7 @@ const globalStyle = css`
 
     --text-main: var(--cl-off-white);
     --text-muted: #ababab;
+    --text-inverse: black;
 
     --border-radius: 4px;
 
@@ -37,6 +38,7 @@ const globalStyle = css`
     --fz-h3: 1.7rem;
     --fz-subheading: min(max(1.1rem, 4vw), 1.2rem);
     --fz-button-md: min(max(0.8rem, 3vw), 1rem);
+    --fz-skill: min(max(1rem, 4vw), 2.4rem);
 
     --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
@@ -49,7 +51,7 @@ const globalStyle = css`
 
     --z-navbar: 1000;
     --z-backdrop: 1200;
-    --z-menu-modal: 1500;
+    --z-modal: 1500;
 
     --timing-spring: cubic-bezier(0.17, 0.67, 0.37, 1.14);
   }

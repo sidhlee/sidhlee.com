@@ -1,12 +1,13 @@
 import styled from "styled-components"
 
 const StyledSkill = styled("li")<{ brandColor: string }>`
-  margin: 0.25em 0.75em;
+  margin: 0.4em 0.75em;
   font-family: var(--ff-heading);
-  font-size: 2.4rem;
+  font-size: var(--fz-skill);
   font-style: italic;
   color: var(--text-muted);
   button {
+    text-align: left;
     text-shadow: var(--shadow);
   }
   transition: all 300ms var(--timing-spring);
@@ -20,12 +21,17 @@ const StyledSkill = styled("li")<{ brandColor: string }>`
 type SkillProps = {
   title: string
   brandColor: string
+  setCurrentSkill: () => void
 }
 
-const Skill: React.FC<SkillProps> = ({ title, brandColor }) => {
+const Skill: React.FC<SkillProps> = ({
+  title,
+  brandColor,
+  setCurrentSkill,
+}) => {
   return (
     <StyledSkill brandColor={brandColor}>
-      <button>{title}</button>
+      <button onClick={setCurrentSkill}>{title}</button>
     </StyledSkill>
   )
 }
