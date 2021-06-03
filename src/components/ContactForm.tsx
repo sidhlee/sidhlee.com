@@ -2,6 +2,8 @@ import styled from "styled-components"
 import Button from "./Button"
 
 const StyledContactForm = styled("div")`
+  width: 100%;
+
   .contact-form__subheading {
     margin: 1em 0;
   }
@@ -11,8 +13,12 @@ const StyledContactForm = styled("div")`
     display: flex;
     flex-direction: column;
 
-    input:first-of-type,
+    /* input,
     textarea {
+      width: 100%;
+    } */
+
+    input:first-of-type {
       margin-bottom: 0.5em;
     }
 
@@ -36,6 +42,36 @@ const StyledContactForm = styled("div")`
       &:hover {
         background: var(--cl-projects);
         border-color: var(--cl-projects);
+      }
+    }
+
+    @media (min-width: 670px) {
+      .inputs {
+        flex-direction: row;
+        input:first-of-type {
+          margin-bottom: 0;
+          margin-right: 0.5em;
+        }
+      }
+    }
+    /* iPad pro 12inch */
+    @media (min-width: 1024px) {
+      .inputs {
+        flex-direction: column;
+        input:first-of-type {
+          margin-bottom: 0.5em;
+          margin-right: 0;
+        }
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .inputs {
+        flex-direction: row;
+        input:first-of-type {
+          margin-bottom: 0;
+          margin-right: 0.5em;
+        }
       }
     }
   }

@@ -14,6 +14,7 @@ import SpringZoom from "../springs/SpringZoom"
 
 const StyledContactLinks = styled("div")`
   width: 100%;
+
   margin: 2rem auto;
   h3 {
     margin-top: 1em;
@@ -22,10 +23,10 @@ const StyledContactLinks = styled("div")`
 
   .contact-image {
     position: relative;
-    width: 50vw;
-    height: 50vw;
-    max-width: 180px;
-    max-height: 180px;
+    width: 40vw;
+    height: 40vw;
+    max-width: 170px;
+    max-height: 170px;
     .gatsby-image-wrapper {
       position: relative;
       left: 25%;
@@ -45,6 +46,7 @@ const StyledContactLinks = styled("div")`
   .calendly {
     display: flex;
     flex-direction: column;
+    max-width: 380px;
     // spring wrapper
     div {
       width: 100%;
@@ -58,11 +60,15 @@ const StyledContactLinks = styled("div")`
 
   .connect-list {
     display: flex;
-    justify-content: space-between;
-    gap: 0.5em;
+    /* justify-content: space-between; */
+
     .connect-item {
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 18%;
+      max-width: 60px;
+      height: auto;
+      &:not(:last-child) {
+        margin-right: 1em;
+      }
       a,
       button {
         display: inline-block;

@@ -49,6 +49,7 @@ const globalStyle = css`
     --py: Min(Max(2rem, 6vw), 4rem);
     --max-width-container: 1700px;
     --mt-section-content: min(max(0.75rem, 2vw), 2rem);
+    /* --px-section-content: min(max(0rem, 3vw), 2rem); */
 
     --z-navbar: 1000;
     --z-backdrop: 1200;

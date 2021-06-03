@@ -8,11 +8,21 @@ const StyledContact = styled("div")`
   background: var(--cl-contact);
 
   .wrapper {
+    max-width: 600px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     margin-top: var(--py);
+    /* iPad pro 12inch */
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      max-width: 1100px;
+      > *:first-child {
+        margin-right: 3rem;
+      }
+    }
   }
 `
 
