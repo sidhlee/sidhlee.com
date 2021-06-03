@@ -3,15 +3,35 @@ import ContactForm from "../components/ContactForm"
 import ContactLinks from "../components/ContactLinks"
 import Container from "../components/Container"
 
-const StyledContact = styled("div")`
-  min-height: 100vh;
+const StyledContact = styled("section")`
   background: var(--cl-contact);
 
-  .wrapper {
+  .contact-content {
+    max-width: 600px;
+    min-height: calc(
+      var(--min-height-section-content) - var(--pt-section-content) -2rem
+    );
+    margin: 0 auto;
+    padding-top: var(--pt-section-content);
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-top: var(--py);
+    & > *:first-child {
+      margin-bottom: 3rem;
+    }
+    /* iPad pro 12inch */
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      max-width: 78vw;
+      > *:first-child {
+        margin-right: 3rem;
+      }
+      > *:last-child {
+        position: relative;
+        bottom: 1rem;
+      }
+    }
   }
 `
 
@@ -22,7 +42,7 @@ const Contact: React.FC<ContactProps> = ({}) => {
     <StyledContact id="contact">
       <Container>
         <h2>Contact</h2>
-        <div className="wrapper">
+        <div className="contact-content">
           <ContactLinks />
           <ContactForm />
         </div>

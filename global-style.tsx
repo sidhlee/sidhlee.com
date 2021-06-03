@@ -34,11 +34,12 @@ const globalStyle = css`
 
     --ff-heading: Poppins, sans-serif;
     --ff-body: Roboto, sans-serif;
-    --fz-xl: min(max(2.5rem, calc(15vw - 20px)), 4.25rem);
-    --fz-h3: 1.7rem;
-    --fz-subheading: min(max(1.1rem, 4vw), 1.2rem);
+    --fz-xl: max(2rem, calc(7vw - 20px));
+    --fz-h3: max(1.3rem, 2.5vw);
+    --fz-subheading: max(1.05rem, 1.75vw);
     --fz-button-md: min(max(0.8rem, 3vw), 1rem);
-    --fz-skill: min(max(1rem, 4vw), 2.4rem);
+    --fz-skill: max(1.2rem, calc(1.2vw + 1rem));
+    --fz-body: max(0.9rem, 1.5vw);
 
     --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
@@ -47,7 +48,10 @@ const globalStyle = css`
     /* --py: Min(Max(var(--height-navbar), 5vw), 3rem); */
     --py: Min(Max(2rem, 6vw), 4rem);
     --max-width-container: 1700px;
-    --mt-section-content: min(max(0.75rem, 2vw), 2rem);
+    --pt-section-content: max(0.75rem, 4vh);
+    --px-section-content: min(max(0rem, 3vw), 2rem);
+    --section-header-height: calc(var(--py) + calc(1.25 * var(--fz-xl)));
+    --min-height-section-content: calc(100vh - var(--section-header-height));
 
     --z-navbar: 1000;
     --z-backdrop: 1200;
@@ -76,6 +80,7 @@ const globalStyle = css`
     background-color: var(--cl-projects);
     color: var(--text-main);
     font-family: var(--ff-body);
+    font-size: var(--fz-body);
   }
 
   p {
@@ -167,6 +172,10 @@ const globalStyle = css`
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .nowrap {
+    white-space: nowrap;
   }
 
   @keyframes fade-in-up {

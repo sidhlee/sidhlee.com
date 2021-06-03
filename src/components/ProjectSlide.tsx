@@ -91,13 +91,14 @@ const StyledProjectSlide = styled("article")`
   }
 
   .desktop-image-container {
+    width: 100%;
     display: none;
   }
 
   @media (min-width: 930px) {
     display: flex;
     flex-direction: row;
-    height: auto;
+    height: 100%;
 
     /*  Hide mobile-only elements & show desktop-only elements */
     .description-toggler,
@@ -106,11 +107,12 @@ const StyledProjectSlide = styled("article")`
     }
     .desktop-image-container {
       display: block;
+      position: relative;
     }
 
     .col {
       justify-content: flex-start;
-      margin-right: 2rem;
+      margin-left: var(--px-section-content);
     }
 
     .project-body {

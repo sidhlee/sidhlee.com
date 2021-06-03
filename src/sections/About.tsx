@@ -3,67 +3,65 @@ import styled from "styled-components"
 import ButtonLink from "../components/ButtonLink"
 import Container from "../components/Container"
 import Square from "../images/square.svg"
-import { FaLinkedin } from "react-icons/fa"
-import SpringPaintRight from "../springs/SpringPaintRight"
 
 const StyledAbout = styled("section")`
   background: var(--cl-about);
   min-height: 100vh;
 
   .about-content {
+    min-height: var(--min-height-section-content);
     display: flex;
+    flex-direction: column;
     justify-content: center;
-  }
-
-  .about-image {
-    justify-self: center;
-    margin-top: 8rem;
-    margin-right: 3rem;
-    max-width: 300px;
-    position: relative;
-    img {
-      height: auto;
-      z-index: 100;
-    }
-    .square {
-      position: absolute;
-      width: 100%;
-      height: fit-content;
-      left: -30%;
-      bottom: -15%;
-    }
-  }
-
-  .about-text {
-    margin-top: var(--mt-section-content);
-    max-width: 30rem;
-  }
-
-  .about-links {
-    margin-left: -0.5rem;
-    width: 50%;
-    margin-top: 1em;
-    display: flex;
-  }
-
-  @media (max-width: 1040px) {
-    .about-content {
-      flex-direction: column;
-      align-items: center;
-    }
+    align-items: center;
+    margin-top: calc(-0.5 * var(--section-header-height));
     .about-image {
       order: 2;
-      align-self: flex-end;
+      justify-self: center;
+      align-self: center;
       margin: 0;
+      width: 50%;
+      max-width: 200px;
       position: relative;
-      bottom: 3rem;
-      width: max(30vw, 150px);
+      left: 20%;
+      bottom: 5%;
+
+      img {
+        height: auto;
+        z-index: 100;
+      }
+      .square {
+        position: absolute;
+        width: 100%;
+        height: fit-content;
+        left: -30%;
+        bottom: -15%;
+      }
     }
-  }
-  @media (max-width: 380px) {
-    .about-image {
-      bottom: 1rem;
-      left: var(--px);
+
+    .about-text {
+      padding-top: var(--pt-section-content);
+      max-width: 50ch;
+    }
+
+    .about-links {
+      margin-left: -0.5rem;
+      width: 50%;
+      margin-top: 1em;
+      display: flex;
+    }
+
+    @media (min-width: 1040px) {
+      flex-direction: row;
+      .about-image {
+        order: 0;
+
+        width: 25%;
+        max-width: 400px;
+        margin-right: 5vw;
+        top: 10vh;
+        left: 0;
+      }
     }
   }
 `
@@ -95,12 +93,11 @@ const About: React.FC<AboutProps> = ({}) => {
             <p className="text-lg mt-3">
               I'm a web developer whose passion is to build accessible and
               responsive user experience using front-end and full stack
-              technologies. <br />
-              With a background in teaching university music courses and
-              producing chart-topping albums,
-              <br /> I have developed a consistent work ethic, strong
-              communication skills, and problem solving techniques for unique
-              challenges.
+              technologies. <wbr></wbr>With a background in teaching university
+              music courses and producing chart-topping albums, <wbr></wbr>I
+              have developed a <strong>consistent work ethic</strong>,{" "}
+              <strong>strong communication skills</strong>, and{" "}
+              <strong>problem solving techniques</strong> for unique challenges.
             </p>
             <div className="about-links">
               <ButtonLink to="#" $theme="projects">

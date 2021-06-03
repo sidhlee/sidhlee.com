@@ -23,7 +23,7 @@ const StyledLayout = styled.div`
   position: relative;
 
   footer {
-    padding: 1em;
+    padding-bottom: 1em;
     text-align: center;
     width: 100%;
     background-color: var(--cl-main);
@@ -48,14 +48,18 @@ const Layout: React.FC = ({ children }) => {
       <StyledLayout>
         {children}
         <footer>
-          © {new Date().getFullYear()}, Designed &amp; Developed by Sid Hayoun
-          Lee with{" "}
-          <span role="img" aria-label="coffee">
-            ☕
-          </span>{" "}
-          and{" "}
-          <span role="img" aria-label="love">
-            ❤️
+          © {new Date().getFullYear()},{" "}
+          <span className="nowrap">Designed &amp; Developed</span>{" "}
+          <span className="nowrap">by Sid Hayoun Lee</span>{" "}
+          <span className="nowrap">
+            with{" "}
+            <span role="img" aria-label="coffee">
+              ☕
+            </span>{" "}
+            and{" "}
+            <span role="img" aria-label="love">
+              ❤️
+            </span>
           </span>
         </footer>
       </StyledLayout>

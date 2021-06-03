@@ -11,23 +11,39 @@ import {
 import ButtonLink from "../components/ButtonLink"
 import Square from "../images/square.svg"
 import SpringZoom from "../springs/SpringZoom"
+import { useState } from "react"
+import ContactPanel from "./ContactPanel"
 
 const StyledContactLinks = styled("div")`
-  padding: 2rem;
+  width: 100%;
 
   h3 {
     margin-top: 1em;
     margin-bottom: 0.5em;
   }
 
+  .contact-panel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 27vh;
+    display: flex;
+    align-items: flex-end;
+  }
+
   .contact-image {
     position: relative;
-    width: 180px;
-    height: 180px;
+    width: 100%;
+    height: 100%;
+    max-width: 170px;
+    max-height: 170px;
     .gatsby-image-wrapper {
-      position: relative;
+      width: 80%;
+      height: 80%;
+      margin-left: 25%;
+
+      /* position: relative;
       left: 25%;
-      bottom: 25%;
+      bottom: 25%; */
       img {
         z-index: 100;
       }
@@ -36,43 +52,87 @@ const StyledContactLinks = styled("div")`
       position: absolute;
       left: 0;
       bottom: 0;
-      width: 90%;
-      height: 90%;
+      width: 80%;
+      height: 80%;
     }
   }
   .calendly {
     display: flex;
     flex-direction: column;
-    a {
-      margin: 0;
-      text-align: center;
+    /* a {
+      max-width: 380px;
+    } */
+    // spring wrapper
+    div {
+      width: 100%;
+      a {
+        width: 100%;
+        margin: 0;
+        text-align: center;
+      }
     }
   }
 
   .connect-list {
     display: flex;
-    justify-content: space-between;
-    gap: 0.5em;
+    /* justify-content: space-between; */
+
     .connect-item {
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 18%;
+      max-width: 55px;
+      height: auto;
+      &:not(:last-child) {
+        margin-right: 1em;
+      }
       a,
       button {
         display: inline-block;
         width: 100%;
         height: 100%;
         box-shadow: var(--shadow);
+        transition: all 250ms ease;
       }
       svg {
         width: 100%;
         height: 100%;
-        fill: var(--cl-projects);
+        fill: rgba(255, 255, 255, 0.7);
+        transition: all 250ms ease;
       }
 
       transition: all 250ms ease;
       &:hover {
-        transform: scale(1.1);
+        a,
+        button {
+          box-shadow: 4px 5px 12px 3px rgba(0, 0, 0, 0.4);
+        }
+        svg {
+          fill: rgba(255, 255, 255, 1);
+          transform: scale(1.05);
+        }
+        /* &.github {
+          svg {
+            fill: black;
+            background: white;
+          }
+        } */
       }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 30%;
+    .connect-list {
+      .connect-item {
+        max-width: initial;
+      }
+    }
+
+    .contact-panel-wrapper {
+      position: relative;
+      width: 100%;
+      height: 15vw;
+      display: flex;
+      align-items: flex-end;
     }
   }
 `
@@ -80,14 +140,22 @@ const StyledContactLinks = styled("div")`
 type ContactLinksProps = {}
 
 const ContactLinks: React.FC<ContactLinksProps> = ({}) => {
+  const [panelType, setPanelType] = useState<"email" | "phone" | "">("")
+
+  const closePanel = () => setPanelType("")
+
   return (
     <StyledContactLinks>
-      <div className="contact-image">
-        <StaticImage
-          src="../images/sid-big-smile.png"
-          alt="Sid looking really happy with a sandwich in his hand"
-        />
-        <Square className="square" />
+      <div className="contact-panel-wrapper">
+        {/* // force rerender on panelType change */}
+        <ContactPanel key={panelType} type={panelType} close={closePanel} />
+        <div className="contact-image">
+          <StaticImage
+            src="../images/sid-big-smile.png"
+            alt="Sid looking really happy with a sandwich in his hand"
+          />
+          <Square className="square" />
+        </div>
       </div>
 
       <div className="calendly">
@@ -111,23 +179,29 @@ const ContactLinks: React.FC<ContactLinksProps> = ({}) => {
               <FaLinkedin aria-label="LinkedIn" />
             </a>
           </li>
-          <li className="connect-item">
+          <li className="connect-item github">
             <a href="https://github.com/sidhlee/" target="_blank">
               <FaGithubSquare aria-label="GitHub" />
             </a>
           </li>
-          <li className="connect-item">
+          <li className="connect-item twitter">
             <a href="https://twitter.com/sidhlee" target="_blank">
               <FaTwitterSquare aria-label="Twitter" />
             </a>
           </li>
           <li className="connect-item">
-            <button type="button">
+            <button
+              type="button"
+              onClick={() => setPanelType(t => (t === "email" ? "" : "email"))}
+            >
               <FaEnvelopeSquare aria-label="Email" />
             </button>
           </li>
           <li className="connect-item">
-            <button type="button">
+            <button
+              type="button"
+              onClick={() => setPanelType(t => (t === "phone" ? "" : "phone"))}
+            >
               <FaPhoneSquare aria-label="Phone" />
             </button>
           </li>

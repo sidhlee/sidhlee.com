@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const StyledSkill = styled("li")<{ brandColor: string }>`
-  margin: 0.4em 0.75em;
+  margin: 0.5em 1em;
   font-family: var(--ff-heading);
   font-size: var(--fz-skill);
   font-style: italic;
