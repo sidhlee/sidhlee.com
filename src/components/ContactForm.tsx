@@ -11,8 +11,9 @@ const StyledContactForm = styled("div")`
     display: flex;
     flex-direction: column;
 
-    input:first-of-type {
-      margin-right: 0.5em;
+    input:first-of-type,
+    textarea {
+      margin-bottom: 0.5em;
     }
 
     textarea {
@@ -22,6 +23,7 @@ const StyledContactForm = styled("div")`
 
     .inputs {
       display: flex;
+      flex-direction: column;
       input {
         flex: 1 0 auto;
       }

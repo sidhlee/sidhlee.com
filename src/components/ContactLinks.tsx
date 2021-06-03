@@ -13,8 +13,8 @@ import Square from "../images/square.svg"
 import SpringZoom from "../springs/SpringZoom"
 
 const StyledContactLinks = styled("div")`
-  padding: 2rem;
-
+  width: 100%;
+  margin: 2rem auto;
   h3 {
     margin-top: 1em;
     margin-bottom: 0.5em;
@@ -22,8 +22,10 @@ const StyledContactLinks = styled("div")`
 
   .contact-image {
     position: relative;
-    width: 180px;
-    height: 180px;
+    width: 50vw;
+    height: 50vw;
+    max-width: 180px;
+    max-height: 180px;
     .gatsby-image-wrapper {
       position: relative;
       left: 25%;
@@ -43,9 +45,14 @@ const StyledContactLinks = styled("div")`
   .calendly {
     display: flex;
     flex-direction: column;
-    a {
-      margin: 0;
-      text-align: center;
+    // spring wrapper
+    div {
+      width: 100%;
+      a {
+        width: 100%;
+        margin: 0;
+        text-align: center;
+      }
     }
   }
 
@@ -66,7 +73,7 @@ const StyledContactLinks = styled("div")`
       svg {
         width: 100%;
         height: 100%;
-        fill: var(--cl-projects);
+        fill: rgba(255, 255, 255, 0.7);
       }
 
       transition: all 250ms ease;

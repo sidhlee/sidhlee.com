@@ -9,6 +9,7 @@ const StyledContact = styled("div")`
 
   .wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     margin-top: var(--py);

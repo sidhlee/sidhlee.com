@@ -35,10 +35,11 @@ const globalStyle = css`
     --ff-heading: Poppins, sans-serif;
     --ff-body: Roboto, sans-serif;
     --fz-xl: min(max(2.5rem, calc(15vw - 20px)), 4.25rem);
-    --fz-h3: 1.7rem;
-    --fz-subheading: min(max(1.1rem, 4vw), 1.2rem);
+    --fz-h3: min(max(1.3rem, 4vw), 1.7rem);
+    --fz-subheading: min(max(1.05rem, 4vw), 1.2rem);
     --fz-button-md: min(max(0.8rem, 3vw), 1rem);
     --fz-skill: min(max(1rem, 4vw), 2.4rem);
+    /* --fz-body: min(max(0.9rem, 3vw), 1rem); */
 
     --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
