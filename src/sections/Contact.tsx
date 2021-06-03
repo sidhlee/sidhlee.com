@@ -10,11 +10,11 @@ const StyledContact = styled("div")`
   .wrapper {
     max-width: 600px;
     margin: 0 auto;
+    padding-top: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin-top: var(--py);
     /* iPad pro 12inch */
     @media (min-width: 1024px) {
       flex-direction: row;
@@ -23,6 +23,10 @@ const StyledContact = styled("div")`
         margin-right: 3rem;
       }
     }
+  }
+
+  h3 {
+    margin-top: 1.5em;
   }
 `
 

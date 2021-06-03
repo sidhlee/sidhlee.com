@@ -15,7 +15,6 @@ import SpringZoom from "../springs/SpringZoom"
 const StyledContactLinks = styled("div")`
   width: 100%;
 
-  margin: 2rem auto;
   h3 {
     margin-top: 1em;
     margin-bottom: 0.5em;
