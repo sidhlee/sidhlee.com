@@ -14,7 +14,7 @@ const StyledAbout = styled("section")`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: calc(-0.5 * var(--section-header-height));
+
     .about-image {
       order: 2;
       justify-self: center;

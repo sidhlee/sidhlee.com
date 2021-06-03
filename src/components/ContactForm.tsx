@@ -1,3 +1,4 @@
+import { useState } from "react"
 import styled from "styled-components"
 import Button from "./Button"
 
@@ -81,6 +82,10 @@ type ContactFormProps = {}
 
 // https://www.gatsbyjs.com/docs/building-a-contact-form/
 const ContactForm: React.FC<ContactFormProps> = ({}) => {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
+
   return (
     <StyledContactForm>
       <h3>Let's Get In Touch!</h3>
@@ -101,11 +106,25 @@ const ContactForm: React.FC<ContactFormProps> = ({}) => {
           <label className="visually-hidden" htmlFor="name">
             Your name
           </label>
-          <input id="name" type="text" placeholder="You name" required />
+          <input
+            id="name"
+            type="text"
+            placeholder="You name"
+            required
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
           <label className="visually-hidden" htmlFor="email">
             Your email
           </label>
-          <input id="email" type="email" placeholder="Email" required />
+          <input
+            id="email"
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required
+          />
         </div>
         <label className="visually-hidden" htmlFor="message">
           Message
@@ -114,6 +133,8 @@ const ContactForm: React.FC<ContactFormProps> = ({}) => {
           id="message"
           rows={10}
           placeholder="Hi Sid 👋, I am ..."
+          value={message}
+          onChange={e => setMessage(e.target.value)}
           required
         />
         <Button type="submit">Send</Button>
