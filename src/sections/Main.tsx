@@ -41,8 +41,8 @@ const StyledMain = styled("section")`
     h1::before {
       display: block;
       content: " ";
-      margin-top: calc(var(--height-navbar) * -1);
-      height: var(--height-navbar);
+      margin-top: calc(var(--py) * -1);
+      height: var(--py);
       visibility: hidden;
       pointer-events: none;
     }
@@ -104,11 +104,11 @@ type MainProps = {}
 
 const Main: React.FC<MainProps> = ({}) => {
   return (
-    <StyledMain>
+    <StyledMain id="main">
       <Container>
         <div className="main-content">
           <header>
-            <h1 id="main">Sid Lee</h1>
+            <h1>Sid Lee</h1>
             <div className="intro">
               <p className="headline heading-xl">
                 Hi! I am a <span>Web Developer</span>
