@@ -22,11 +22,17 @@ const StyledMain = styled("section")`
   }
 
   .main-content {
-    min-height: 80vh;
+    width: 100%;
+    min-height: var(--section-content-min-height);
+    // can't use padding to align vertically because piano is absolute against the container border, not padding
     display: flex;
-
     align-items: center;
+  }
+
+  .main-content-inner {
+    width: 100%;
     position: relative;
+    bottom: 10vh;
   }
 
   header {
@@ -34,8 +40,7 @@ const StyledMain = styled("section")`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    max-width: 38rem;
-    z-index: 200;
+    /* max-width: 38rem; */
     // https://css-tricks.com/hash-tag-links-padding/
     // fix h1 hidden behind navbar when navigated
     h1::before {
@@ -46,37 +51,39 @@ const StyledMain = styled("section")`
       visibility: hidden;
       pointer-events: none;
     }
-    .intro {
-      margin-top: var(--mt-section-content);
-      margin-left: min(max(0px, 2vw), 2rem);
-      .headline {
-        /* font-size: var(--fz-xl);
-        font-weight: bold;
-        line-height: 1.3; */
-        span {
-          display: block;
-        }
+  }
+
+  .intro {
+    // put text over piano
+    position: relative;
+    z-index: 1;
+
+    padding-top: var(--pt-section-content);
+    margin-left: min(max(0px, 2vw), 2rem);
+    .headline {
+      line-height: 1.2;
+      span {
+        display: block;
       }
-      .sub-headline {
-        max-width: 24em;
-        font-size: var(--fz-subheading);
-        margin: 1rem 0 2rem;
-      }
+    }
+    .sub-headline {
+      max-width: 24em;
+      font-size: var(--fz-subheading);
+      margin: 1rem 0 2rem;
     }
   }
 
   .piano {
     position: absolute;
-    right: min(max(-400px, calc(30vw - 400px)), 200px);
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    --size: min(max(300px, 40vw), 570px);
-    --size: 500px;
+    left: 50%;
+    top: -1.5vh;
+    --size: max(300px, 40vw);
     width: var(--size);
     height: calc(var(--size) * 1.3);
     transform: rotate(24deg);
-    transform-origin: 20% 100%;
+    transform-origin: 60% 100%;
+    /* prevent low contrast when piano goes under text  */
+    filter: brightness(0.35);
     .lid,
     .bed {
       flex-shrink: 0;
@@ -87,15 +94,16 @@ const StyledMain = styled("section")`
     }
     .bed {
       width: 80%;
+      height: 60%;
       position: relative;
-      margin-top: -1rem;
+      margin-top: calc(-1 * 30%);
       left: 2rem;
       transform: rotate(-5deg);
     }
   }
-  @media (max-width: 1090px) {
+  @media (min-width: 1000px) {
     .piano {
-      filter: brightness(0.35);
+      filter: initial;
     }
   }
 `
@@ -106,30 +114,32 @@ const Main: React.FC<MainProps> = ({}) => {
   return (
     <StyledMain id="main">
       <Container>
-        <div className="main-content">
-          <header>
-            <h1>Sid Lee</h1>
-            <div className="intro">
-              <p className="headline heading-xl">
-                Hi! I am a <span>Web Developer</span>
-              </p>
-              <p className="sub-headline">
-                With a background in music and passion for creativity, I build
-                accessible and responsive web applications that offer great
-                value and experience to the user.
-              </p>
-              <SpringZoom>
-                <ButtonLink to="/#about" $size="lg">
-                  #Open to work!
-                </ButtonLink>
-              </SpringZoom>
+        <header>
+          <h1>Sid Lee</h1>
+          <div className="main-content">
+            <div className="main-content-inner">
+              <div className="intro">
+                <p className="headline heading-xl">
+                  Hi! I am a <span>Web Developer</span>
+                </p>
+                <p className="sub-headline">
+                  With a background in music and passion for creativity, I build
+                  accessible and responsive web applications that offer great
+                  value and experience to the user.
+                </p>
+                <SpringZoom>
+                  <ButtonLink to="/#about" $size="lg">
+                    #Open to work!
+                  </ButtonLink>
+                </SpringZoom>
+              </div>
+              <div className="piano">
+                <PianoLid className="lid" />
+                <PianoKeybed className="bed" />
+              </div>
             </div>
-          </header>
-          <div className="piano">
-            <PianoLid className="lid" />
-            <PianoKeybed className="bed" />
           </div>
-        </div>
+        </header>
       </Container>
     </StyledMain>
   )

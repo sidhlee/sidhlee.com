@@ -7,11 +7,11 @@ const getSize = (size: ButtonSize) => {
     case "sm":
       return "0.85rem"
     case "md":
-      return "var(--fz-button-md)"
+      return "var(--fz-body)"
     case "lg":
       return "var(--fz-subheading)"
     default:
-      return "var(--fz-button-md)"
+      return "var(--fz-body)"
   }
 }
 
