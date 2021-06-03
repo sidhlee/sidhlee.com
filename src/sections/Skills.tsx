@@ -13,12 +13,22 @@ const StyledSkills = styled("section")`
   background: var(--cl-skills);
 
   .skill-list {
+    margin: 0 auto;
     padding-top: var(--pt-section-content);
-    min-height: var(--min-height-section-content);
+    min-height: calc(
+      var(--min-height-section-content) - var(--pt-section-content)
+    );
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    justify-content: center;
     justify-items: center;
+    max-width: 90ch;
+
+    /* li:nth-child(2n) {
+      position: relative;
+      top: 1.5em;
+    } */
   }
 `
 
