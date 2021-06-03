@@ -35,7 +35,7 @@ const StyledAbout = styled("section")`
   }
 
   .about-text {
-    margin-top: 2rem;
+    margin-top: var(--mt-section-content);
     max-width: 30rem;
   }
 

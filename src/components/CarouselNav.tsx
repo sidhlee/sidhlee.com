@@ -1,10 +1,10 @@
 import styled from "styled-components"
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa"
 
-const StyledCarouselNav = styled("div")`
+const StyledCarouselNav = styled("nav")`
   position: relative;
   z-index: 500;
-  margin: 2rem auto 0;
+  margin: 1rem auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,7 +96,7 @@ const CarouselNav: React.FC<CarouselNavProps> = ({
     )
   })
   return (
-    <StyledCarouselNav>
+    <StyledCarouselNav className="CarouselNav">
       <button className="carousel-control prev-button" onClick={prev}>
         <FaCaretLeft aria-label="previous slide" />
       </button>

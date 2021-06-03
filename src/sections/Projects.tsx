@@ -12,17 +12,16 @@ const StyledProjects = styled("section")`
   background: var(--cl-projects);
   min-height: 100vh;
   .carousel {
-    width: 100%;
-    height: 59vh;
+    height: calc(100vh - 140px);
     margin-top: 2rem;
     position: relative;
   }
-  .slide-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+  .transition-wrapper {
+    position: relative;
     height: 100%;
+  }
+
+  .animated-div {
   }
 `
 
@@ -82,11 +81,18 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
     key: project.title,
     from: {
       // When you compare number with null, null is coerced into 0!
+      position: "absolute",
       transform: getTransform("from"),
+      height: "100%",
       opacity: 0,
     },
-    enter: { transform: `translate3d(0%,0,0)`, opacity: 1 },
+    enter: {
+      position: "absolute",
+      transform: `translate3d(0%,0,0)`,
+      opacity: 1,
+    },
     leave: {
+      position: "absolute",
       transform: getTransform("leave"),
       opacity: 0,
     },
@@ -97,13 +103,15 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
       <Container>
         <h2>Projects</h2>
         <div className="carousel">
-          {transition((style, project) => {
-            return (
-              <animated.div className="slide-container" style={style}>
-                <ProjectSlide project={project} style={style} />
-              </animated.div>
-            )
-          })}
+          <div className="transition-wrapper">
+            {transition((style, project) => {
+              return (
+                <animated.div className="animated-div" style={style as any}>
+                  <ProjectSlide project={project} style={style} />
+                </animated.div>
+              )
+            })}
+          </div>
         </div>
         <CarouselNav
           currentSlideIndex={currentSlideIndex}

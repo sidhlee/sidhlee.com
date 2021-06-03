@@ -7,11 +7,11 @@ const getSize = (size: ButtonSize) => {
     case "sm":
       return "0.85rem"
     case "md":
-      return "1rem"
+      return "var(--fz-button-md)"
     case "lg":
       return "var(--fz-subheading)"
     default:
-      return "1rem"
+      return "var(--fz-button-md)"
   }
 }
 
@@ -91,7 +91,7 @@ export const buttonCss = css<ButtonProps>`
   white-space: nowrap;
   margin: 0.5rem;
   /* box-shadow: 4px 4px 0 0 rgba(255, 255, 255, 0.7); */
-  transition: all 250ms ease;
+  transition: all 250ms ease;  
 
   svg {
       margin-right: 0.5em;
@@ -101,6 +101,10 @@ export const buttonCss = css<ButtonProps>`
   ${({ $theme }) => getButtonThemeCss($theme)}
 
   ${props => (props.$outline ? outlineCss : null)}  
+
+  @media(max-width: 500px) {
+    margin: .25em;
+  }
 `
 
 export const StyledButton = styled("button")<ButtonProps>`

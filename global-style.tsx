@@ -36,6 +36,7 @@ const globalStyle = css`
     --fz-xl: min(max(2.5rem, calc(15vw - 20px)), 4.25rem);
     --fz-h3: 1.7rem;
     --fz-subheading: min(max(1.1rem, 4vw), 1.2rem);
+    --fz-button-md: min(max(0.8rem, 3vw), 1rem);
 
     --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
@@ -44,7 +45,7 @@ const globalStyle = css`
     /* --py: Min(Max(var(--height-navbar), 5vw), 3rem); */
     --py: Min(Max(2rem, 6vw), 4rem);
     --max-width-container: 1700px;
-    --mt-section-content: min(max(1rem, 2vw), 2rem);
+    --mt-section-content: min(max(0.75rem, 2vw), 2rem);
 
     --z-navbar: 1000;
     --z-backdrop: 1200;
@@ -158,6 +159,12 @@ const globalStyle = css`
 
   .mt-3 {
     margin-top: 1em;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   @keyframes fade-in-up {

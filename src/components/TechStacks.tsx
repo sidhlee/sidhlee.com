@@ -3,14 +3,14 @@ import styled from "styled-components"
 const StyledTechStacks = styled("ul")`
   display: flex;
   flex-wrap: wrap;
-  margin: 1em;
+  margin: 0.5em;
   margin-left: -0.25em;
   .tech-item {
     background: var(--cl-about);
     padding: 0.25em 0.5em;
     margin: 0.25em;
     font-family: var(--ff-heading);
-    font-size: 0.8rem;
+    font-size: min(max(0.6rem, 4vw), 0.8rem);
     border-radius: var(--border-radius);
   }
 `

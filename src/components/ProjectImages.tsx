@@ -6,8 +6,7 @@ import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 const StyledProjectImages = styled("div")`
   display: flex;
   align-items: center;
-  width: 65%;
-  margin-left: 2rem;
+  width: 100%;
 
   .mobile {
     width: 25%;
@@ -34,7 +33,7 @@ const ProjectImages: React.FC<ProjectImagesProps> = ({
   const desktopGatsbyImage = getImage(desktopImage) as IGatsbyImageData
   const mobileGatsbyImage = getImage(mobileImage) as IGatsbyImageData
   return (
-    <StyledProjectImages>
+    <StyledProjectImages className="ProjectImages">
       <div className="mobile">
         <GatsbyImage
           image={mobileGatsbyImage}
