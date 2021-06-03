@@ -171,6 +171,10 @@ const globalStyle = css`
     align-items: center;
   }
 
+  .nowrap {
+    white-space: nowrap;
+  }
+
   @keyframes fade-in-up {
     // TODO: is "blinking" potential accessibility issue?
     0% {
