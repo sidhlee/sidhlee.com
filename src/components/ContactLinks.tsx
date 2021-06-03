@@ -45,7 +45,9 @@ const StyledContactLinks = styled("div")`
   .calendly {
     display: flex;
     flex-direction: column;
-    max-width: 380px;
+    /* a {
+      max-width: 380px;
+    } */
     // spring wrapper
     div {
       width: 100%;
@@ -92,6 +94,15 @@ const StyledContactLinks = styled("div")`
         svg {
           fill: rgba(255, 255, 255, 1);
         }
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 30%;
+    .connect-list {
+      .connect-item {
+        max-width: initial;
       }
     }
   }

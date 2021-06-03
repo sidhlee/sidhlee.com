@@ -101,7 +101,7 @@ const ContactForm: React.FC<ContactFormProps> = ({}) => {
             Message
           </label>
         </div>
-        <textarea id="name" rows="10" placeholder="Hi Sid 👋, I am ..." />
+        <textarea id="name" rows={10} placeholder="Hi Sid 👋, I am ..." />
         <Button type="submit">Send</Button>
       </form>
     </StyledContactForm>

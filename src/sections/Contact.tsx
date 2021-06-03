@@ -23,7 +23,7 @@ const StyledContact = styled("section")`
     /* iPad pro 12inch */
     @media (min-width: 1024px) {
       flex-direction: row;
-      max-width: 1100px;
+      max-width: 78vw;
       > *:first-child {
         margin-right: 3rem;
       }
