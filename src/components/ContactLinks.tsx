@@ -20,16 +20,24 @@ const StyledContactLinks = styled("div")`
     margin-bottom: 0.5em;
   }
 
+  .contact-modal-wrapper {
+    position: relative;
+  }
+
   .contact-image {
     position: relative;
-    width: 40vw;
-    height: 40vw;
+    width: 50vw;
+    height: 50vw;
     max-width: 170px;
     max-height: 170px;
     .gatsby-image-wrapper {
-      position: relative;
+      width: 80%;
+      height: 80%;
+      margin-left: 25%;
+
+      /* position: relative;
       left: 25%;
-      bottom: 25%;
+      bottom: 25%; */
       img {
         z-index: 100;
       }
@@ -38,8 +46,8 @@ const StyledContactLinks = styled("div")`
       position: absolute;
       left: 0;
       bottom: 0;
-      width: 90%;
-      height: 90%;
+      width: 80%;
+      height: 80%;
     }
   }
   .calendly {
@@ -82,7 +90,7 @@ const StyledContactLinks = styled("div")`
         width: 100%;
         height: 100%;
         fill: rgba(255, 255, 255, 0.7);
-        transition: fill 250ms ease;
+        transition: all 250ms ease;
       }
 
       transition: all 250ms ease;
@@ -93,7 +101,14 @@ const StyledContactLinks = styled("div")`
         }
         svg {
           fill: rgba(255, 255, 255, 1);
+          transform: scale(1.05);
         }
+        /* &.github {
+          svg {
+            fill: black;
+            background: white;
+          }
+        } */
       }
     }
   }
@@ -113,12 +128,14 @@ type ContactLinksProps = {}
 const ContactLinks: React.FC<ContactLinksProps> = ({}) => {
   return (
     <StyledContactLinks>
-      <div className="contact-image">
-        <StaticImage
-          src="../images/sid-big-smile.png"
-          alt="Sid looking really happy with a sandwich in his hand"
-        />
-        <Square className="square" />
+      <div className="contact-modal-wrapper">
+        <div className="contact-image">
+          <StaticImage
+            src="../images/sid-big-smile.png"
+            alt="Sid looking really happy with a sandwich in his hand"
+          />
+          <Square className="square" />
+        </div>
       </div>
 
       <div className="calendly">
@@ -142,12 +159,12 @@ const ContactLinks: React.FC<ContactLinksProps> = ({}) => {
               <FaLinkedin aria-label="LinkedIn" />
             </a>
           </li>
-          <li className="connect-item">
+          <li className="connect-item github">
             <a href="https://github.com/sidhlee/" target="_blank">
               <FaGithubSquare aria-label="GitHub" />
             </a>
           </li>
-          <li className="connect-item">
+          <li className="connect-item twitter">
             <a href="https://twitter.com/sidhlee" target="_blank">
               <FaTwitterSquare aria-label="Twitter" />
             </a>
