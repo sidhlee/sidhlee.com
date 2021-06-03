@@ -9,7 +9,7 @@ const StyledAbout = styled("section")`
   min-height: 100vh;
 
   .about-content {
-    min-height: var(--section-content-min-height);
+    min-height: var(--min-height-section-content);
     display: flex;
     flex-direction: column;
     justify-content: center;

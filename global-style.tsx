@@ -49,9 +49,9 @@ const globalStyle = css`
     --py: Min(Max(2rem, 6vw), 4rem);
     --max-width-container: 1700px;
     --pt-section-content: max(0.75rem, 4vh);
-    /* --px-section-content: min(max(0rem, 3vw), 2rem); */
+    --px-section-content: min(max(0rem, 3vw), 2rem);
     --section-header-height: calc(var(--py) + calc(1.25 * var(--fz-xl)));
-    --section-content-min-height: calc(100vh - var(--section-header-height));
+    --min-height-section-content: calc(100vh - var(--section-header-height));
 
     --z-navbar: 1000;
     --z-backdrop: 1200;

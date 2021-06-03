@@ -7,15 +7,23 @@ const StyledProjectImages = styled("div")`
   display: flex;
   align-items: center;
   width: 100%;
+  height: 100%;
+  .gatsby-image-wrapper {
+    height: 100%;
+  }
 
   .mobile {
     width: 25%;
+    height: 70%;
     z-index: 50;
-    margin-right: -20%;
-    margin-top: 10%;
+    position: relative;
+    left: 15%;
+    /* top: 10%; */
   }
   .desktop {
+    height: 100%;
     width: 100%;
+    margin-bottom: 10%;
   }
 `
 

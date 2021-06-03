@@ -23,7 +23,7 @@ const StyledMain = styled("section")`
 
   .main-content {
     width: 100%;
-    min-height: var(--section-content-min-height);
+    min-height: var(--min-height-section-content);
     // can't use padding to align vertically because piano is absolute against the container border, not padding
     display: flex;
     align-items: center;
