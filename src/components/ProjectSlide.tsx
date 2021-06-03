@@ -11,11 +11,15 @@ import { animated, useSpring } from "react-spring"
 const StyledProjectSlide = styled("article")`
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+  }
 
   /* left: 3%; */
 
@@ -30,7 +34,7 @@ const StyledProjectSlide = styled("article")`
       margin-right: 2rem;
     }
 
-    button {
+    .description-toggler {
       color: var(--text-main);
       padding: 0.25em 1.5em;
       background: rgba(0, 0, 0, 0.8);
@@ -64,6 +68,10 @@ const StyledProjectSlide = styled("article")`
 
       margin-bottom: 1em;
       background: rgba(0, 0, 0, 0.88);
+
+      p {
+        max-width: 25rem;
+      }
     }
 
     .mobile-image-container {
@@ -80,6 +88,46 @@ const StyledProjectSlide = styled("article")`
   .project-links {
     margin-left: -0.5rem;
     display: flex;
+  }
+
+  .desktop-image-container {
+    display: none;
+  }
+
+  @media (min-width: 930px) {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+
+    /*  Hide mobile-only elements & show desktop-only elements */
+    .description-toggler,
+    .mobile-image-container {
+      display: none;
+    }
+    .desktop-image-container {
+      display: block;
+    }
+
+    .col {
+      justify-content: flex-start;
+      margin-right: 2rem;
+    }
+
+    .project-body {
+      height: auto;
+      .description {
+        position: relative;
+        top: 0;
+        width: 100%;
+        height: auto;
+        opacity: 1 !important; // override react-spring value
+        padding: 0;
+        background: transparent;
+        p {
+          transform: initial !important; // override react-spring value
+        }
+      }
+    }
   }
 `
 
@@ -122,46 +170,59 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project }) => {
 
   return (
     <StyledProjectSlide>
-      <header className="project-header">
-        <GatsbyImage
-          className="logo"
-          image={logoGatsbyImage}
-          alt={title}
-          objectFit="contain"
-        />
-        <button onClick={() => setImageShown(v => !v)}>
-          {imageShown ? "about" : "close"}
-        </button>
-      </header>
-
-      <div className="project-body">
-        <TechStacks technologies={technologies} />
-        <animated.div
-          className="description"
-          style={{
-            opacity: x.to(x => 1 - x),
-          }}
-          onClick={() => setImageShown(true)}
-        >
-          <animated.p style={{ y }}>{description}</animated.p>
-        </animated.div>
-        <div className="mobile-image-container">
-          <ProjectImages
-            title={title}
-            mobileImage={mobileImage}
-            desktopImage={desktopImage}
+      <div className="col">
+        <header className="project-header">
+          <GatsbyImage
+            className="logo"
+            image={logoGatsbyImage}
+            alt={title}
+            objectFit="contain"
           />
+          <button
+            className="description-toggler"
+            onClick={() => setImageShown(v => !v)}
+          >
+            {imageShown ? "about" : "close"}
+          </button>
+        </header>
+
+        <div className="project-body">
+          <TechStacks technologies={technologies} />
+          <animated.div
+            className="description"
+            style={{
+              opacity: x.to(x => 1 - x),
+            }}
+            onClick={() => setImageShown(true)}
+          >
+            <animated.p style={{ y }}>{description}</animated.p>
+          </animated.div>
+          <div className="mobile-image-container">
+            <ProjectImages
+              title={title}
+              mobileImage={mobileImage}
+              desktopImage={desktopImage}
+            />
+          </div>
+        </div>
+
+        <div className="project-links">
+          <ButtonLink href={liveUrl} $theme="main">
+            View Live
+          </ButtonLink>
+          <ButtonLink href={githubUrl} $theme="skills">
+            <FaGithub />
+            <span>GitHub</span>
+          </ButtonLink>
         </div>
       </div>
 
-      <div className="project-links">
-        <ButtonLink href={liveUrl} $theme="main">
-          View Live
-        </ButtonLink>
-        <ButtonLink href={githubUrl} $theme="skills">
-          <FaGithub />
-          <span>GitHub</span>
-        </ButtonLink>
+      <div className="desktop-image-container">
+        <ProjectImages
+          title={title}
+          mobileImage={mobileImage}
+          desktopImage={desktopImage}
+        />
       </div>
     </StyledProjectSlide>
   )

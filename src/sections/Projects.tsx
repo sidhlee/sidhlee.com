@@ -22,6 +22,17 @@ const StyledProjects = styled("section")`
   }
 
   .animated-div {
+    display: flex;
+    align-items: center;
+  }
+
+  @media (min-width: 930px) {
+    .carousel {
+      height: calc(100vh - 240px);
+    }
+    .CarouselNav {
+      margin-top: 1rem;
+    }
   }
 `
 
