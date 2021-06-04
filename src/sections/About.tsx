@@ -24,8 +24,8 @@ const StyledAbout = styled("section")`
       width: 50%;
       max-width: 200px;
       position: relative;
-      left: 20%;
-      bottom: 5%;
+      left: 25vw;
+      bottom: 7vh;
 
       img {
         height: auto;
