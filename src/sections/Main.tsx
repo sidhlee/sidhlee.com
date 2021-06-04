@@ -94,7 +94,7 @@ const StyledMain = styled("section")`
     position: absolute;
     left: 50%;
     top: -7vh;
-    --size: max(300px, 40vw);
+    --size: max(300px, 65vh);
     width: var(--size);
     height: calc(var(--size) * 1.3);
     transform: rotate(24deg);
@@ -120,9 +120,6 @@ const StyledMain = styled("section")`
     }
   }
 
-  .float {
-    animation: float 3s alternate ease-in-out infinite;
-  }
   @media (min-width: 1000px) {
     .piano {
       filter: initial;

@@ -46,7 +46,7 @@ const globalStyle = css`
     --height-navbar: 4em;
     --px: Min(Max(0.5rem, 6vw), 4rem);
     /* --py: Min(Max(var(--height-navbar), 5vw), 3rem); */
-    --py: Min(Max(2rem, 6vw), 4rem);
+    --py: Min(Max(2rem, 5vh), 4rem);
     --max-width-container: 1700px;
     --pt-section-content: max(0.75rem, 4vh);
     --px-section-content: min(max(0rem, 3vw), 2rem);
@@ -83,6 +83,7 @@ const globalStyle = css`
     color: var(--text-main);
     font-family: var(--ff-body);
     font-size: var(--fz-body);
+    min-height: -webkit-fill-available;
   }
 
   p {
@@ -210,8 +211,8 @@ const globalStyle = css`
     }
 
     50% {
-      transform: scale(0.99);
-      opacity: 0.85;
+      transform: scale(0.98);
+      opacity: 0.8;
     }
 
     100% {
@@ -221,7 +222,7 @@ const globalStyle = css`
   }
 
   .float {
-    animation: float 2.75s alternate ease-in-out infinite;
+    animation: float 2.25s alternate ease-in-out infinite;
   }
 `
 

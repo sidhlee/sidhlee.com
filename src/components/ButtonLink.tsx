@@ -69,7 +69,6 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({
   }))
 
   const handleMouseEnter = () => {
-    console.log("enter")
     api.start({
       scaleX: 1,
       scale: 1.05,
