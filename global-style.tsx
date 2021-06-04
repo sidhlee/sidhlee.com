@@ -202,6 +202,27 @@ const globalStyle = css`
       opacity: 1;
     }
   }
+
+  @keyframes float {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    50% {
+      transform: scale(0.99);
+      opacity: 0.85;
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .float {
+    animation: float 2.75s alternate ease-in-out infinite;
+  }
 `
 
 export default createGlobalStyle`

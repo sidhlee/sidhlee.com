@@ -119,6 +119,10 @@ const StyledMain = styled("section")`
       transform: rotate(-5deg);
     }
   }
+
+  .float {
+    animation: float 3s alternate ease-in-out infinite;
+  }
   @media (min-width: 1000px) {
     .piano {
       filter: initial;
@@ -173,8 +177,10 @@ const Main: React.FC<MainProps> = ({}) => {
                       ...flyingPianoStyles,
                     }}
                   >
-                    <PianoLid className="lid" />
-                    <PianoKeybed className="bed" />
+                    <div className="float">
+                      <PianoLid className="lid" />
+                      <PianoKeybed className="bed" />
+                    </div>
                   </animated.div>
                 </div>
               </animated.div>
