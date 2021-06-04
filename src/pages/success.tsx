@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const StyledSuccess = styled("div")`
-  min-height: calc(100vh - 2rem);
+  min-height: calc(100vh);
   display: flex;
   flex-direction: column;
   justify-content: center;
