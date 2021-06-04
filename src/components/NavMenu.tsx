@@ -22,6 +22,11 @@ const StyledNavMenu = styled(animated.aside)`
   /* justify-content: flex-end; */
   align-items: flex-end;
   text-align: right;
+  .logo {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
   --fz: min(max(1.8rem, calc(3vw + 3vh)), 3.5rem);
   nav {
     ul {
@@ -92,6 +97,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ isOpen, close }) => {
   return (
     <>
       <StyledNavMenu style={styles} onClick={close}>
+        <span className="heading-xl logo">Sid Lee</span>
         <nav>
           <NavLinks />
         </nav>

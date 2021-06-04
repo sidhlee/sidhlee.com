@@ -1,6 +1,6 @@
 ---
 title: NodeChat
-logoImage: ""
+logoImage: "../images/project/nodechat-logo.png"
 technologies: [Node.js, Express, Socket.io]
 desktopImage: "../images/project/nodechat-desktop.png"
 mobileImage: "../images/project/nodechat-mobile.png"
