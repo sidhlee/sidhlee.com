@@ -90,6 +90,10 @@ You can easily generate types for your graphql queries with [GraphQL Code Genera
 Having the same image name (icon.png) inside all markdown files did not work.
 I had to rename all the image files with non-repeating name.
 
+## gatsby-plugin-scroll-reveal breaks your Netlify deployment
+
+So stay away from it (until further notice)
+
 ## References
 
 - [React 17 new JSX Transform: ReferenceError: React is not defined](https://github.com/gatsbyjs/gatsby/issues/28657)
