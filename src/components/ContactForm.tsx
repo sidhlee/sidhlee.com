@@ -37,6 +37,7 @@ const StyledContactForm = styled("div")`
     }
 
     button {
+      margin-top: 0.5rem;
       align-self: flex-end;
       margin-right: 0;
       transition: all 250ms ease;
