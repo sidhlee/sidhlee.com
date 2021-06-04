@@ -174,12 +174,16 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project }) => {
     <StyledProjectSlide>
       <div className="col">
         <header className="project-header">
-          <GatsbyImage
-            className="logo"
-            image={logoGatsbyImage}
-            alt={title}
-            objectFit="contain"
-          />
+          {logoImage ? (
+            <GatsbyImage
+              className="logo"
+              image={logoGatsbyImage}
+              alt={title}
+              objectFit="contain"
+            />
+          ) : (
+            <h3>{title}</h3>
+          )}
           <button
             className="description-toggler"
             onClick={() => setDescriptionHidden(v => !v)}

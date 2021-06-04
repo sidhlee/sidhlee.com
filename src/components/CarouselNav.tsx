@@ -68,6 +68,7 @@ const StyledCarouselNav = styled("nav")`
 
 type CarouselNavProps = {
   currentSlideIndex: number
+  numberOfSlides: number
   next: () => void
   prev: () => void
   navigateTo: (slideIndex: number) => void
@@ -75,11 +76,12 @@ type CarouselNavProps = {
 
 const CarouselNav: React.FC<CarouselNavProps> = ({
   currentSlideIndex,
+  numberOfSlides,
   next,
   prev,
   navigateTo,
 }) => {
-  const navButtons = [...Array(3)].map((_, i) => {
+  const navButtons = [...Array(numberOfSlides)].map((_, i) => {
     const active = currentSlideIndex === i
     return (
       <li key={i}>

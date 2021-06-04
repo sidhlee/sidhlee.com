@@ -131,6 +131,7 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
           </div>
           <CarouselNav
             currentSlideIndex={currentSlideIndex}
+            numberOfSlides={projects.length}
             next={showNext}
             prev={showPrev}
             navigateTo={navigateTo}
