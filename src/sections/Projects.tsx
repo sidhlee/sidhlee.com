@@ -90,15 +90,6 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
     navigateTo,
   } = useCarousel(projects.length)
 
-  // useEffect(() => {
-  //   if (isPlaying) {
-  //     const id = setTimeout(() => {
-  //       showNext()
-  //     }, 5000)
-  //     return () => clearTimeout(id)
-  //   }
-  // }, [])
-
   const project = projects[currentSlideIndex] as Project
 
   const transition = useTransition(project, {
@@ -140,6 +131,7 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
           </div>
           <CarouselNav
             currentSlideIndex={currentSlideIndex}
+            numberOfSlides={projects.length}
             next={showNext}
             prev={showPrev}
             navigateTo={navigateTo}

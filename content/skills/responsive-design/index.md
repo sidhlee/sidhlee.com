@@ -2,7 +2,7 @@
 title: Responsive Design
 related skills: [CSS, Sass]
 related projects: []
-icon: "./icon.png"
+icon: "./responsive-design.png"
 brandColor:
 tags: [responsive-design, mobile-first, css, sass]
 sortIndex: 240

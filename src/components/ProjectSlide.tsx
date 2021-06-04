@@ -161,30 +161,34 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project }) => {
     githubUrl,
   } = project
 
-  const [imageShown, setImageShown] = useState(true)
+  const [descriptionHidden, setDescriptionHidden] = useState(true)
 
   const logoGatsbyImage = getImage(logoImage) as IGatsbyImageData
 
   const { x, y } = useSpring({
-    x: imageShown ? 1 : 0,
-    y: imageShown ? "20%" : "0%",
+    x: descriptionHidden ? 1 : 0,
+    y: descriptionHidden ? "20%" : "0%",
   })
 
   return (
     <StyledProjectSlide>
       <div className="col">
         <header className="project-header">
-          <GatsbyImage
-            className="logo"
-            image={logoGatsbyImage}
-            alt={title}
-            objectFit="contain"
-          />
+          {logoImage ? (
+            <GatsbyImage
+              className="logo"
+              image={logoGatsbyImage}
+              alt={title}
+              objectFit="contain"
+            />
+          ) : (
+            <h3>{title}</h3>
+          )}
           <button
             className="description-toggler"
-            onClick={() => setImageShown(v => !v)}
+            onClick={() => setDescriptionHidden(v => !v)}
           >
-            {imageShown ? "about" : "close"}
+            {descriptionHidden ? "about" : "close"}
           </button>
         </header>
 
@@ -195,7 +199,7 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project }) => {
             style={{
               opacity: x.to(x => 1 - x),
             }}
-            onClick={() => setImageShown(true)}
+            onClick={() => setDescriptionHidden(true)}
           >
             <animated.p style={{ y }}>{description}</animated.p>
           </animated.div>

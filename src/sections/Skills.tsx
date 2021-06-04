@@ -4,9 +4,7 @@ import styled from "styled-components"
 import Container from "../components/Container"
 import Skill from "../components/Skill"
 import { File, MarkdownRemarkFrontmatter, SkillsQuery } from "../graphqlTypes"
-import { useTransition, animated } from "react-spring"
 import SkillModal from "../components/SkillModal"
-import Backdrop from "../components/Backdrop"
 
 const StyledSkills = styled("section")`
   min-height: 100vh;
@@ -60,7 +58,7 @@ const Skills: React.FC<SkillsProps> = ({}) => {
     return {
       title: title || "",
       relatedSkills: related_skills || [],
-      icon: icon as File,
+      icon: icon,
       brandColor: brandColor || "",
       tags: tags || [],
       excerpt: excerpt || "",
@@ -118,7 +116,7 @@ const Skills: React.FC<SkillsProps> = ({}) => {
       <>
         <SkillModal
           title={title}
-          icon={icon}
+          icon={icon as any}
           excerpt={excerpt}
           relatedSkills={relatedSkills as string[]}
           tags={tags as string[]}
@@ -127,7 +125,6 @@ const Skills: React.FC<SkillsProps> = ({}) => {
           selectCurrentSkill={selectCurrentSkill}
           availableSkills={availableSkills}
         />
-        <Backdrop isOpen={skillModalOpen} close={closeModal} />
       </>
     </>
   )

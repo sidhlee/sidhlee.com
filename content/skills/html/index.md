@@ -2,7 +2,7 @@
 title: HTML
 related skills: [A11y, React]
 related projects: []
-icon: "./icon.png"
+icon: "./html.png"
 brandColor: "#E44D26"
 tags: ["a11y", "semantic", "WCAG", "AODA", "ADA"]
 sortIndex: 10

@@ -2,7 +2,7 @@
 title: GitHub Collaboration
 related skills: [React, Git, CSS]
 related projects: []
-icon: "./icon.png"
+icon: "./github-collaboration.png"
 brandColor:
 tags: ["react", "JavaScript", "ES6", "Framework", "Frontend", "git", "github"]
 sortIndex: 230

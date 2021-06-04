@@ -2,7 +2,7 @@
 title: OOP
 related skills: [JavaScript, ES6, Python, TypeScript, Babel]
 related projects: []
-icon: "./icon.png"
+icon: "./oop.png"
 brandColor:
 tags: [oop, javascript, typescript, babel]
 sortIndex: 190

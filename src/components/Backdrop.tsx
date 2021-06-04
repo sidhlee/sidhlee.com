@@ -6,7 +6,7 @@ const StyledBackdrop = styled("div")<{ $isOpen: boolean }>`
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   z-index: var(--z-backdrop);
   transition: opacity 250ms ease;
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};

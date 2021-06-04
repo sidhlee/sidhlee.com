@@ -3,6 +3,7 @@ import styled from "styled-components"
 import ButtonLink from "../components/ButtonLink"
 import Container from "../components/Container"
 import Square from "../images/square.svg"
+import resumeFile from "../download/sid-lee-resume.pdf"
 
 const StyledAbout = styled("section")`
   background: var(--cl-about);
@@ -14,7 +15,7 @@ const StyledAbout = styled("section")`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: calc(-0.5 * var(--section-header-height));
+
     .about-image {
       order: 2;
       justify-self: center;
@@ -23,8 +24,8 @@ const StyledAbout = styled("section")`
       width: 50%;
       max-width: 200px;
       position: relative;
-      left: 20%;
-      bottom: 5%;
+      left: 25vw;
+      bottom: 7vh;
 
       img {
         height: auto;
@@ -100,7 +101,7 @@ const About: React.FC<AboutProps> = ({}) => {
               <strong>problem solving techniques</strong> for unique challenges.
             </p>
             <div className="about-links">
-              <ButtonLink to="#" $theme="projects">
+              <ButtonLink href={resumeFile} download $theme="projects">
                 View Resume
               </ButtonLink>
               {/* <ButtonLink

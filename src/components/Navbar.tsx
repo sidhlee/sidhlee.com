@@ -1,22 +1,27 @@
-import { Link } from "gatsby"
 import styled from "styled-components"
-import { useLocation } from "@reach/router"
 import { mq } from "../../global-style"
+import NavLinks from "./NavLinks"
 
 const StyledNavbar = styled("nav")`
   position: fixed;
   z-index: var(--z-navbar);
   top: 0;
   width: 100%;
-  height: var(--height-navbar);
-  padding-bottom: 1em;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-
   background: var(--cl-main);
   background: transparent;
+
+  ul {
+    height: var(--height-navbar);
+    padding-bottom: 1em;
+    display: none;
+    justify-content: flex-end;
+    align-items: flex-end;
+    li {
+    }
+  }
+
   a {
+    position: relative;
     margin-right: 2em;
     text-transform: uppercase;
     transition: all 300ms ease;
@@ -60,35 +65,19 @@ const StyledNavbar = styled("nav")`
     }
   }
 
-  @media (max-width: 1130px) {
-    display: none;
+  @media (min-width: ${mq.desktop}px) {
+    ul {
+      display: flex;
+    }
   }
 `
 
 type NavbarProps = {}
 
 const Navbar: React.FC<NavbarProps> = ({}) => {
-  const { hash } = useLocation()
-  console.log(hash)
-  const checkActive = (match: string) => (hash === match ? "active" : "")
-
   return (
     <StyledNavbar>
-      <Link to="/#main" className={checkActive("#main")}>
-        <span className="link-text">Home</span>
-      </Link>
-      <Link to="/#about" className={checkActive("#about")}>
-        <span className="link-text">About</span>
-      </Link>
-      <Link to="/#projects" className={checkActive("#projects")}>
-        <span className="link-text">Projects</span>
-      </Link>
-      <Link to="/#skills" className={checkActive("#skills")}>
-        <span className="link-text">Skills</span>
-      </Link>
-      <Link to="/#contact" className={checkActive("#contact")}>
-        <span className="link-text">Contact</span>
-      </Link>
+      <NavLinks />
     </StyledNavbar>
   )
 }

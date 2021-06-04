@@ -2,7 +2,7 @@
 title: TDD
 related skills: [Unit Testing, JavaScript, React]
 related projects: []
-icon: "./icon.png"
+icon: "./tdd.png"
 brandColor:
 tags: [testing, TDD, unit-testing, test-driven-development]
 sortIndex: 160

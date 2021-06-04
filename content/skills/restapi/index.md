@@ -2,7 +2,7 @@
 title: Rest API
 related skills: [JavaScript, jQuery, React, Firebase, MongoDB, Express]
 related projects: []
-icon: "./icon.png"
+icon: "./restapi.png"
 brandColor:
 tags: [RestAPI, JavaScript]
 sortIndex: 210
