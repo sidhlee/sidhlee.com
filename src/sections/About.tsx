@@ -3,6 +3,7 @@ import styled from "styled-components"
 import ButtonLink from "../components/ButtonLink"
 import Container from "../components/Container"
 import Square from "../images/square.svg"
+import resumeFile from "../download/sid-lee-resume.pdf"
 
 const StyledAbout = styled("section")`
   background: var(--cl-about);
@@ -100,7 +101,7 @@ const About: React.FC<AboutProps> = ({}) => {
               <strong>problem solving techniques</strong> for unique challenges.
             </p>
             <div className="about-links">
-              <ButtonLink to="#" $theme="projects">
+              <ButtonLink href={resumeFile} download $theme="projects">
                 View Resume
               </ButtonLink>
               {/* <ButtonLink

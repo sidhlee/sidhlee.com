@@ -45,6 +45,7 @@ const StyledLink = styled(Link)`
 interface ButtonLinkProps extends ButtonProps {
   to?: string
   href?: string
+  download?: boolean
 }
 
 const ButtonLink: React.FC<ButtonLinkProps> = ({
@@ -55,6 +56,7 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({
   $outline,
   $size,
   $theme,
+  download,
 }) => {
   const [{ scale, scaleX, transformOrigin }, api] = useSpring(() => ({
     scaleX: 0,
@@ -107,6 +109,7 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({
         href={href}
         target="_blank"
         rel="noreferrer"
+        download={download}
         $outline={$outline}
         $size={$size}
         $theme={$theme}
