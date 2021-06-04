@@ -85,6 +85,11 @@ You can easily generate types for your graphql queries with [GraphQL Code Genera
    npm run generate
    ```
 
+### Gatsby filesystem don't handle files with the same name
+
+Having the same image name (icon.png) inside all markdown files did not work.
+I had to rename all the image files with non-repeating name.
+
 ## References
 
 - [React 17 new JSX Transform: ReferenceError: React is not defined](https://github.com/gatsbyjs/gatsby/issues/28657)

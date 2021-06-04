@@ -2,7 +2,7 @@
 title: JavaScript
 related skills: [React, Node, Express, Gatsby, Next.js, Redux]
 related projects: []
-icon: "./icon.png"
+icon: "./javascript.png"
 brandColor: "#FFCA28"
 tags: ["JavaScript", "ES6", "language"]
 sortIndex: 40

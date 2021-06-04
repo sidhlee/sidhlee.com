@@ -1,9 +1,9 @@
-import { getImage, StaticImage } from "gatsby-plugin-image"
+import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
-import { useSpring, animated, useTransition } from "react-spring"
-import { File } from "../graphqlTypes"
+import { animated, useTransition } from "react-spring"
 import { FaTimes } from "react-icons/fa"
 import Backdrop from "./Backdrop"
+import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 
 const StyledSkillModal = styled(animated.article)<{ $isOpen: boolean }>`
   width: 90%;
@@ -22,8 +22,13 @@ const StyledSkillModal = styled(animated.article)<{ $isOpen: boolean }>`
 
   background: var(--cl-projects);
 
-  /* opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
-  display: ${({ $isOpen }) => ($isOpen ? "block" : "none")}; */
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      margin-right: 1em;
+    }
+  }
 
   .close-btn {
     position: absolute;
@@ -37,14 +42,23 @@ const StyledSkillModal = styled(animated.article)<{ $isOpen: boolean }>`
     margin-bottom: 1rem;
   }
 
-  ul {
+  header {
     display: flex;
-    flex-wrap: wrap;
-    li {
-      margin-right: 1em;
+    align-items: flex-end;
+    .icon-img {
+      width: 60px;
+      margin-right: 0.5rem;
     }
   }
+
+  .modal-body {
+    p {
+      margin-bottom: 2rem;
+    }
+  }
+
   .related-skills {
+    margin-top: 0.5rem;
     li {
       margin: 0.25em;
       font-size: 0.95rem;
@@ -69,7 +83,7 @@ type SkillModalProps = {
   excerpt: string
   relatedSkills: string[]
   tags: string[]
-  icon: File
+  icon: FileNode
   isOpen: boolean
   availableSkills: string[]
   close: () => void
@@ -106,6 +120,8 @@ const SkillModal: React.FC<SkillModalProps> = ({
     expires: 300,
   })
 
+  const skillLogoImage = getImage(icon)
+
   return (
     <>
       {transitions(
@@ -116,8 +132,13 @@ const SkillModal: React.FC<SkillModalProps> = ({
                 <FaTimes role="img" aria-label="close" />
               </button>
               <header>
+                <GatsbyImage
+                  className="icon-img"
+                  image={skillLogoImage as any}
+                  alt={title}
+                />
+
                 <h3>{title}</h3>
-                {/* <StaticImage src={""} alt={title} /> */}
               </header>
               <div className="modal-body">
                 <p>{excerpt}</p>

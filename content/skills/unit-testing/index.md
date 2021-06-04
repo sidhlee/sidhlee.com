@@ -2,7 +2,7 @@
 title: Unit Testing
 related skills: [Jest, TDD]
 related projects: []
-icon: "./icon.png"
+icon: "./unit-testing.png"
 brandColor:
 tags: [unit-testing, testing, tdd]
 sortIndex: 170

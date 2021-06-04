@@ -2,7 +2,7 @@
 title: Firebase
 related skills: [JavaScript, React, RestAPI, Backend]
 related projects: []
-icon: "./icon.png"
+icon: "./firebase.png"
 brandColor: "#FCCA3F"
 tags: [Firebase, Google, database, cloud]
 sortIndex: 110

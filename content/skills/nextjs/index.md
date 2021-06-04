@@ -2,7 +2,7 @@
 title: Next.js
 related skills: [React, Gatsby, JavaScript, TypeScript]
 related projects: []
-icon: "./icon.png"
+icon: "./nextjs.png"
 brandColor:
 tags: ["react", "JavaScript", "ES6", "Framework", "Frontend"]
 sortIndex: 80

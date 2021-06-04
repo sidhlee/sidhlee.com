@@ -22,7 +22,7 @@ const StyledNavMenu = styled(animated.aside)`
   /* justify-content: flex-end; */
   align-items: flex-end;
   text-align: right;
-  --fz: min(max(1.8rem, calc(4vw + 3vh)), 3.5rem);
+  --fz: min(max(1.8rem, calc(3vw + 3vh)), 3.5rem);
   nav {
     ul {
       height: 40vh;

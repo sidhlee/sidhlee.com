@@ -58,7 +58,7 @@ const Skills: React.FC<SkillsProps> = ({}) => {
     return {
       title: title || "",
       relatedSkills: related_skills || [],
-      icon: icon as File,
+      icon: icon,
       brandColor: brandColor || "",
       tags: tags || [],
       excerpt: excerpt || "",
@@ -116,7 +116,7 @@ const Skills: React.FC<SkillsProps> = ({}) => {
       <>
         <SkillModal
           title={title}
-          icon={icon}
+          icon={icon as any}
           excerpt={excerpt}
           relatedSkills={relatedSkills as string[]}
           tags={tags as string[]}
