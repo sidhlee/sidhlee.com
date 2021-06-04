@@ -78,8 +78,8 @@ const StyledContactLinks = styled("div")`
     /* justify-content: space-between; */
 
     .connect-item {
-      width: 18%;
-      max-width: 55px;
+      width: 24%;
+      max-width: 60px;
       height: auto;
       &:not(:last-child) {
         margin-right: 1em;
@@ -197,14 +197,14 @@ const ContactLinks: React.FC<ContactLinksProps> = ({}) => {
               <FaEnvelopeSquare aria-label="Email" />
             </button>
           </li>
-          <li className="connect-item">
+          {/* <li className="connect-item">
             <button
               type="button"
               onClick={() => setPanelType(t => (t === "phone" ? "" : "phone"))}
             >
               <FaPhoneSquare aria-label="Phone" />
             </button>
-          </li>
+          </li> */}
         </ul>
       </div>
     </StyledContactLinks>
