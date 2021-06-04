@@ -1,9 +1,11 @@
 import { getImage, StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
+import { useSpring, animated, useTransition } from "react-spring"
 import { File } from "../graphqlTypes"
 import { FaTimes } from "react-icons/fa"
+import Backdrop from "./Backdrop"
 
-const StyledSkillModal = styled("article")<{ $isOpen: boolean }>`
+const StyledSkillModal = styled(animated.article)<{ $isOpen: boolean }>`
   width: 90%;
   max-width: 500px;
   max-height: 90vh;
@@ -20,8 +22,8 @@ const StyledSkillModal = styled("article")<{ $isOpen: boolean }>`
 
   background: var(--cl-projects);
 
-  opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
-  display: ${({ $isOpen }) => ($isOpen ? "block" : "none")};
+  /* opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
+  display: ${({ $isOpen }) => ($isOpen ? "block" : "none")}; */
 
   .close-btn {
     position: absolute;
@@ -44,7 +46,8 @@ const StyledSkillModal = styled("article")<{ $isOpen: boolean }>`
   }
   .related-skills {
     li {
-      margin: 2px;
+      margin: 0.25em;
+      font-size: 0.95rem;
       button {
         padding: 0.25em 0.5em;
         border-radius: var(--border-radius);
@@ -84,36 +87,67 @@ const SkillModal: React.FC<SkillModalProps> = ({
   close,
   selectCurrentSkill,
 }) => {
+  const transitions = useTransition(isOpen, {
+    from: {
+      opacity: 0,
+      transform: "translate(-80%, -50%)",
+    },
+    enter: {
+      opacity: 1,
+      transform: "translate(-50%, -50%)",
+    },
+    leave: {
+      opacity: 0,
+      transform: "translate(-20%, -50%)",
+      config: {
+        tension: 200,
+      },
+    },
+    expires: 300,
+  })
+
   return (
-    <StyledSkillModal $isOpen={isOpen}>
-      <button className="close-btn" onClick={close}>
-        <FaTimes role="img" aria-label="close" />
-      </button>
-      <header>
-        <h3>{title}</h3>
-        {/* <StaticImage src={""} alt={title} /> */}
-      </header>
-      <div className="modal-body">
-        <p>{excerpt}</p>
-        <ul className="related-skills">
-          {relatedSkills.map(skill => {
-            const isSkillAvailable = availableSkills.includes(skill)
-            return (
-              <li key={skill} className={isSkillAvailable ? "available" : ""}>
-                <button onClick={() => selectCurrentSkill(skill)}>
-                  {skill}
-                </button>
-              </li>
-            )
-          })}
-        </ul>
-        <ul className="tags">
-          {tags.map(tag => (
-            <li key={tag}>#{tag}</li>
-          ))}
-        </ul>
-      </div>
-    </StyledSkillModal>
+    <>
+      {transitions(
+        (styles, item) =>
+          item && (
+            <StyledSkillModal style={styles} $isOpen={isOpen}>
+              <button className="close-btn" onClick={close}>
+                <FaTimes role="img" aria-label="close" />
+              </button>
+              <header>
+                <h3>{title}</h3>
+                {/* <StaticImage src={""} alt={title} /> */}
+              </header>
+              <div className="modal-body">
+                <p>{excerpt}</p>
+                <h4>Related Skills</h4>
+                <ul className="related-skills">
+                  {relatedSkills.map(skill => {
+                    const isSkillAvailable = availableSkills.includes(skill)
+                    return (
+                      <li
+                        key={skill}
+                        className={isSkillAvailable ? "available" : ""}
+                      >
+                        <button onClick={() => selectCurrentSkill(skill)}>
+                          {skill}
+                        </button>
+                      </li>
+                    )
+                  })}
+                </ul>
+                <ul className="tags">
+                  {tags.map(tag => (
+                    <li key={tag}>#{tag}</li>
+                  ))}
+                </ul>
+              </div>
+            </StyledSkillModal>
+          )
+      )}
+      <Backdrop isOpen={isOpen} close={close} />
+    </>
   )
 }
 
