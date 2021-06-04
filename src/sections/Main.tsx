@@ -1,3 +1,4 @@
+import { useRef } from "react"
 import styled from "styled-components"
 import PianoLid from "../images/piano-lid.svg"
 import PianoKeybed from "../images/piano-keybed.svg"
@@ -5,13 +6,26 @@ import Container from "../components/Container"
 import ButtonLink from "../components/ButtonLink"
 import SpringZoom from "../springs/SpringZoom"
 
+import { animated, to } from "@react-spring/web"
+
+import useMainChain from "../springs/useMainChain"
+import useFlyingPiano from "../springs/useFlyingPiano"
+
 // TODO: fix vertical scroll in main section
 const StyledMain = styled("section")`
   // Take mobile UI (keyboard/safari control bar) into account when calculating 100vh
   // https://css-tricks.com/css-fix-for-100vh-in-mobile-webkit/
   min-height: 100vh;
+  position: relative;
 
-  background-color: var(--cl-main);
+  .main-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cl-main);
+  }
 
   .grid {
     /* min-height: calc(100vh - var(--py) - var(--height-navbar)); */
@@ -32,10 +46,12 @@ const StyledMain = styled("section")`
   .main-content-inner {
     width: 100%;
     position: relative;
-    bottom: 10vh;
+    /* bottom: 10vh; */
   }
 
   header {
+    position: relative;
+    z-index: 1;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -74,9 +90,10 @@ const StyledMain = styled("section")`
   }
 
   .piano {
+    cursor: grab;
     position: absolute;
     left: 50%;
-    top: -1.5vh;
+    top: -7vh;
     --size: max(300px, 40vw);
     width: var(--size);
     height: calc(var(--size) * 1.3);
@@ -84,6 +101,7 @@ const StyledMain = styled("section")`
     transform-origin: 60% 100%;
     /* prevent low contrast when piano goes under text  */
     filter: brightness(0.35);
+
     .lid,
     .bed {
       flex-shrink: 0;
@@ -96,7 +114,7 @@ const StyledMain = styled("section")`
       width: 80%;
       height: 60%;
       position: relative;
-      margin-top: calc(-1 * 30%);
+      /* margin-top: calc(-1 * 20%); */
       left: 2rem;
       transform: rotate(-5deg);
     }
@@ -111,14 +129,24 @@ const StyledMain = styled("section")`
 type MainProps = {}
 
 const Main: React.FC<MainProps> = ({}) => {
+  const {
+    h1Styles,
+    introStyles,
+    bgStyles,
+    buttonStyles,
+    pianoStyles,
+  } = useMainChain()
+
+  const { bind, flyingPianoStyles } = useFlyingPiano()
+
   return (
     <StyledMain id="main">
       <Container>
         <header>
-          <h1>Sid Lee</h1>
+          <animated.h1 style={h1Styles}>Sid Lee</animated.h1>
           <div className="main-content">
             <div className="main-content-inner">
-              <div className="intro">
+              <animated.div className="intro" style={introStyles}>
                 <p className="headline heading-xl">
                   Hi! I am a <span>Web Developer</span>
                 </p>
@@ -127,20 +155,34 @@ const Main: React.FC<MainProps> = ({}) => {
                   accessible and responsive web applications that offer great
                   value and experience to the user.
                 </p>
-                <SpringZoom>
-                  <ButtonLink to="/#about" $size="lg">
-                    #Open to work!
-                  </ButtonLink>
-                </SpringZoom>
-              </div>
-              <div className="piano">
-                <PianoLid className="lid" />
-                <PianoKeybed className="bed" />
-              </div>
+                <animated.div style={buttonStyles}>
+                  <SpringZoom>
+                    <ButtonLink to="/#about" $size="lg">
+                      #Open to work!
+                    </ButtonLink>
+                  </SpringZoom>
+                </animated.div>
+              </animated.div>
+
+              <animated.div style={pianoStyles}>
+                <div className="piano">
+                  <animated.div
+                    {...bind()}
+                    style={{
+                      transform: "perspective(600px)",
+                      ...flyingPianoStyles,
+                    }}
+                  >
+                    <PianoLid className="lid" />
+                    <PianoKeybed className="bed" />
+                  </animated.div>
+                </div>
+              </animated.div>
             </div>
           </div>
         </header>
       </Container>
+      <animated.div className="main-bg" style={bgStyles}></animated.div>
     </StyledMain>
   )
 }
