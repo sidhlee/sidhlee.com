@@ -110,6 +110,7 @@ const ContactForm: React.FC<ContactFormProps> = ({}) => {
           </label>
           <input
             id="name"
+            name="name"
             type="text"
             placeholder="You name"
             required
@@ -121,6 +122,7 @@ const ContactForm: React.FC<ContactFormProps> = ({}) => {
           </label>
           <input
             id="email"
+            name="email"
             type="email"
             placeholder="Email"
             value={email}
@@ -133,6 +135,7 @@ const ContactForm: React.FC<ContactFormProps> = ({}) => {
         </label>
         <textarea
           id="message"
+          name="message"
           rows={10}
           placeholder="Hi Sid 👋, I am ..."
           value={message}
