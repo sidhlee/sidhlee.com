@@ -75,7 +75,12 @@ const About: React.FC<AboutProps> = ({}) => {
       <Container>
         <h2>About</h2>
         <div className="about-content">
-          <div className="about-image">
+          <div
+            className="about-image"
+            data-sal="fade"
+            data-sal-duration="1000"
+            data-sal-delay="300"
+          >
             <StaticImage
               src="../images/headshot1-bw.png"
               alt="Sid smiling"
@@ -84,14 +89,19 @@ const About: React.FC<AboutProps> = ({}) => {
             <Square className="square" />
           </div>
           <div className="about-text">
-            <p className="heading-sm">
+            <p
+              className="heading-sm"
+              data-sal="slide-left"
+              data-sal-duration="500"
+              data-sal-delay="500"
+            >
               Hi{" "}
               <span role="img" aria-label="hand-wave">
                 👋
               </span>
               , my name is Sid Hayoun Lee
             </p>
-            <p className="text-lg mt-3">
+            <p className="text-lg mt-3" data-sal="slide-up">
               I'm a web developer whose passion is to build accessible and
               responsive user experience using front-end and full stack
               technologies. <wbr></wbr>With a background in teaching university

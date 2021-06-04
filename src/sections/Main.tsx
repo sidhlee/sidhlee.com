@@ -90,6 +90,7 @@ const StyledMain = styled("section")`
   }
 
   .piano {
+    cursor: grab;
     position: absolute;
     left: 50%;
     top: -7vh;
