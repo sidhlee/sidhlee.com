@@ -86,7 +86,6 @@ const Skills: React.FC<SkillsProps> = ({}) => {
   }
 
   const selectCurrentSkill = (skillTitle: string) => {
-    console.log({ skillTitle })
     const index = skills.findIndex(skill => skill.title === skillTitle)
     if (index >= 0) {
       setCurrentSkillTitle(skillTitle)

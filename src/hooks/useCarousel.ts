@@ -98,11 +98,6 @@ const useCarousel = (slidesLength: number) => {
     const navigatedToRight = currentSlideIndex > prevSlideIndex
     const navigatedToLeft = currentSlideIndex < prevSlideIndex
 
-    // console.log({
-    //   currentSlideIndex,
-    //   prevSlideIndex,
-    // })
-
     if (nextButtonClicked || navigatedToRight)
       return `translate3d(${phase === "from" ? "100%" : "-100%"},0,0)`
     if (prevButtonClicked || navigatedToLeft)

@@ -21,8 +21,17 @@ const StyledContactPanel = styled(animated.div)`
 
   .close-btn {
     position: absolute;
-    top: 0.5em;
-    right: 0.5em;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    svg {
+      transition: all 200ms ease;
+      opacity: 0.8;
+      &:hover {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
   }
 
   p {

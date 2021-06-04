@@ -9,6 +9,12 @@ const StyledAbout = styled("section")`
   background: var(--cl-about);
   min-height: 100vh;
 
+  /* pull buttons front! */
+  a {
+    position: relative;
+    z-index: 1;
+  }
+
   .about-content {
     min-height: var(--min-height-section-content);
     display: flex;
@@ -25,7 +31,7 @@ const StyledAbout = styled("section")`
       max-width: 200px;
       position: relative;
       left: 25vw;
-      bottom: 7vh;
+      bottom: 5vh;
 
       img {
         height: auto;
@@ -34,9 +40,10 @@ const StyledAbout = styled("section")`
       .square {
         position: absolute;
         width: 100%;
-        height: fit-content;
+        /* Behaves differently on Firefox vs Chrome */
+        /* height: fit-content; */
         left: -30%;
-        bottom: -15%;
+        bottom: -50%;
       }
     }
 
@@ -62,6 +69,14 @@ const StyledAbout = styled("section")`
         margin-right: 5vw;
         top: 10vh;
         left: 0;
+        .square {
+          position: absolute;
+          width: 100%;
+          /* Behaves differently on Firefox vs Chrome */
+          /* height: fit-content; */
+          left: -30%;
+          bottom: -20%;
+        }
       }
     }
   }
