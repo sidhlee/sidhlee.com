@@ -91,7 +91,6 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
   } = useCarousel(projects.length)
 
   const project = projects[currentSlideIndex] as Project
-  console.log(project)
 
   const transition = useTransition(project, {
     key: project.title,
