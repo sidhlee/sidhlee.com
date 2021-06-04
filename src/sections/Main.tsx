@@ -1,3 +1,4 @@
+import { useRef } from "react"
 import styled from "styled-components"
 import PianoLid from "../images/piano-lid.svg"
 import PianoKeybed from "../images/piano-keybed.svg"
@@ -5,8 +6,10 @@ import Container from "../components/Container"
 import ButtonLink from "../components/ButtonLink"
 import SpringZoom from "../springs/SpringZoom"
 
-import { animated } from "@react-spring/web"
+import { animated, to } from "@react-spring/web"
+
 import useMainChain from "../springs/useMainChain"
+import useFlyingPiano from "../springs/useFlyingPiano"
 
 // TODO: fix vertical scroll in main section
 const StyledMain = styled("section")`
@@ -86,41 +89,6 @@ const StyledMain = styled("section")`
     }
   }
 
-  @keyframes piano {
-    0% {
-      transform: rotate(22deg) scale(1);
-    }
-    25% {
-      transform: rotate(24deg) scale(0.98);
-    }
-    50% {
-      transform: rotate(25deg) scale(0.97);
-    }
-    75% {
-      transform: rotate(26deg) scale(0.98);
-    }
-    100% {
-      transform: rotate(24deg) scale(0.99);
-    }
-  }
-  @keyframes bed {
-    0% {
-      transform: rotate(-5deg) scale(1);
-    }
-    25% {
-      transform: rotate(-3deg) scale(0.98);
-    }
-    50% {
-      transform: rotate(-4eg) scale(0.97);
-    }
-    75% {
-      transform: rotate(-7deg) scale(0.98);
-    }
-    100% {
-      transform: rotate(-6deg) scale(0.99);
-    }
-  }
-
   .piano {
     position: absolute;
     left: 50%;
@@ -132,7 +100,7 @@ const StyledMain = styled("section")`
     transform-origin: 60% 100%;
     /* prevent low contrast when piano goes under text  */
     filter: brightness(0.35);
-    /* animation: piano 7s alternate infinite linear; */
+
     .lid,
     .bed {
       flex-shrink: 0;
@@ -145,10 +113,9 @@ const StyledMain = styled("section")`
       width: 80%;
       height: 60%;
       position: relative;
-      margin-top: calc(-1 * 30%);
+      /* margin-top: calc(-1 * 20%); */
       left: 2rem;
       transform: rotate(-5deg);
-      /* animation: bed 5s alternate infinite ease; */
     }
   }
   @media (min-width: 1000px) {
@@ -168,6 +135,8 @@ const Main: React.FC<MainProps> = ({}) => {
     buttonStyles,
     pianoStyles,
   } = useMainChain()
+
+  const { bind, flyingPianoStyles } = useFlyingPiano()
 
   return (
     <StyledMain id="main">
@@ -196,8 +165,16 @@ const Main: React.FC<MainProps> = ({}) => {
 
               <animated.div style={pianoStyles}>
                 <div className="piano">
-                  <PianoLid className="lid" />
-                  <PianoKeybed className="bed" />
+                  <animated.div
+                    {...bind()}
+                    style={{
+                      transform: "perspective(600px)",
+                      ...flyingPianoStyles,
+                    }}
+                  >
+                    <PianoLid className="lid" />
+                    <PianoKeybed className="bed" />
+                  </animated.div>
                 </div>
               </animated.div>
             </div>
