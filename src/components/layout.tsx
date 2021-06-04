@@ -23,7 +23,7 @@ const StyledLayout = styled.div`
   position: relative;
 
   footer {
-    padding-bottom: 1em;
+    padding: 1em;
     text-align: center;
     width: 100%;
     background-color: var(--cl-main);

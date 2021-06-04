@@ -81,7 +81,7 @@ const About: React.FC<AboutProps> = ({}) => {
               alt="Sid smiling"
               objectFit="contain"
             />
-            <Square className="square" />
+            <Square className="square float" />
           </div>
           <div className="about-text">
             <p className="heading-sm">

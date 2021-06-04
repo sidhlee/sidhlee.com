@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import ButtonLink from "../components/ButtonLink"
+import Container from "../components/Container"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
@@ -9,8 +10,11 @@ const StyledSuccess = styled("div")`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  div {
+  text-align: center;
+  .back-to-main {
     margin-top: 2rem;
+    display: flex;
+    justify-content: center;
   }
 `
 
@@ -21,18 +25,23 @@ const success: React.FC<successProps> = ({}) => {
     <Layout>
       <Seo title="success" />
       <StyledSuccess>
-        <h1>
-          Thank You!{" "}
-          <span role="img" aria-label="party">
-            🎉
-          </span>
-        </h1>
-        <p>
-          Your message has been successfully sent. I will get back to you ASAP!
-        </p>
-        <div>
-          <ButtonLink to="/">Back To Main</ButtonLink>
-        </div>
+        <Container>
+          <h1>
+            Thank You!{" "}
+            <span role="img" aria-label="party">
+              🎉
+            </span>
+          </h1>
+          <p>
+            Your message has been successfully sent. <br /> I will get back to
+            you ASAP!
+          </p>
+          <div className="back-to-main">
+            <ButtonLink to="/" $theme="main">
+              Back To Main
+            </ButtonLink>
+          </div>
+        </Container>
       </StyledSuccess>
     </Layout>
   )
