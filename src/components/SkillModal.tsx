@@ -91,7 +91,7 @@ const SkillModal: React.FC<SkillModalProps> = ({
       </button>
       <header>
         <h3>{title}</h3>
-        <StaticImage src={""} alt={title} />
+        {/* <StaticImage src={""} alt={title} /> */}
       </header>
       <div className="modal-body">
         <p>{excerpt}</p>

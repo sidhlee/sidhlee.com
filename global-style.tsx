@@ -3,7 +3,7 @@ import { createGlobalStyle, css } from "styled-components"
 export const mq = {
   landscape: 500,
   tablet: 700,
-  desktop: 1440,
+  desktop: 1130,
   wide: 1600,
 }
 
@@ -55,7 +55,9 @@ const globalStyle = css`
 
     --z-navbar: 1000;
     --z-backdrop: 1200;
+    --z-nav-menu: 1300;
     --z-modal: 1500;
+    --z-menu-button: 1400;
 
     --timing-spring: cubic-bezier(0.17, 0.67, 0.37, 1.14);
   }

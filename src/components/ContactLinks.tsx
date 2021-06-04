@@ -148,7 +148,7 @@ const ContactLinks: React.FC<ContactLinksProps> = ({}) => {
     <StyledContactLinks>
       <div className="contact-panel-wrapper">
         {/* // force rerender on panelType change */}
-        <ContactPanel key={panelType} type={panelType} close={closePanel} />
+        <ContactPanel type={panelType} close={closePanel} />
         <div className="contact-image">
           <StaticImage
             src="../images/sid-big-smile.png"

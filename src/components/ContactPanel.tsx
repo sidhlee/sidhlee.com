@@ -1,10 +1,10 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import styled from "styled-components"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import { FaTimes } from "react-icons/fa"
-import { useTransition, animated } from "react-spring"
+import { useTransition, animated, useSpring } from "react-spring"
 
-const StyledContactPanel = styled("div")`
+const StyledContactPanel = styled(animated.div)`
   position: absolute;
   z-index: 500;
 
@@ -47,8 +47,6 @@ const StyledContactPanel = styled("div")`
   }
 `
 
-const AnimatedStyledContactPanel = animated(StyledContactPanel)
-
 type ContactPanelProps = {
   type: "email" | "phone" | ""
   close: () => void
@@ -56,29 +54,21 @@ type ContactPanelProps = {
 
 const ContactPanel: React.FC<ContactPanelProps> = ({ type, close }) => {
   const [isCopied, setIsCopied] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
-  const isOpen = type !== ""
+  useEffect(() => {
+    setIsOpen(type !== "")
+    setIsCopied(false)
+  }, [type])
 
-  const transition = useTransition(isOpen, {
-    key: isOpen,
-    from: {
-      scale: 0,
-      opacity: 0,
-    },
-    enter: {
-      scale: 1,
-      opacity: 1,
-    },
-    leave: {
-      scale: 0,
-      opacity: 0,
-    },
+  const styles = useSpring({
+    opacity: isOpen ? 1 : 0,
+    scale: isOpen ? 1 : 0,
     config: {
       mass: 0.7,
       friction: 18,
       tension: 200,
     },
-    expires: 0,
   })
 
   const content =
@@ -101,7 +91,9 @@ const ContactPanel: React.FC<ContactPanelProps> = ({ type, close }) => {
       </div>
     ) : (
       <div>
-        <p>Sid Lee Web Developer: 1-647-617-5998</p>
+        <p>
+          Sid Lee Web Developer: <span className="nowrap">1-647-617-5998</span>{" "}
+        </p>
         <div className="buttons">
           <CopyToClipboard
             text="Sid Lee Web Developer: 1-647-617-5998"
@@ -115,17 +107,14 @@ const ContactPanel: React.FC<ContactPanelProps> = ({ type, close }) => {
       </div>
     )
 
-  // TODO: fix leave transition not working
-  return transition((styles, isOpen) => {
-    return isOpen ? (
-      <AnimatedStyledContactPanel style={styles}>
-        <button className="close-btn" onClick={close}>
-          <FaTimes role="img" aria-label="close" />
-        </button>
-        {content}
-      </AnimatedStyledContactPanel>
-    ) : null
-  })
+  return (
+    <StyledContactPanel style={styles}>
+      <button className="close-btn" onClick={close}>
+        <FaTimes role="img" aria-label="close" />
+      </button>
+      {content}
+    </StyledContactPanel>
+  )
 }
 
 export default ContactPanel
