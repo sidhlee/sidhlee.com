@@ -97,7 +97,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ isOpen, close }) => {
   return (
     <>
       <StyledNavMenu style={styles} onClick={close}>
-        <span className="heading-xl logo">Sid Lee</span>
+        <span className="heading-xl logo">SHL</span>
         <nav>
           <NavLinks />
         </nav>

@@ -32,7 +32,7 @@ const StyledMain = styled("section")`
   .main-content-inner {
     width: 100%;
     position: relative;
-    bottom: 10vh;
+    /* bottom: 10vh; */
   }
 
   header {
