@@ -39,7 +39,7 @@ const globalStyle = css`
     --fz-subheading: max(1.05rem, 1.75vw);
     --fz-button-md: min(max(0.8rem, 3vw), 1rem);
     --fz-skill: max(1.2rem, calc(1.2vw + 1rem));
-    --fz-body: max(0.9rem, 1.5vw);
+    --fz-body: max(1rem, 1.5vw);
 
     --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
