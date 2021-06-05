@@ -1,6 +1,6 @@
 import { useChain, useSpring, useSpringRef } from "react-spring"
 
-export default function useMainChain() {
+export default function useHeaderChain() {
   const h1Ref = useSpringRef()
   const h1Styles = useSpring({
     ref: h1Ref,

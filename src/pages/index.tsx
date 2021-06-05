@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import Main from "../sections/Main"
+import Header from "../sections/Header"
 import About from "../sections/About"
 import Projects from "../sections/Projects"
 import Skills from "../sections/Skills"
@@ -22,7 +22,7 @@ const IndexPage: React.FC = () => {
           isMenuOpen={isMenuOpen}
           toggleMenu={() => setIsMenuOpen(v => !v)}
         />
-        <Main />
+        <Header />
         <main>
           <About />
           <Projects />
