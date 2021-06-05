@@ -9,7 +9,7 @@ const NavLinks: React.FC<NavLinksProps> = ({}) => {
   return (
     <ul>
       <li>
-        <Link to="/#main" className={checkActive("#main")}>
+        <Link to="/" className={checkActive("")}>
           <span className="link-text">Home</span>
         </Link>
       </li>

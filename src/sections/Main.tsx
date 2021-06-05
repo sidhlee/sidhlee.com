@@ -141,7 +141,7 @@ const Main: React.FC<MainProps> = ({}) => {
   const { bind, flyingPianoStyles } = useFlyingPiano()
 
   return (
-    <StyledMain id="main">
+    <StyledMain>
       <Container>
         <header>
           <animated.h1 style={h1Styles}>Sid Lee</animated.h1>
