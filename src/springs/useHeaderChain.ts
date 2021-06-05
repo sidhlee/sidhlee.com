@@ -79,10 +79,7 @@ export default function useHeaderChain() {
     },
   })
 
-  useChain(
-    [h1Ref, introRef, bgRef, buttonRef, pianoRef],
-    [0.5, 0.7, 1.2, 1.6, 2]
-  )
+  useChain([h1Ref, introRef, bgRef, buttonRef, pianoRef], [0.5, 0.7, 1, 1.5, 2])
 
   return {
     h1Styles,
