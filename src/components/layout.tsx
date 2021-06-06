@@ -12,7 +12,8 @@ import Helmet from "react-helmet"
 import styled from "styled-components"
 
 const StyledLayout = styled.div`
-  overflow-x: hidden;
+  // https://github.com/civiccc/react-waypoint/issues/275
+  /* overflow-x: hidden; */
   /* scroll-snap-type: y proximity;
   height: 100vh;
   overflow-y: scroll;

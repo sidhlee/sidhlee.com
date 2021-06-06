@@ -1,6 +1,6 @@
 import { useChain, useSpring, useSpringRef } from "react-spring"
 
-export default function useMainChain() {
+export default function useHeaderChain() {
   const h1Ref = useSpringRef()
   const h1Styles = useSpring({
     ref: h1Ref,
@@ -79,10 +79,7 @@ export default function useMainChain() {
     },
   })
 
-  useChain(
-    [h1Ref, introRef, bgRef, buttonRef, pianoRef],
-    [0.5, 0.7, 1.2, 1.6, 2]
-  )
+  useChain([h1Ref, introRef, bgRef, buttonRef, pianoRef], [0.5, 0.7, 1, 1.5, 2])
 
   return {
     h1Styles,

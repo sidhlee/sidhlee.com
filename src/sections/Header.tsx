@@ -1,24 +1,22 @@
-import { useRef } from "react"
 import styled from "styled-components"
 import PianoLid from "../images/piano-lid.svg"
 import PianoKeybed from "../images/piano-keybed.svg"
 import Container from "../components/Container"
 import ButtonLink from "../components/ButtonLink"
 import SpringZoom from "../springs/SpringZoom"
-
-import { animated, to } from "@react-spring/web"
-
-import useMainChain from "../springs/useMainChain"
+import { animated } from "@react-spring/web"
+import useHeaderChain from "../springs/useHeaderChain"
 import useFlyingPiano from "../springs/useFlyingPiano"
+import useDevRole from "../springs/useDevRole"
 
-// TODO: fix vertical scroll in main section
-const StyledMain = styled("section")`
+const StyledHeader = styled("section")`
   // Take mobile UI (keyboard/safari control bar) into account when calculating 100vh
   // https://css-tricks.com/css-fix-for-100vh-in-mobile-webkit/
   min-height: 100vh;
   position: relative;
+  overflow: hidden;
 
-  .main-bg {
+  .Header-bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -35,7 +33,7 @@ const StyledMain = styled("section")`
     /* grid-template-rows: minmax(1rem, 4rem) auto; */
   }
 
-  .main-content {
+  .Header-content {
     width: 100%;
     min-height: var(--min-height-section-content);
     // can't use padding to align vertically because piano is absolute against the container border, not padding
@@ -43,7 +41,7 @@ const StyledMain = styled("section")`
     align-items: center;
   }
 
-  .main-content-inner {
+  .Header-content-inner {
     width: 100%;
     position: relative;
     /* bottom: 10vh; */
@@ -76,6 +74,14 @@ const StyledMain = styled("section")`
 
     padding-top: var(--pt-section-content);
     margin-left: min(max(0px, 2vw), 2rem);
+    .dev-role {
+      position: relative;
+      height: 1.3em;
+      .role {
+        display: block; // enable translate
+        position: absolute;
+      }
+    }
     .headline {
       line-height: 1.2;
       span {
@@ -127,29 +133,32 @@ const StyledMain = styled("section")`
   }
 `
 
-type MainProps = {}
+type HeaderProps = {}
 
-const Main: React.FC<MainProps> = ({}) => {
+const Header: React.FC<HeaderProps> = ({}) => {
   const {
     h1Styles,
     introStyles,
     bgStyles,
     buttonStyles,
     pianoStyles,
-  } = useMainChain()
+  } = useHeaderChain()
 
   const { bind, flyingPianoStyles } = useFlyingPiano()
 
+  const role = useDevRole()
+
   return (
-    <StyledMain id="main">
+    <StyledHeader>
       <Container>
         <header>
           <animated.h1 style={h1Styles}>Sid Lee</animated.h1>
-          <div className="main-content">
-            <div className="main-content-inner">
+          <div className="Header-content">
+            <div className="Header-content-inner">
               <animated.div className="intro" style={introStyles}>
                 <p className="headline heading-xl">
-                  Hi! I am a <span>Web Developer</span>
+                  <span className="dev-role">{role}</span>
+                  <span>Web Developer</span>
                 </p>
                 <p className="sub-headline">
                   With a background in music and passion for creativity, I build
@@ -185,9 +194,9 @@ const Main: React.FC<MainProps> = ({}) => {
           </div>
         </header>
       </Container>
-      <animated.div className="main-bg" style={bgStyles}></animated.div>
-    </StyledMain>
+      <animated.div className="Header-bg" style={bgStyles}></animated.div>
+    </StyledHeader>
   )
 }
 
-export default Main
+export default Header

@@ -1,13 +1,13 @@
 import styled from "styled-components"
+import { useSpring, animated } from "@react-spring/web"
 import { mq } from "../../global-style"
-import NavLinks from "./NavLinks"
+import useScroll from "../hooks/useScroll"
 
-const StyledNavbar = styled("nav")`
+const StyledNavbar = styled(animated.nav)`
   position: fixed;
   z-index: var(--z-navbar);
   top: 0;
   width: 100%;
-  background: var(--cl-main);
   background: transparent;
 
   ul {
@@ -16,8 +16,6 @@ const StyledNavbar = styled("nav")`
     display: none;
     justify-content: flex-end;
     align-items: flex-end;
-    li {
-    }
   }
 
   a {
@@ -74,12 +72,17 @@ const StyledNavbar = styled("nav")`
 
 type NavbarProps = {}
 
-const Navbar: React.FC<NavbarProps> = ({}) => {
-  return (
-    <StyledNavbar>
-      <NavLinks />
-    </StyledNavbar>
-  )
+const Navbar: React.FC<NavbarProps> = ({ children }) => {
+  const beingScrolled = useScroll()
+
+  const styles = useSpring({
+    opacity: beingScrolled ? 0 : 1,
+    config: {
+      friction: 27,
+    },
+  })
+
+  return <StyledNavbar style={styles}>{children}</StyledNavbar>
 }
 
 export default Navbar
