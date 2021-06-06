@@ -112,7 +112,7 @@ const useCarousel = (slidesLength: number) => {
     return "translate3d(0,0,0)"
   }
 
-  const bindCarousel = useDrag(
+  const bindDrag = useDrag(
     state => {
       const {
         swipe: [swipeX],
@@ -146,7 +146,7 @@ const useCarousel = (slidesLength: number) => {
     playCarousel,
     navigateTo,
     getTransform,
-    bindCarousel,
+    bindDrag,
   }
 }
 
