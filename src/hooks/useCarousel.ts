@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useContext } from "react"
+import { useReducer } from "react"
 
 type State = {
   currentSlideIndex: number
