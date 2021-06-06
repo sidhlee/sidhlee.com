@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Waypoint } from "react-waypoint"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Header from "../sections/Header"

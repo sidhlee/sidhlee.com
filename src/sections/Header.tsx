@@ -10,12 +10,12 @@ import { animated } from "@react-spring/web"
 import useHeaderChain from "../springs/useHeaderChain"
 import useFlyingPiano from "../springs/useFlyingPiano"
 
-// TODO: fix vertical scroll in Header section
 const StyledHeader = styled("section")`
   // Take mobile UI (keyboard/safari control bar) into account when calculating 100vh
   // https://css-tricks.com/css-fix-for-100vh-in-mobile-webkit/
   min-height: 100vh;
   position: relative;
+  overflow: hidden;
 
   .Header-bg {
     position: absolute;
