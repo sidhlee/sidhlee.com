@@ -94,6 +94,25 @@ I had to rename all the image files with non-repeating name.
 
 React-waypoint will not work properly inside an element with `overflow-x: hidden`.
 
+### Gatsby development server not available from other devices
+
+[GitHub Issue](https://github.com/gatsbyjs/gatsby/issues/5801)
+Add `-H 0.0.0.0` option to npm develop script to allow it.
+
+```json
+{
+  "scripts": {
+    "develop": "gatsby develop -H 0.0.0.0"
+  }
+}
+```
+
+then
+
+```bash
+npm run develop
+```
+
 ## gatsby-plugin-scroll-reveal breaks your Netlify deployment
 
 So stay away from it (until further notice)

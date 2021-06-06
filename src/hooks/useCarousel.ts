@@ -1,4 +1,5 @@
 import { useReducer } from "react"
+import { useDrag, useGesture } from "react-use-gesture"
 
 type State = {
   currentSlideIndex: number
@@ -106,6 +107,29 @@ const useCarousel = (slidesLength: number) => {
     return "translate3d(0,0,0)"
   }
 
+  const bindCarousel = useDrag(
+    state => {
+      const {
+        swipe: [swipeX],
+      } = state
+
+      if (swipeX === 1) {
+        showPrev()
+        return
+      }
+
+      if (swipeX === -1) {
+        showNext()
+        return
+      }
+    },
+    {
+      experimental_preventWindowScrollY: true,
+      useTouch: true,
+      swipeDistance: 30,
+    }
+  )
+
   return {
     currentSlideIndex,
     prevSlideIndex,
@@ -117,6 +141,7 @@ const useCarousel = (slidesLength: number) => {
     playCarousel,
     navigateTo,
     getTransform,
+    bindCarousel,
   }
 }
 

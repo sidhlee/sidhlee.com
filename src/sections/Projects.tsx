@@ -89,6 +89,7 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
     showNext,
     showPrev,
     navigateTo,
+    bindCarousel,
   } = useCarousel(projects.length)
 
   const project = projects[currentSlideIndex] as Project
@@ -119,7 +120,7 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
       <Container>
         <h2>Projects</h2>
         <div className="projects-content">
-          <div className="carousel">
+          <div {...bindCarousel()} className="carousel">
             <div className="transition-wrapper">
               {transition((style, project) => {
                 return (
