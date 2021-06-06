@@ -1,8 +1,7 @@
-import { useSpring } from "@react-spring/core"
+import { useTransition } from "@react-spring/core"
 import { animated } from "@react-spring/web"
 import styled from "styled-components"
 import Backdrop from "./Backdrop"
-import NavLinks from "./NavLinks"
 import GitHubIcon from "../images/icon-github.svg"
 import LinkedInIcon from "../images/icon-linkedin.svg"
 import TwitterIcon from "../images/icon-twitter.svg"
@@ -84,42 +83,58 @@ type NavMenuProps = {
 }
 
 const NavMenu: React.FC<NavMenuProps> = ({ isOpen, children, close }) => {
-  const styles = useSpring({
-    opacity: isOpen ? 1 : 0,
-    x: isOpen ? "0%" : "100%",
-    delay: isOpen ? 140 : 0,
+  const transitions = useTransition(isOpen, {
+    from: {
+      opacity: 0,
+      x: "50%",
+    },
+    enter: {
+      opacity: 1,
+      x: "0%",
+      delay: 200,
+    },
+    leave: {
+      opacity: 0,
+      x: "50%",
+    },
     config: {
       mass: 1,
       friction: 25,
       tension: 220,
     },
   })
+
   return (
     <>
-      <StyledNavMenu style={styles} onClick={close}>
-        <span className="heading-xl logo">SHL</span>
-        <nav>{children}</nav>
-        <ul className="social-icons">
-          <li className="connect-item linkedin">
-            <a
-              href="https://www.linkedin.com/in/sid-hayoun-lee/"
-              target="_blank"
-            >
-              <LinkedInIcon aria-label="LinkedIn" />
-            </a>
-          </li>
-          <li className="connect-item twitter">
-            <a href="https://twitter.com/sidhlee" target="_blank">
-              <TwitterIcon aria-label="Twitter" />
-            </a>
-          </li>
-          <li className="connect-item github">
-            <a href="https://github.com/sidhlee/" target="_blank">
-              <GitHubIcon aria-label="GitHub" />
-            </a>
-          </li>
-        </ul>
-      </StyledNavMenu>
+      {transitions(
+        (styles, item) =>
+          item && (
+            <StyledNavMenu style={styles} onClick={close}>
+              <span className="heading-xl logo">SHL</span>
+              <nav>{children}</nav>
+              <ul className="social-icons">
+                <li className="connect-item linkedin">
+                  <a
+                    href="https://www.linkedin.com/in/sid-hayoun-lee/"
+                    target="_blank"
+                  >
+                    <LinkedInIcon aria-label="LinkedIn" />
+                  </a>
+                </li>
+                <li className="connect-item twitter">
+                  <a href="https://twitter.com/sidhlee" target="_blank">
+                    <TwitterIcon aria-label="Twitter" />
+                  </a>
+                </li>
+                <li className="connect-item github">
+                  <a href="https://github.com/sidhlee/" target="_blank">
+                    <GitHubIcon aria-label="GitHub" />
+                  </a>
+                </li>
+              </ul>
+            </StyledNavMenu>
+          )
+      )}
       <Backdrop isOpen={isOpen} close={close} />
     </>
   )
