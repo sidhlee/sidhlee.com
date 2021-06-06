@@ -11,6 +11,7 @@ import useCarousel from "../hooks/useCarousel"
 const StyledProjects = styled("section")`
   background: var(--cl-projects);
   min-height: 100vh;
+  overflow: hidden;
 
   .projects-content {
     min-height: var(--min-height-section-content);
