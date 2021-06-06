@@ -11,6 +11,7 @@ import useCarousel from "../hooks/useCarousel"
 const StyledProjects = styled("section")`
   background: var(--cl-projects);
   min-height: 100vh;
+  overflow: hidden;
 
   .projects-content {
     min-height: var(--min-height-section-content);
@@ -88,6 +89,7 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
     showNext,
     showPrev,
     navigateTo,
+    bindDrag,
   } = useCarousel(projects.length)
 
   const project = projects[currentSlideIndex] as Project
@@ -123,7 +125,11 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
               {transition((style, project) => {
                 return (
                   <animated.div className="animated-div" style={style as any}>
-                    <ProjectSlide project={project} style={style} />
+                    <ProjectSlide
+                      project={project}
+                      style={style}
+                      bindDrag={bindDrag}
+                    />
                   </animated.div>
                 )
               })}

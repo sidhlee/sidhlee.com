@@ -94,6 +94,54 @@ I had to rename all the image files with non-repeating name.
 
 React-waypoint will not work properly inside an element with `overflow-x: hidden`.
 
+### Gatsby development server not available from other devices
+
+[GitHub Issue](https://github.com/gatsbyjs/gatsby/issues/5801)
+Add `-H 0.0.0.0` option to npm develop script to allow it.
+
+```json
+{
+  "scripts": {
+    "develop": "gatsby develop -H 0.0.0.0"
+  }
+}
+```
+
+then
+
+```bash
+npm run develop
+```
+
+### React-use-gesture swipe not working?
+
+Add gesture config and adjust or add values as needed
+
+```js
+const bindCarousel = useDrag(
+  state => {
+    const {
+      swipe: [swipeX],
+    } = state
+
+    if (swipeX === 1) {
+      showPrev()
+      return
+    }
+
+    if (swipeX === -1) {
+      showNext()
+      return
+    }
+  },
+  {
+    experimental_preventWindowScrollY: true,
+    useTouch: true,
+    swipeDistance: 30,
+  }
+)
+```
+
 ## gatsby-plugin-scroll-reveal breaks your Netlify deployment
 
 So stay away from it (until further notice)
@@ -107,3 +155,4 @@ Try manually deleting .cache folder and run `gatsby develop` again.
 - [React 17 new JSX Transform: ReferenceError: React is not defined](https://github.com/gatsbyjs/gatsby/issues/28657)
 - [Migrating from gatsby-image to gatsby-plugin-image](https://www.gatsbyjs.com/docs/reference/release-notes/image-migration-guide)
 - [Don’t use frontmatter to seperate your markdown files in GatsbyJS - Use the file system](https://georgenance.com/dont-use-frontmatter-markdown-files-gatsby)
+- [How to set up a Gatsby project with TypeScript](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-gatsby-project-with-typescript)

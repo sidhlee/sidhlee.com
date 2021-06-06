@@ -1,8 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Sid Lee Codes`,
+    title: `Sid Lee Developer`,
     description: `Web developer Sid Lee's Portfolio Site`,
     author: `Sid Hayoun Lee`,
+    url: `https://www.sidhlee.com`,
+    twitterUsername: "@sidhlee",
+    // https://www.gatsbyjs.com/docs/how-to/images-and-media/static-folder/#adding-assets-outside-of-the-module-system
+    image: "/preview.png",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

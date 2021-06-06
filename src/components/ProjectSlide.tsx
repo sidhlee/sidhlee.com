@@ -1,12 +1,13 @@
-import styled from "styled-components"
+import { useState } from "react"
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
-import ButtonLink from "./ButtonLink"
+import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
+import styled from "styled-components"
 import { FaGithub } from "react-icons/fa"
+import { animated, useSpring } from "react-spring"
+import { ReactEventHandlers } from "react-use-gesture/dist/types"
+import ButtonLink from "./ButtonLink"
 import ProjectImages from "./ProjectImages"
 import TechStacks from "./TechStacks"
-import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
-import { useState } from "react"
-import { animated, useSpring } from "react-spring"
 
 const StyledProjectSlide = styled("article")`
   width: 100%;
@@ -48,11 +49,11 @@ const StyledProjectSlide = styled("article")`
     height: 100%;
     flex-direction: column;
     justify-content: space-between;
+    cursor: grab;
 
     .description {
       position: absolute;
       z-index: 400;
-
       display: flex;
       justify-content: center;
       align-items: center;
@@ -63,7 +64,6 @@ const StyledProjectSlide = styled("article")`
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-
       padding: var(--px);
 
       margin-bottom: 1em;
@@ -135,6 +135,7 @@ const StyledProjectSlide = styled("article")`
 
 type ProjectSlideProps = {
   project: Project
+  bindDrag: (...args: any[]) => ReactEventHandlers
   style: any
 }
 
@@ -149,7 +150,7 @@ export type Project = {
   githubUrl: string
 }
 
-const ProjectSlide: React.FC<ProjectSlideProps> = ({ project }) => {
+const ProjectSlide: React.FC<ProjectSlideProps> = ({ project, bindDrag }) => {
   const {
     title,
     logoImage,
@@ -192,7 +193,7 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project }) => {
           </button>
         </header>
 
-        <div className="project-body">
+        <div className="project-body" {...bindDrag()}>
           <TechStacks technologies={technologies} />
           <animated.div
             className="description"

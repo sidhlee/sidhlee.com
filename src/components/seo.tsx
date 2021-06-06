@@ -4,13 +4,31 @@
  *
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
-
-import * as React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function Seo({ description, lang, meta, title }) {
+// https://www.digitalocean.com/community/tutorials/how-to-set-up-a-gatsby-project-with-typescript
+interface SEOProps {
+  description?: string
+  lang?: string
+  meta?: Array<{ name: string; content: string }>
+  title: string
+  url: string
+  twitterUsername: string
+  image: string
+}
+
+// https://stackoverflow.com/questions/62624774/why-cant-gatsby-facebook-find-my-ogimage
+function Seo({
+  description = "",
+  lang = "en",
+  meta = [],
+  title = "",
+  url = "",
+  twitterUsername = "",
+  image = "",
+}: SEOProps) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,6 +37,9 @@ function Seo({ description, lang, meta, title }) {
             title
             description
             author
+            url
+            twitterUsername
+            image
           }
         }
       }
@@ -27,6 +48,9 @@ function Seo({ description, lang, meta, title }) {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
+  const siteImage = image || site.siteMetadata.image
+  const siteUsername = twitterUsername || site.siteMetadata.twitterUsername
+  const siteUrl = url || site.siteMetadata.url
 
   return (
     <Helmet
@@ -34,7 +58,7 @@ function Seo({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}
       meta={[
         {
           name: `description`,
@@ -53,12 +77,20 @@ function Seo({ description, lang, meta, title }) {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: siteImage,
+        },
+        {
+          property: `og:url`,
+          content: siteUrl,
+        },
+        {
           name: `twitter:card`,
-          content: `summary`,
+          content: siteImage,
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
+          content: siteUsername,
         },
         {
           name: `twitter:title`,

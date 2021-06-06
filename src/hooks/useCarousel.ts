@@ -1,4 +1,5 @@
-import React, { createContext, useReducer, useContext } from "react"
+import { useReducer } from "react"
+import { useDrag, useGesture } from "react-use-gesture"
 
 type State = {
   currentSlideIndex: number
@@ -85,26 +86,54 @@ const useCarousel = (slidesLength: number) => {
   const getTransform = (phase: "from" | "leave") => {
     const nextClickedFromTail =
       currentSlideIndex === 0 && prevSlideIndex === slidesLength - 1
-
     const prevClickedFromHead =
       currentSlideIndex === slidesLength - 1 && prevSlideIndex === 0
 
+    const navigatedToTheRight = navigated && currentSlideIndex > prevSlideIndex
+    const navigatedToTheLeft = navigated && currentSlideIndex < prevSlideIndex
+
     const nextButtonClicked =
-      nextClickedFromTail || currentSlideIndex === prevSlideIndex + 1
-
+      !navigated &&
+      (currentSlideIndex === prevSlideIndex + 1 || nextClickedFromTail)
     const prevButtonClicked =
-      prevClickedFromHead || currentSlideIndex === prevSlideIndex - 1
+      !navigated &&
+      (currentSlideIndex === prevSlideIndex - 1 || prevClickedFromHead)
 
-    const navigatedToRight = currentSlideIndex > prevSlideIndex
-    const navigatedToLeft = currentSlideIndex < prevSlideIndex
+    const slidToTheLeft = nextButtonClicked || navigatedToTheRight
+    const slidToTheRight = prevButtonClicked || navigatedToTheLeft
 
-    if (nextButtonClicked || navigatedToRight)
+    if (slidToTheLeft) {
       return `translate3d(${phase === "from" ? "100%" : "-100%"},0,0)`
-    if (prevButtonClicked || navigatedToLeft)
+    }
+    if (slidToTheRight) {
       return `translate3d(${phase === "from" ? "-100%" : "100%"},0,0)`
+    }
 
     return "translate3d(0,0,0)"
   }
+
+  const bindDrag = useDrag(
+    state => {
+      const {
+        swipe: [swipeX],
+      } = state
+
+      if (swipeX === 1) {
+        showPrev()
+        return
+      }
+
+      if (swipeX === -1) {
+        showNext()
+        return
+      }
+    },
+    {
+      experimental_preventWindowScrollY: true,
+      useTouch: true,
+      swipeDistance: 30,
+    }
+  )
 
   return {
     currentSlideIndex,
@@ -117,6 +146,7 @@ const useCarousel = (slidesLength: number) => {
     playCarousel,
     navigateTo,
     getTransform,
+    bindDrag,
   }
 }
 

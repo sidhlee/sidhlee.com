@@ -47,6 +47,7 @@ const ProjectImages: React.FC<ProjectImagesProps> = ({
           image={mobileGatsbyImage}
           alt={`${title} mobile view`}
           objectFit="contain"
+          draggable="false"
         />
       </div>
       <div className="desktop">
@@ -54,6 +55,7 @@ const ProjectImages: React.FC<ProjectImagesProps> = ({
           image={desktopGatsbyImage}
           alt={`${title} desktop view`}
           objectFit="contain"
+          draggable="false"
         />
       </div>
     </StyledProjectImages>
