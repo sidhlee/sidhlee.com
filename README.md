@@ -113,6 +113,35 @@ then
 npm run develop
 ```
 
+### React-use-gesture swipe not working?
+
+Add gesture config and adjust or add values as needed
+
+```js
+const bindCarousel = useDrag(
+  state => {
+    const {
+      swipe: [swipeX],
+    } = state
+
+    if (swipeX === 1) {
+      showPrev()
+      return
+    }
+
+    if (swipeX === -1) {
+      showNext()
+      return
+    }
+  },
+  {
+    experimental_preventWindowScrollY: true,
+    useTouch: true,
+    swipeDistance: 30,
+  }
+)
+```
+
 ## gatsby-plugin-scroll-reveal breaks your Netlify deployment
 
 So stay away from it (until further notice)
