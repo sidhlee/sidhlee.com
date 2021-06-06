@@ -1,13 +1,11 @@
 import styled from "styled-components"
 import { mq } from "../../global-style"
-import NavLinks from "./NavLinks"
 
 const StyledNavbar = styled("nav")`
   position: fixed;
   z-index: var(--z-navbar);
   top: 0;
   width: 100%;
-  background: var(--cl-main);
   background: transparent;
 
   ul {
@@ -16,8 +14,6 @@ const StyledNavbar = styled("nav")`
     display: none;
     justify-content: flex-end;
     align-items: flex-end;
-    li {
-    }
   }
 
   a {
