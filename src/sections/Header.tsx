@@ -4,11 +4,10 @@ import PianoKeybed from "../images/piano-keybed.svg"
 import Container from "../components/Container"
 import ButtonLink from "../components/ButtonLink"
 import SpringZoom from "../springs/SpringZoom"
-
 import { animated } from "@react-spring/web"
-
 import useHeaderChain from "../springs/useHeaderChain"
 import useFlyingPiano from "../springs/useFlyingPiano"
+import useDevRole from "../springs/useDevRole"
 
 const StyledHeader = styled("section")`
   // Take mobile UI (keyboard/safari control bar) into account when calculating 100vh
@@ -75,6 +74,14 @@ const StyledHeader = styled("section")`
 
     padding-top: var(--pt-section-content);
     margin-left: min(max(0px, 2vw), 2rem);
+    .dev-role {
+      position: relative;
+      height: 1.3em;
+      .role {
+        display: block; // enable translate
+        position: absolute;
+      }
+    }
     .headline {
       line-height: 1.2;
       span {
@@ -139,6 +146,8 @@ const Header: React.FC<HeaderProps> = ({}) => {
 
   const { bind, flyingPianoStyles } = useFlyingPiano()
 
+  const role = useDevRole()
+
   return (
     <StyledHeader>
       <Container>
@@ -148,7 +157,8 @@ const Header: React.FC<HeaderProps> = ({}) => {
             <div className="Header-content-inner">
               <animated.div className="intro" style={introStyles}>
                 <p className="headline heading-xl">
-                  Hi! I am a <span>Web Developer</span>
+                  <span className="dev-role">{role}</span>
+                  <span>Web Developer</span>
                 </p>
                 <p className="sub-headline">
                   With a background in music and passion for creativity, I build

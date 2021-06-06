@@ -5,7 +5,7 @@ import debounce from "lodash.debounce"
  * Return true on page scroll and wait for given delay to return false
  * @param {number} delay
  */
-export default function useScroll(delay = 1500) {
+export default function useScroll(delay = 1000) {
   const [scrolled, setScrolled] = useState(false)
 
   // create debounced function and store inside ref to be re-used
