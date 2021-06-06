@@ -39,10 +39,10 @@ const mainThemeCss = css`
 const aboutThemeCss = css`
   background: var(--cl-about);
   border: 2px solid var(--cl-about);
-  /* &:hover {
+  &:hover {
     background: var(--cl-about-dark);
     border: 2px solid var(--cl-about-dark);
-  } */
+  }
 `
 const projectsThemeCss = css`
   background: var(--cl-projects-light);

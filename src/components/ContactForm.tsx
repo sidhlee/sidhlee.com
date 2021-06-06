@@ -40,11 +40,6 @@ const StyledContactForm = styled("div")`
       margin-top: 0.5rem;
       align-self: flex-end;
       margin-right: 0;
-      transition: all 250ms ease;
-      &:hover {
-        background: var(--cl-projects);
-        border-color: var(--cl-projects);
-      }
     }
 
     @media (min-width: 670px) {
