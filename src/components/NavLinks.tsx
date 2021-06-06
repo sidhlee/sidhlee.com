@@ -1,10 +1,12 @@
 import { Link } from "gatsby"
-import { useLocation } from "@reach/router"
 
-type NavLinksProps = {}
+type NavLinksProps = {
+  currentPath: string
+}
 
-const NavLinks: React.FC<NavLinksProps> = ({}) => {
-  const { hash } = useLocation()
+const NavLinks: React.FC<NavLinksProps> = ({ currentPath }) => {
+  const hash = currentPath.replace("/", "")
+
   const checkActive = (match: string) => (hash === match ? "active" : "")
   return (
     <ul>

@@ -74,12 +74,8 @@ const StyledNavbar = styled("nav")`
 
 type NavbarProps = {}
 
-const Navbar: React.FC<NavbarProps> = ({}) => {
-  return (
-    <StyledNavbar>
-      <NavLinks />
-    </StyledNavbar>
-  )
+const Navbar: React.FC<NavbarProps> = ({ children }) => {
+  return <StyledNavbar>{children}</StyledNavbar>
 }
 
 export default Navbar

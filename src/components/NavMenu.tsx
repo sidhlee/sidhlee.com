@@ -83,7 +83,7 @@ type NavMenuProps = {
   close: () => void
 }
 
-const NavMenu: React.FC<NavMenuProps> = ({ isOpen, close }) => {
+const NavMenu: React.FC<NavMenuProps> = ({ isOpen, children, close }) => {
   const styles = useSpring({
     opacity: isOpen ? 1 : 0,
     x: isOpen ? "0%" : "100%",
@@ -98,9 +98,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ isOpen, close }) => {
     <>
       <StyledNavMenu style={styles} onClick={close}>
         <span className="heading-xl logo">SHL</span>
-        <nav>
-          <NavLinks />
-        </nav>
+        <nav>{children}</nav>
         <ul className="social-icons">
           <li className="connect-item linkedin">
             <a
