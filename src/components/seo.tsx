@@ -13,10 +13,10 @@ interface SEOProps {
   description?: string
   lang?: string
   meta?: Array<{ name: string; content: string }>
-  title: string
-  url: string
-  twitterUsername: string
-  image: string
+  title?: string
+  url?: string
+  twitterUsername?: string
+  image?: string
 }
 
 // https://stackoverflow.com/questions/62624774/why-cant-gatsby-facebook-find-my-ogimage
