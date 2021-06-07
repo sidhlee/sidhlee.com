@@ -79,7 +79,11 @@ export default function useHeaderChain() {
     },
   })
 
-  useChain([h1Ref, introRef, bgRef, buttonRef, pianoRef], [0.5, 0.7, 1, 1.5, 2])
+  useChain(
+    [h1Ref, introRef, bgRef, buttonRef, pianoRef],
+    // it feels janky if no delay is added at the beginning
+    [0.1, 0.3, 0.6, 1.1, 1.6]
+  )
 
   return {
     h1Styles,

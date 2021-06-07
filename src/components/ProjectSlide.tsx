@@ -97,6 +97,7 @@ const StyledProjectSlide = styled("article")`
 
   @media (min-width: 930px) {
     display: flex;
+    justify-content: center;
     flex-direction: row;
     height: 100%;
 
@@ -105,30 +106,37 @@ const StyledProjectSlide = styled("article")`
     .mobile-image-container {
       display: none;
     }
-    .desktop-image-container {
-      display: block;
-      position: relative;
-    }
 
     .col {
-      justify-content: flex-start;
+      width: 40ch;
+      justify-content: center;
+      align-items: flex-start;
+      margin-right: 2rem;
       margin-left: var(--px-section-content);
-    }
 
-    .project-body {
-      height: auto;
-      .description {
-        position: relative;
-        top: 0;
-        width: 100%;
+      .project-body {
         height: auto;
-        opacity: 1 !important; // override react-spring value
-        padding: 0;
-        background: transparent;
-        p {
-          transform: initial !important; // override react-spring value
+
+        .description {
+          position: relative;
+          top: 0;
+          width: 100%;
+          height: auto;
+          opacity: 1 !important; // override react-spring value
+          padding: 0;
+          background: transparent;
+          p {
+            max-width: 100%;
+            transform: initial !important; // override react-spring value
+          }
         }
       }
+    }
+
+    .desktop-image-container {
+      width: 60%;
+      display: block;
+      position: relative;
     }
   }
 `

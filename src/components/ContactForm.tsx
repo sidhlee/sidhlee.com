@@ -4,6 +4,7 @@ import Button from "./Button"
 
 const StyledContactForm = styled("div")`
   width: 100%;
+  max-width: 60ch;
 
   .contact-form__subheading {
     margin: 1em 0;

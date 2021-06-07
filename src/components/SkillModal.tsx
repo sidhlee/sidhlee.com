@@ -7,7 +7,7 @@ import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 
 const StyledSkillModal = styled(animated.article)<{ $isOpen: boolean }>`
   width: 90%;
-  max-width: 500px;
+  max-width: 50ch;
   max-height: 90vh;
   overflow-y: scroll;
 
@@ -52,8 +52,15 @@ const StyledSkillModal = styled(animated.article)<{ $isOpen: boolean }>`
   }
 
   .modal-body {
-    p {
+    .skill-description {
       margin-bottom: 2rem;
+      ul {
+        list-style: initial;
+        padding-left: 1em;
+        li {
+          margin-bottom: 0.5em;
+        }
+      }
     }
   }
 
@@ -141,7 +148,10 @@ const SkillModal: React.FC<SkillModalProps> = ({
                 <h3>{title}</h3>
               </header>
               <div className="modal-body">
-                <p>{excerpt}</p>
+                <div
+                  className="skill-description"
+                  dangerouslySetInnerHTML={{ __html: excerpt }}
+                ></div>
                 <h4>Related Skills</h4>
                 <ul className="related-skills">
                   {relatedSkills.map(skill => {

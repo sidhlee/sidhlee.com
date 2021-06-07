@@ -4,7 +4,6 @@ import {
   FaEnvelopeSquare,
   FaGithubSquare,
   FaLinkedin,
-  FaPhoneSquare,
   FaRegCalendarPlus,
   FaTwitterSquare,
 } from "react-icons/fa"
@@ -32,18 +31,15 @@ const StyledContactLinks = styled("div")`
 
   .contact-image {
     position: relative;
-    width: 100%;
-    height: 100%;
-    max-width: 170px;
-    max-height: 170px;
+    width: 40%;
+    max-width: 150px;
+    max-height: 150px;
     .gatsby-image-wrapper {
-      width: 80%;
-      height: 80%;
-      margin-left: 25%;
+      width: 100%;
+      position: relative;
+      transform: translate(20%, -20%);
+      z-index: 1;
 
-      /* position: relative;
-      left: 25%;
-      bottom: 25%; */
       img {
         z-index: 100;
       }
@@ -52,16 +48,14 @@ const StyledContactLinks = styled("div")`
       position: absolute;
       left: 0;
       bottom: 0;
-      width: 80%;
-      height: 80%;
+      width: 100%;
+      height: 100%;
     }
   }
   .calendly {
     display: flex;
     flex-direction: column;
-    /* a {
-      max-width: 380px;
-    } */
+
     // spring wrapper
     div {
       width: 100%;
@@ -109,18 +103,17 @@ const StyledContactLinks = styled("div")`
           fill: rgba(255, 255, 255, 1);
           transform: scale(1.05);
         }
-        /* &.github {
-          svg {
-            fill: black;
-            background: white;
-          }
-        } */
       }
     }
   }
 
   @media (min-width: 1200px) {
     max-width: 30%;
+    .contact-image {
+      max-width: initial;
+      max-height: initial;
+    }
+
     .connect-list {
       .connect-item {
         max-width: initial;
@@ -197,14 +190,6 @@ const ContactLinks: React.FC<ContactLinksProps> = ({}) => {
               <FaEnvelopeSquare aria-label="Email" />
             </button>
           </li>
-          {/* <li className="connect-item">
-            <button
-              type="button"
-              onClick={() => setPanelType(t => (t === "phone" ? "" : "phone"))}
-            >
-              <FaPhoneSquare aria-label="Phone" />
-            </button>
-          </li> */}
         </ul>
       </div>
     </StyledContactLinks>

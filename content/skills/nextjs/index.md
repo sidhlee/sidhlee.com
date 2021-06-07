@@ -8,4 +8,4 @@ tags: ["react", "JavaScript", "ES6", "Framework", "Frontend"]
 sortIndex: 80
 ---
 
-React is currently the tool that I feel most comfortable to use when I'm developing websites and applications. The thing that I like about React is that there is a very strong ecosystem of libraries and higher-level framework built on top of React which allows me to focus more on creating great user experience instead of spending time on reinventing wheels. Some of my favorite react library include styled-components, react-router, react-spring, react-use-gesture and formik.
+Ever since Next.js started to support static site generation in 2020, it seems that now Next.js can do everything that Gatsby does, but not the other way around. After building several websites with Gatsby, I am currently working on converting some of my existing projects into Next.js application. So far, it feels like there's more flexibility, although many features, including the routing system, are similar.
