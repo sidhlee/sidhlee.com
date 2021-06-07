@@ -27,23 +27,25 @@ const StyledAbout = styled("section")`
       justify-self: center;
       align-self: center;
       margin: 0;
-      width: 50%;
-      max-width: 200px;
+      width: 40vw;
+      height: 40vw;
+      max-width: 250px;
+      max-height: 250px;
       position: relative;
       left: 25vw;
       bottom: 5vh;
-
-      img {
-        height: auto;
-        z-index: 100;
+      .gatsby-image-wrapper {
+        width: 100%;
+        height: 100%;
+        z-index: 1;
       }
+
       .square {
         position: absolute;
-        width: 100%;
-        /* Behaves differently on Firefox vs Chrome */
-        /* height: fit-content; */
-        left: -30%;
-        bottom: -50%;
+        width: 80%;
+        height: 80%;
+        left: -25%;
+        bottom: -25%;
       }
     }
 
@@ -63,18 +65,17 @@ const StyledAbout = styled("section")`
       flex-direction: row;
       .about-image {
         order: 0;
-        width: 20%;
-        max-width: 400px;
+        width: 20vw;
+        height: 20vw;
+        max-width: initial;
+        max-height: initial;
         margin-right: 5vw;
         top: var(--py);
         left: 0;
         .square {
           position: absolute;
-          width: 100%;
-          /* Behaves differently on Firefox vs Chrome */
-          /* height: fit-content; */
-          left: -30%;
-          bottom: -20%;
+          width: 85%;
+          height: 85%;
         }
       }
     }
