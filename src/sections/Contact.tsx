@@ -25,7 +25,7 @@ const StyledContact = styled("section")`
       flex-direction: row;
       max-width: 78vw;
       > *:first-child {
-        margin-right: 3rem;
+        margin-right: 7.5vw;
       }
       > *:last-child {
         position: relative;
