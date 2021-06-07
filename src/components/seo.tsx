@@ -86,7 +86,7 @@ function Seo({
         },
         {
           name: `twitter:card`,
-          content: siteImage,
+          content: siteUrl + siteImage,
         },
         {
           name: `twitter:creator`,
