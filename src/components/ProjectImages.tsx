@@ -14,11 +14,9 @@ const StyledProjectImages = styled("div")`
 
   .mobile {
     width: 25%;
-    height: 70%;
+    height: 80%;
     z-index: 50;
-    position: relative;
-    left: 15%;
-    /* top: 10%; */
+    margin-right: -20%;
   }
   .desktop {
     height: 100%;
