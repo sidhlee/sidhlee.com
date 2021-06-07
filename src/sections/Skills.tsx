@@ -152,7 +152,7 @@ const skillsQuery = graphql`
             brandColor
             tags
           }
-          excerpt(pruneLength: 1000)
+          excerpt(pruneLength: 1000, format: HTML)
         }
       }
     }
