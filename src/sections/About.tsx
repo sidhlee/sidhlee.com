@@ -63,11 +63,10 @@ const StyledAbout = styled("section")`
       flex-direction: row;
       .about-image {
         order: 0;
-
-        width: 25%;
+        width: 20%;
         max-width: 400px;
         margin-right: 5vw;
-        top: 10vh;
+        top: var(--py);
         left: 0;
         .square {
           position: absolute;
