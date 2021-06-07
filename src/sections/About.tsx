@@ -49,7 +49,7 @@ const StyledAbout = styled("section")`
 
     .about-text {
       padding-top: var(--pt-section-content);
-      max-width: 50ch;
+      max-width: 55ch;
     }
 
     .about-links {
