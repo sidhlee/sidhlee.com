@@ -7,7 +7,7 @@ import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 
 const StyledSkillModal = styled(animated.article)<{ $isOpen: boolean }>`
   width: 90%;
-  max-width: 500px;
+  max-width: 50ch;
   max-height: 90vh;
   overflow-y: scroll;
 
