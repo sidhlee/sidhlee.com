@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react"
 import { useTransition, animated } from "@react-spring/web"
 
+let isFirst = true
+
 export default function useDevRole() {
   const roleTexts = ["Front-end", "Full-stack"]
   const [roleIndex, setRoleIndex] = useState(0)
 
   useEffect(() => {
+    if (isFirst) isFirst = false
     const id = window.setInterval(
       () => setRoleIndex(i => (i + 1) % roleTexts.length),
       5000
@@ -18,7 +21,9 @@ export default function useDevRole() {
     keys: item => item,
     from: {
       opacity: 0,
-      transform: "scale(4) translate(0%, 0%)",
+      transform: isFirst
+        ? "scale(1) translate(0%, 0%)"
+        : "scale(4) translate(0%, 0%)",
     },
     enter: item => async (next, cancel) => {
       await next({
