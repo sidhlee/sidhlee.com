@@ -86,7 +86,15 @@ function Seo({
         },
         {
           name: `twitter:card`,
+          content: "summary_large_image",
+        },
+        {
+          name: `twitter:image`,
           content: siteUrl + siteImage,
+        },
+        {
+          name: `twitter:site`,
+          content: "@sidhlee",
         },
         {
           name: `twitter:creator`,
