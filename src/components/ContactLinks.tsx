@@ -147,7 +147,7 @@ const ContactLinks: React.FC<ContactLinksProps> = ({}) => {
             src="../images/sid-big-smile.png"
             alt="Sid looking really happy with a sandwich in his hand"
           />
-          <Square className="square" />
+          <Square className="square" role="img" aria-label="yellow square" />
         </div>
       </div>
 
@@ -155,7 +155,7 @@ const ContactLinks: React.FC<ContactLinksProps> = ({}) => {
         <h3>Schedule a chat with</h3>
         <SpringZoom>
           <ButtonLink href="https://calendly.com/sidhlee" $size="lg">
-            <FaRegCalendarPlus />
+            <FaRegCalendarPlus role="img" aria-label="calendar icon" />
             <span>Calendly</span>
           </ButtonLink>
         </SpringZoom>
@@ -168,26 +168,36 @@ const ContactLinks: React.FC<ContactLinksProps> = ({}) => {
             <a
               href="https://www.linkedin.com/in/sid-hayoun-lee/"
               target="_blank"
+              aria-label="LinkedIn"
             >
-              <FaLinkedin aria-label="LinkedIn" />
+              <FaLinkedin role="img" aria-label="LinkedIn" />
             </a>
           </li>
           <li className="connect-item github">
-            <a href="https://github.com/sidhlee/" target="_blank">
-              <FaGithubSquare aria-label="GitHub" />
+            <a
+              href="https://github.com/sidhlee/"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <FaGithubSquare role="img" aria-label="GitHub" />
             </a>
           </li>
           <li className="connect-item twitter">
-            <a href="https://twitter.com/sidhlee" target="_blank">
-              <FaTwitterSquare aria-label="Twitter" />
+            <a
+              href="https://twitter.com/sidhlee"
+              target="_blank"
+              aria-label="Twitter"
+            >
+              <FaTwitterSquare role="img" aria-label="Twitter" />
             </a>
           </li>
           <li className="connect-item">
             <button
               type="button"
               onClick={() => setPanelType(t => (t === "email" ? "" : "email"))}
+              aria-label="Email"
             >
-              <FaEnvelopeSquare aria-label="Email" />
+              <FaEnvelopeSquare role="img" aria-label="Email" />
             </button>
           </li>
         </ul>

@@ -62,7 +62,11 @@ type MenuButtonProps = {
 
 const MenuButton: React.FC<MenuButtonProps> = ({ toggleMenu, isMenuOpen }) => {
   return (
-    <StyledMenuButton onClick={toggleMenu} $isMenuOpen={isMenuOpen}>
+    <StyledMenuButton
+      onClick={toggleMenu}
+      $isMenuOpen={isMenuOpen}
+      aria-label="menu button"
+    >
       <span role="img" aria-label="menu button" className="bar"></span>
     </StyledMenuButton>
   )

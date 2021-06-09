@@ -87,6 +87,7 @@ const CarouselNav: React.FC<CarouselNavProps> = ({
       <li key={i}>
         <button
           className={`nav-button${active ? " active" : ""}`}
+          aria-label={active ? "current slide" : `show slide ${i + 1}`}
           onClick={() => navigateTo(i)}
         >
           <span
@@ -99,12 +100,20 @@ const CarouselNav: React.FC<CarouselNavProps> = ({
   })
   return (
     <StyledCarouselNav className="CarouselNav">
-      <button className="carousel-control prev-button" onClick={prev}>
-        <FaCaretLeft aria-label="previous slide" />
+      <button
+        className="carousel-control prev-button"
+        aria-label="previous slide"
+        onClick={prev}
+      >
+        <FaCaretLeft role="img" aria-label="previous slide" />
       </button>
       <ul className="nav-buttons">{navButtons}</ul>
-      <button className="carousel-control next-button" onClick={next}>
-        <FaCaretRight aria-label="next slide" />
+      <button
+        className="carousel-control next-button"
+        aria-label="next slide"
+        onClick={next}
+      >
+        <FaCaretRight role="img" aria-label="next slide" />
       </button>
     </StyledCarouselNav>
   )

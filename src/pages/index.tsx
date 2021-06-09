@@ -19,7 +19,7 @@ const IndexPage: React.FC = () => {
   return (
     <>
       <Layout>
-        <Seo title="Home" />
+        <Seo />
         <Navbar>
           <NavLinks currentPath={currentPath} />
         </Navbar>
