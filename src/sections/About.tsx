@@ -96,7 +96,11 @@ const About: React.FC<AboutProps> = ({}) => {
               alt="Sid smiling"
               objectFit="contain"
             />
-            <Square className="square float" />
+            <Square
+              className="square float"
+              role="img"
+              aria-label="yellow square"
+            />
           </div>
           <div className="about-text">
             <p className="heading-sm">
@@ -119,13 +123,6 @@ const About: React.FC<AboutProps> = ({}) => {
               <ButtonLink href={resumeFile} download $theme="projects">
                 View Resume
               </ButtonLink>
-              {/* <ButtonLink
-                href="https://www.linkedin.com/in/sid-hayoun-lee/"
-                $outline
-              >
-                <FaLinkedin />
-                <span>LinkedIn</span>
-              </ButtonLink> */}
             </div>
           </div>
         </div>

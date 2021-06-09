@@ -184,8 +184,16 @@ const Header: React.FC<HeaderProps> = ({}) => {
                     }}
                   >
                     <div className="float">
-                      <PianoLid className="lid" />
-                      <PianoKeybed className="bed" />
+                      <PianoLid
+                        className="lid"
+                        role="img"
+                        aria-label="piano lid"
+                      />
+                      <PianoKeybed
+                        className="bed"
+                        role="img"
+                        aria-label="piano keybed"
+                      />
                     </div>
                   </animated.div>
                 </div>

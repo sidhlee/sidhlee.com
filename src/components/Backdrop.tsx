@@ -19,7 +19,13 @@ type BackdropProps = {
 }
 
 const Backdrop: React.FC<BackdropProps> = ({ isOpen, close }) => {
-  return <StyledBackdrop onClick={close} $isOpen={isOpen} />
+  return (
+    <StyledBackdrop
+      onClick={close}
+      $isOpen={isOpen}
+      aria-label="close backdrop and overlay"
+    />
+  )
 }
 
 export default Backdrop

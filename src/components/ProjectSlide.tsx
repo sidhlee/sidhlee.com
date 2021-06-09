@@ -209,6 +209,15 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project, bindDrag }) => {
               opacity: x.to(x => 1 - x),
             }}
             onClick={() => setDescriptionHidden(true)}
+            onKeyDown={e => {
+              e.preventDefault()
+              const keys = ["Enter", " "]
+              if (keys.includes(e.key)) {
+                setDescriptionHidden(true)
+              }
+            }}
+            tabIndex={0}
+            aria-label="hide description"
           >
             <animated.p style={{ y }}>{description}</animated.p>
           </animated.div>
@@ -226,7 +235,7 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project, bindDrag }) => {
             View Live
           </ButtonLink>
           <ButtonLink href={githubUrl} $theme="skills">
-            <FaGithub />
+            <FaGithub role="img" aria-label="github icon" />
             <span>GitHub</span>
           </ButtonLink>
         </div>

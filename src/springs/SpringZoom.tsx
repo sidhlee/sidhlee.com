@@ -7,9 +7,16 @@ const StyledSpringZoom = styled("div")`
 
 const AnimatedStyledZoomOnOver = animated(StyledSpringZoom)
 
-type SpringZoomProps = {}
+type SpringZoomProps = {
+  tabindex?: number
+  ariaLabel?: string
+}
 
-const SpringZoom: React.FC<SpringZoomProps> = ({ children }) => {
+const SpringZoom: React.FC<SpringZoomProps> = ({
+  children,
+  tabindex,
+  ariaLabel,
+}) => {
   const [styles, api] = useSpring(() => ({
     scale: 1,
   }))
@@ -31,6 +38,16 @@ const SpringZoom: React.FC<SpringZoomProps> = ({ children }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleMouseLeave}
+      onKeydown={(e: KeyboardEvent) => {
+        e.preventDefault()
+        const keys = [" ", "Enter"]
+        if (keys.includes(e.key)) {
+          handleMouseLeave()
+        }
+      }}
+      tabIndex={0}
+      role="button"
+      aria-label="zoom to original size"
     >
       {children}
     </AnimatedStyledZoomOnOver>
