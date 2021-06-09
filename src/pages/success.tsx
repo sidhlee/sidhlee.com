@@ -23,7 +23,7 @@ type successProps = {}
 const success: React.FC<successProps> = ({}) => {
   return (
     <Layout>
-      <Seo title="success" />
+      <Seo />
       <StyledSuccess>
         <Container>
           <h1>
