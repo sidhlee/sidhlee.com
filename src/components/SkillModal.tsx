@@ -6,10 +6,9 @@ import Backdrop from "./Backdrop"
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 
 const StyledSkillModal = styled(animated.article)<{ $isOpen: boolean }>`
-  width: 90%;
+  width: 95%;
   max-width: 50ch;
   max-height: 90vh;
-  overflow-y: scroll;
 
   position: fixed;
   z-index: var(--z-modal);
@@ -19,8 +18,27 @@ const StyledSkillModal = styled(animated.article)<{ $isOpen: boolean }>`
 
   padding: var(--px);
   border-radius: 5px;
-
   background: var(--cl-projects);
+
+  .close-btn {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    background: black;
+    display: flex;
+    padding: 0.25rem;
+  }
+  .modal-inner {
+    max-height: calc(90vh - 2 * var(--px));
+    overflow-y: auto;
+    // hide vertical scrollbar
+    scrollbar-width: none; /* Firefox ? */
+    -ms-overflow-style: none; /* IE, Edge */
+    @media (min-width: 600px) {
+      scrollbar-width: initial; /* Firefox ? */
+      -ms-overflow-style: initial; /* IE, Edge */
+    }
+  }
 
   ul {
     display: flex;
@@ -28,12 +46,6 @@ const StyledSkillModal = styled(animated.article)<{ $isOpen: boolean }>`
     li {
       margin-right: 1em;
     }
-  }
-
-  .close-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
   }
 
   header,
@@ -138,41 +150,43 @@ const SkillModal: React.FC<SkillModalProps> = ({
               <button className="close-btn" onClick={close}>
                 <FaTimes role="img" aria-label="close" />
               </button>
-              <header>
-                <GatsbyImage
-                  className="icon-img"
-                  image={skillLogoImage as any}
-                  alt={title}
-                />
+              <div className="modal-inner">
+                <header>
+                  <GatsbyImage
+                    className="icon-img"
+                    image={skillLogoImage as any}
+                    alt={title}
+                  />
 
-                <h3>{title}</h3>
-              </header>
-              <div className="modal-body">
-                <div
-                  className="skill-description"
-                  dangerouslySetInnerHTML={{ __html: excerpt }}
-                ></div>
-                <h4>Related Skills</h4>
-                <ul className="related-skills">
-                  {relatedSkills.map(skill => {
-                    const isSkillAvailable = availableSkills.includes(skill)
-                    return (
-                      <li
-                        key={skill}
-                        className={isSkillAvailable ? "available" : ""}
-                      >
-                        <button onClick={() => selectCurrentSkill(skill)}>
-                          {skill}
-                        </button>
-                      </li>
-                    )
-                  })}
-                </ul>
-                <ul className="tags">
-                  {tags.map(tag => (
-                    <li key={tag}>#{tag}</li>
-                  ))}
-                </ul>
+                  <h3>{title}</h3>
+                </header>
+                <div className="modal-body">
+                  <div
+                    className="skill-description"
+                    dangerouslySetInnerHTML={{ __html: excerpt }}
+                  ></div>
+                  <h4>Related Skills</h4>
+                  <ul className="related-skills">
+                    {relatedSkills.map(skill => {
+                      const isSkillAvailable = availableSkills.includes(skill)
+                      return (
+                        <li
+                          key={skill}
+                          className={isSkillAvailable ? "available" : ""}
+                        >
+                          <button onClick={() => selectCurrentSkill(skill)}>
+                            {skill}
+                          </button>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                  <ul className="tags">
+                    {tags.map(tag => (
+                      <li key={tag}>#{tag}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </StyledSkillModal>
           )
