@@ -88,7 +88,7 @@ const ContactForm: React.FC<ContactFormProps> = ({}) => {
       <h3>Let's Get In Touch!</h3>
       <div className="contact-form__subheading">
         <p>I love exchanging ideas and making new friends!</p>
-        <p>You can also reach me directly at sidhlee@gmail.com</p>
+        <p>You can also reach me directly at sid@sidhlee.com</p>
       </div>
 
       <form
