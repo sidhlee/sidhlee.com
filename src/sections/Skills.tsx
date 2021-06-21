@@ -5,6 +5,7 @@ import Container from "../components/Container"
 import Skill from "../components/Skill"
 import { File, MarkdownRemarkFrontmatter, SkillsQuery } from "../graphqlTypes"
 import SkillModal from "../components/SkillModal"
+import { mq } from "../../global-style"
 
 const StyledSkills = styled("section")`
   min-height: 100vh;
@@ -18,7 +19,6 @@ const StyledSkills = styled("section")`
     );
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     justify-content: center;
     justify-items: center;
     max-width: 90ch;
@@ -27,6 +27,9 @@ const StyledSkills = styled("section")`
       position: relative;
       top: 1.5em;
     } */
+    @media (min-width: ${mq.desktop}px) {
+      justify-content: space-between;
+    }
   }
 `
 
@@ -97,6 +100,10 @@ const Skills: React.FC<SkillsProps> = ({}) => {
       <StyledSkills id="skills">
         <Container>
           <h2>Skills</h2>
+          <p className="underline">Click on each skill to see detail </p>
+          <span role="img" aria-label="point down">
+            👇
+          </span>
           <ul className="skill-list">
             {skills.map((skill, i) => {
               const { title, brandColor } = skill

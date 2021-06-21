@@ -57,8 +57,13 @@ const StyledAbout = styled("section")`
     .about-links {
       margin-left: -0.5rem;
       width: 50%;
+      min-width: 200px;
       margin-top: 1em;
       display: flex;
+      flex-direction: column;
+      a {
+        width: 100%;
+      }
     }
 
     @media (min-width: 1040px) {
@@ -76,6 +81,14 @@ const StyledAbout = styled("section")`
           position: absolute;
           width: 85%;
           height: 85%;
+        }
+      }
+      .about-links {
+        min-width: 26rem;
+        flex-direction: row;
+        margin-bottom: 2rem;
+        a {
+          flex: 1 0 45%;
         }
       }
     }
@@ -111,17 +124,28 @@ const About: React.FC<AboutProps> = ({}) => {
               , my name is Sid Lee
             </p>
             <p className="text-lg mt-3">
-              I'm a web developer whose passion is to build accessible and
-              responsive user experience using front-end and full stack
-              technologies. <wbr></wbr>With a background in teaching university
-              music courses and producing chart-topping albums, <wbr></wbr>I
-              have developed a <strong>consistent work ethic</strong>,{" "}
-              <strong>strong communication skills</strong>, and{" "}
-              <strong>problem solving techniques</strong> for unique challenges.
+              I build accessible and responsive web applications using HTML,
+              CSS, React, JavaScript, and TypeScript. With a{" "}
+              <strong>Full-Stack Certification</strong> from freeCodeCamp, I
+              have created many React apps for 2+ years now. I also have worked
+              on fast-paced team projects that involved pair programming and
+              peer code reviews to implement various features and continuously
+              deploy to the production. From my previous experience in teaching
+              in universities, I developed strong{" "}
+              <strong>communication skills</strong>, the ability to{" "}
+              <strong>solve problems</strong> in a collaborative environment,
+              and <strong>a sense of empathy</strong> while mentoring students
+              to help overcome their challenges.
             </p>
             <div className="about-links">
               <ButtonLink href={resumeFile} download $theme="projects">
                 View Resume
+              </ButtonLink>
+              <ButtonLink
+                href="https://www.linkedin.com/in/sid-hayoun-lee/"
+                $theme="main"
+              >
+                View LinkedIn
               </ButtonLink>
             </div>
           </div>

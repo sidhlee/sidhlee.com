@@ -24,10 +24,10 @@ const StyledLayout = styled.div`
   position: relative;
 
   footer {
-    padding: 1em;
+    padding: 0.5em;
     text-align: center;
     width: 100%;
-    background-color: var(--cl-main);
+    background-color: var(--cl-projects);
     span {
       margin: 0 0.25em;
     }

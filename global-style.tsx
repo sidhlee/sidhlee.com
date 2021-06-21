@@ -182,6 +182,16 @@ const globalStyle = css`
     white-space: nowrap;
   }
 
+  .underline {
+    display: inline-block;
+    ::after {
+      content: "";
+      display: block;
+      height: 2px;
+      background: var(--cl-accent);
+    }
+  }
+
   @keyframes fade-in-up {
     // TODO: is "blinking" potential accessibility issue?
     0% {

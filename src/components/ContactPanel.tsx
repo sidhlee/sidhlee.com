@@ -83,7 +83,7 @@ const ContactPanel: React.FC<ContactPanelProps> = ({ type, close }) => {
   const content =
     type === "email" ? (
       <div>
-        <p>sidhlee@gmail.com</p>
+        <p>sid@sidhlee.com</p>
         <div className="buttons">
           <CopyToClipboard
             text="sidhlee@gmail.com"
@@ -93,7 +93,7 @@ const ContactPanel: React.FC<ContactPanelProps> = ({ type, close }) => {
               {isCopied ? "Copied!" : "Copy to clipboard"}
             </button>
           </CopyToClipboard>
-          <a className="btn-panel" href="mailto:sidhlee@gmail.com">
+          <a className="btn-panel" href="mailto:sid@sidhlee.com">
             Send Email
           </a>
         </div>

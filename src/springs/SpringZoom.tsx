@@ -5,7 +5,7 @@ const StyledSpringZoom = styled("div")`
   width: fit-content;
 `
 
-const AnimatedStyledZoomOnOver = animated(StyledSpringZoom)
+const AnimatedStyledZoomOnHover = animated(StyledSpringZoom)
 
 type SpringZoomProps = {
   tabindex?: number
@@ -33,12 +33,12 @@ const SpringZoom: React.FC<SpringZoomProps> = ({
   }
 
   return (
-    <AnimatedStyledZoomOnOver
+    <AnimatedStyledZoomOnHover
       style={styles}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleMouseLeave}
-      onKeydown={(e: KeyboardEvent) => {
+      onKeyDown={(e: KeyboardEvent) => {
         e.preventDefault()
         const keys = [" ", "Enter"]
         if (keys.includes(e.key)) {
@@ -50,7 +50,7 @@ const SpringZoom: React.FC<SpringZoomProps> = ({
       aria-label="zoom to original size"
     >
       {children}
-    </AnimatedStyledZoomOnOver>
+    </AnimatedStyledZoomOnHover>
   )
 }
 
