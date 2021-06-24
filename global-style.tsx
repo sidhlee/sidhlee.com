@@ -7,6 +7,39 @@ export const mq = {
   wide: 1600,
 }
 
+const COLORS = {
+  yaleBlue: "#084887",
+  offWhite: "#eff1f3",
+  grey: "#ababab",
+  white: "#ffffff",
+  black: "#000000",
+}
+
+export const THEME_COLORS = {
+  light: {
+    "--cl-main": COLORS.offWhite,
+    "--text-main": COLORS.black,
+    "--text-inverse": COLORS.offWhite,
+  },
+  dark: {
+    "--cl-white": COLORS.white,
+    "--cl-off-white": COLORS.offWhite,
+    "--cl-main": COLORS.yaleBlue,
+    "--cl-main-light": "#095199",
+    "--cl-about": "#163666",
+    "--cl-about-dark": "#0f2546",
+    "--cl-projects": "#202020",
+    "--cl-projects-light": "#292929",
+    "--cl-skills": "#333533",
+    "--cl-skills-dark": "#252725",
+    "--cl-contact": COLORS.yaleBlue,
+    "--cl-accent": "#fdd835",
+    "--text-main": COLORS.offWhite,
+    "--text-muted": COLORS.grey,
+    "--text-inverse": COLORS.black,
+  },
+}
+
 // workaround for css not formatting inside createGlobalStyle
 // https://github.com/prettier/prettier/pull/9025
 const globalStyle = css`

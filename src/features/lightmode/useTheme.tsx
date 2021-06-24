@@ -1,17 +1,17 @@
 import React, { createContext, useContext, useEffect, useState } from "react"
 
-type Theme = "dark" | "light" | undefined
+export type Theme = "dark" | "light"
 
 const ThemeContext = createContext<{
   theme: Theme
   setTheme: React.Dispatch<React.SetStateAction<Theme>>
 }>({
-  theme: undefined,
+  theme: "dark",
   setTheme: () => {},
 })
 
 export const ThemeProvider: React.FC = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(undefined)
+  const [theme, setTheme] = useState<Theme>("dark")
 
   useEffect(() => {
     const root = window.document.documentElement
@@ -31,5 +31,27 @@ export const ThemeProvider: React.FC = ({ children }) => {
 export default function useTheme() {
   const { theme, setTheme } = useContext(ThemeContext)
 
-  return [theme, setTheme] as const
+  return { theme, setTheme }
+}
+
+type ThemeColors = {
+  light: {
+    [colorName: string]: string
+  }
+  dark: {
+    [colorName: string]: string
+  }
+}
+
+export function setCustomProperties(
+  targetTheme: Theme,
+  themeColors: ThemeColors
+) {
+  const root = window.document.documentElement
+
+  Object.entries(themeColors[targetTheme]).forEach(
+    ([cssVarName, colorValue]) => {
+      root.style.setProperty(cssVarName, colorValue)
+    }
+  )
 }

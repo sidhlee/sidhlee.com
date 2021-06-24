@@ -11,6 +11,7 @@ import MenuButton from "../components/MenuButton"
 import NavMenu from "../components/NavMenu"
 import NavLinks from "../components/NavLinks"
 import CheckScrolled from "../components/CheckScrolled"
+import LightToggle from "../features/lightmode/LightToggle"
 
 const IndexPage: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -22,6 +23,7 @@ const IndexPage: React.FC = () => {
         <Seo />
         <Navbar>
           <NavLinks currentPath={currentPath} />
+          <LightToggle />
         </Navbar>
         <MenuButton
           isMenuOpen={isMenuOpen}

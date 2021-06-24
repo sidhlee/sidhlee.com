@@ -9,6 +9,9 @@ const StyledNavbar = styled(animated.nav)`
   top: 0;
   width: 100%;
   background: transparent;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 
   ul {
     height: var(--height-navbar);
