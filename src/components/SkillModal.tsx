@@ -25,8 +25,17 @@ const StyledSkillModal = styled(animated.article)<{ $isOpen: boolean }>`
     top: 0.25rem;
     right: 0.25rem;
     background: black;
+    color: var(--cl-off-white);
     display: flex;
     padding: 0.25rem;
+    svg {
+      transition: transform 200ms ease;
+    }
+    &:hover {
+      svg {
+        transform: scale(1.1);
+      }
+    }
   }
   .modal-inner {
     max-height: calc(90vh - 2 * var(--px));

@@ -1,7 +1,8 @@
 import styled from "styled-components"
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa"
+import useTheme from "../features/lightmode/useTheme"
 
-const StyledCarouselNav = styled("nav")`
+const StyledCarouselNav = styled("nav")<{ $isLight: boolean }>`
   position: relative;
   z-index: 500;
   margin: 1rem auto;
@@ -25,12 +26,7 @@ const StyledCarouselNav = styled("nav")`
       transition: all 250ms ease;
     }
     &:hover {
-      svg {
-        fill: white;
-      }
-      span {
-        background: white;
-      }
+      filter: brightness(1.2);
       span,
       svg {
         transform: scale(1.2);
@@ -60,7 +56,7 @@ const StyledCarouselNav = styled("nav")`
     }
 
     &.active span {
-      box-shadow: 0 0 0px 5px var(--cl-main);
+      box-shadow: 0 0 0px 5px var(--cl-main-light);
       filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
     }
   }
@@ -81,6 +77,8 @@ const CarouselNav: React.FC<CarouselNavProps> = ({
   prev,
   navigateTo,
 }) => {
+  const { theme } = useTheme()
+
   const navButtons = [...Array(numberOfSlides)].map((_, i) => {
     const active = currentSlideIndex === i
     return (
@@ -99,7 +97,7 @@ const CarouselNav: React.FC<CarouselNavProps> = ({
     )
   })
   return (
-    <StyledCarouselNav className="CarouselNav">
+    <StyledCarouselNav className="CarouselNav" $isLight={theme === "light"}>
       <button
         className="carousel-control prev-button"
         aria-label="previous slide"

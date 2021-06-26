@@ -2,9 +2,10 @@ import styled from "styled-components"
 import { useSpring, animated } from "react-spring"
 import { buttonCss, ButtonProps, SectionTheme } from "./Button"
 import { Link } from "gatsby"
+import { COLORS } from "../../global-style"
 
-const getBackgroundCss = (theme: SectionTheme | undefined) => {
-  switch (theme) {
+const getBackgroundCss = (section: SectionTheme | undefined) => {
+  switch (section) {
     case "main":
       return "var(--cl-main-light)"
     case "about":
@@ -12,7 +13,7 @@ const getBackgroundCss = (theme: SectionTheme | undefined) => {
     case "projects":
       return "black"
     case "skills":
-      return "black"
+      return "var(--cl-skills-hover)"
     default:
       return "transparent"
   }
@@ -25,6 +26,8 @@ const StyledLink = styled(Link)`
     z-index: 100;
     display: flex;
     align-items: center;
+    color: ${({ $theme }) =>
+      $theme === "projects" ? COLORS.offWhite : "inherit"};
   }
   .link-bg {
     display: inline-block;

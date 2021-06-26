@@ -12,6 +12,7 @@ export const COLORS = {
   offWhite: "#eff1f3",
   grey: "#ababab",
   darkGrey: "#333533",
+  darkerGrey: "#202020",
   white: "#ffffff",
   black: "#000000",
   yellow: "#fdd835",
@@ -22,14 +23,16 @@ export const COLORS = {
 export const THEME_COLORS = {
   light: {
     "--cl-main": COLORS.offWhite,
+    "--cl-main-light": "#b5e9f7",
     "--cl-about": COLORS.wheat,
     "--cl-about-dark": "#ecb864",
     "--cl-projects": "white",
     "--cl-skills": "#2D93AD",
+    "--cl-skills-hover": "#8cdef3",
     "--cl-contact": COLORS.offWhite,
+    "--cl-accent": COLORS.pink,
     "--text-main": COLORS.black,
     "--text-inverse": COLORS.offWhite,
-    "--cl-accent": COLORS.pink,
     "--text-muted": "#d6d2d2",
   },
   dark: {
@@ -42,7 +45,7 @@ export const THEME_COLORS = {
     "--cl-projects": "#202020",
     "--cl-projects-light": "#292929",
     "--cl-skills": COLORS.darkGrey,
-    "--cl-skills-dark": "#252725",
+    "--cl-skills-hover": "#252725",
     "--cl-contact": COLORS.yaleBlue,
     "--cl-accent": "#fdd835",
     "--text-main": COLORS.offWhite,
@@ -66,6 +69,7 @@ const globalStyle = css`
     --cl-projects-light: #292929;
     --cl-skills: #333533;
     --cl-skills-dark: #252725;
+    --cl-skills-hover: #252725;
 
     --cl-contact: var(--cl-main);
     --cl-accent: #fdd835;

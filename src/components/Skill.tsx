@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { COLORS } from "../../global-style"
 
 const StyledSkill = styled("li")<{ brandColor: string }>`
   margin: 0.5em 1em;

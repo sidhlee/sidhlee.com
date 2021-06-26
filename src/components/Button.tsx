@@ -55,6 +55,9 @@ const projectsThemeCss = css`
 const skillsThemeCss = css`
   background: var(--cl-skills);
   border: 2px solid var(--cl-skills);
+  &:hover {
+    background: var(--cl-skills-hover) !important;
+  }
 `
 
 const getButtonThemeCss = (theme: SectionTheme | undefined) => {
@@ -80,8 +83,9 @@ export const buttonCss = css<ButtonProps>`
   align-items: center;
   width: fit-content;
   min-width: 7rem;
-  padding: 0.4em 1.2em;
-  border: 2px solid var(--cl-about);
+  padding: 0.5em 1.2em;
+  /* border: 2px solid var(--cl-about); */
+  border: none !important;
   color: var(--text-main);
   font-family: var(--ff-heading);
   /* font-size: ${props => (props.$sm ? "0.85rem" : "1rem")}; */
