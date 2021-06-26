@@ -130,7 +130,7 @@ const StyledHeader = styled("section")<{ $isLight: boolean }>`
       left: 2rem;
       transform: rotate(-5deg);
       path {
-        fill: ${({ $isLight }) => ($isLight ? COLORS.yaleBlue : "white")};
+        fill: ${({ $isLight }) => ($isLight ? COLORS.pink : "white")};
       }
     }
   }

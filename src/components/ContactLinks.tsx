@@ -52,6 +52,9 @@ const StyledContactLinks = styled("div")<{ $isLight: boolean }>`
       bottom: 0;
       width: 100%;
       height: 100%;
+      rect {
+        fill: ${({ $isLight }) => ($isLight ? COLORS.pink : COLORS.yellow)};
+      }
     }
   }
   .calendly {

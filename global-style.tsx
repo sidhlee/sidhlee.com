@@ -16,6 +16,7 @@ export const COLORS = {
   black: "#000000",
   yellow: "#fdd835",
   wheat: "#EAD2AC",
+  pink: "#f7a09c",
 }
 
 export const THEME_COLORS = {
@@ -28,7 +29,7 @@ export const THEME_COLORS = {
     "--cl-contact": COLORS.offWhite,
     "--text-main": COLORS.black,
     "--text-inverse": COLORS.offWhite,
-    "--cl-accent": COLORS.yaleBlue,
+    "--cl-accent": COLORS.pink,
     "--text-muted": "#d6d2d2",
   },
   dark: {
@@ -267,7 +268,7 @@ const globalStyle = css`
 
     50% {
       transform: scale(0.98);
-      filter: brightness(0.8);
+      filter: brightness(0.9);
     }
 
     100% {

@@ -48,10 +48,9 @@ const StyledAbout = styled("section")<{ $isLight: boolean }>`
         height: 80%;
         left: -25%;
         bottom: -25%;
-        /* rect {
-          fill: ${({ $isLight }) =>
-          $isLight ? COLORS.yaleBlue : COLORS.yellow};
-        } */
+        rect {
+          fill: ${({ $isLight }) => ($isLight ? COLORS.pink : COLORS.yellow)};
+        }
       }
     }
 
