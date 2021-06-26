@@ -11,6 +11,7 @@ export const COLORS = {
   yaleBlue: "#084887",
   offWhite: "#eff1f3",
   grey: "#ababab",
+  darkGrey: "#333533",
   white: "#ffffff",
   black: "#000000",
   yellow: "#fdd835",
@@ -19,12 +20,14 @@ export const COLORS = {
 export const THEME_COLORS = {
   light: {
     "--cl-main": COLORS.offWhite,
-    "--cl-about": COLORS.yellow,
+    "--cl-about": "#EEC584",
     "--cl-projects": "white",
+    "--cl-skills": "#2D93AD",
     "--cl-contact": COLORS.offWhite,
     "--text-main": COLORS.black,
     "--text-inverse": COLORS.offWhite,
     "--cl-accent": COLORS.yaleBlue,
+    "--text-muted": "#d6d2d2",
   },
   dark: {
     "--cl-white": COLORS.white,
@@ -35,7 +38,7 @@ export const THEME_COLORS = {
     "--cl-about-dark": "#0f2546",
     "--cl-projects": "#202020",
     "--cl-projects-light": "#292929",
-    "--cl-skills": "#333533",
+    "--cl-skills": COLORS.darkGrey,
     "--cl-skills-dark": "#252725",
     "--cl-contact": COLORS.yaleBlue,
     "--cl-accent": "#fdd835",

@@ -7,7 +7,7 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
-import GlobalStyle from "../../global-style"
+import GlobalStyle, { COLORS } from "../../global-style"
 import Helmet from "react-helmet"
 import styled from "styled-components"
 import { ThemeProvider } from "../features/lightmode/useTheme"
@@ -28,7 +28,8 @@ const StyledLayout = styled.div`
     padding: 0.5em;
     text-align: center;
     width: 100%;
-    background-color: var(--cl-projects);
+    color: ${COLORS.offWhite};
+    background-color: ${COLORS.darkGrey};
     span {
       margin: 0 0.25em;
     }

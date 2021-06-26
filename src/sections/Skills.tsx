@@ -14,6 +14,7 @@ const StyledSkills = styled("section")`
   .skill-list {
     margin: 0 auto;
     padding-top: var(--pt-section-content);
+    padding-bottom: var(--pt-section-content);
     min-height: calc(
       var(--min-height-section-content) - var(--pt-section-content)
     );

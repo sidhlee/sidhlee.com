@@ -4,8 +4,10 @@ import ButtonLink from "../components/ButtonLink"
 import Container from "../components/Container"
 import Square from "../images/square.svg"
 import resumeFile from "../download/sid-lee-resume.pdf"
+import useTheme from "../features/lightmode/useTheme"
+import { COLORS } from "../../global-style"
 
-const StyledAbout = styled("section")`
+const StyledAbout = styled("section")<{ $isLight: boolean }>`
   background: var(--cl-about);
   min-height: 100vh;
 
@@ -46,6 +48,10 @@ const StyledAbout = styled("section")`
         height: 80%;
         left: -25%;
         bottom: -25%;
+        /* rect {
+          fill: ${({ $isLight }) =>
+          $isLight ? COLORS.yaleBlue : COLORS.yellow};
+        } */
       }
     }
 
@@ -98,8 +104,9 @@ const StyledAbout = styled("section")`
 type AboutProps = {}
 
 const About: React.FC<AboutProps> = ({}) => {
+  const { theme } = useTheme()
   return (
-    <StyledAbout id="about">
+    <StyledAbout id="about" $isLight={theme === "light"}>
       <Container>
         <h2>About</h2>
         <div className="about-content">
