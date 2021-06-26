@@ -8,8 +8,10 @@ import { animated } from "@react-spring/web"
 import useHeaderChain from "../springs/useHeaderChain"
 import useFlyingPiano from "../springs/useFlyingPiano"
 import useDevRole from "../springs/useDevRole"
+import useTheme from "../features/lightmode/useTheme"
+import { COLORS } from "../../global-style"
 
-const StyledHeader = styled("section")`
+const StyledHeader = styled("section")<{ $isLight: boolean }>`
   // Take mobile UI (keyboard/safari control bar) into account when calculating 100vh
   // https://css-tricks.com/css-fix-for-100vh-in-mobile-webkit/
   min-height: 100vh;
@@ -116,6 +118,9 @@ const StyledHeader = styled("section")`
     .lid {
       width: 100%;
       height: 80%;
+      path {
+        fill: var(--cl-accent);
+      }
     }
     .bed {
       width: 80%;
@@ -124,6 +129,9 @@ const StyledHeader = styled("section")`
       /* margin-top: calc(-1 * 20%); */
       left: 2rem;
       transform: rotate(-5deg);
+      path {
+        fill: ${({ $isLight }) => ($isLight ? "black" : "white")};
+      }
     }
   }
 
@@ -145,12 +153,14 @@ const Header: React.FC<HeaderProps> = ({}) => {
     pianoStyles,
   } = useHeaderChain()
 
+  const { theme } = useTheme()
+
   const { bind, flyingPianoStyles } = useFlyingPiano()
 
   const role = useDevRole()
 
   return (
-    <StyledHeader>
+    <StyledHeader $isLight={theme === "light"}>
       <Container>
         <header>
           <animated.h1 style={h1Styles}>Sid Lee</animated.h1>

@@ -7,19 +7,24 @@ export const mq = {
   wide: 1600,
 }
 
-const COLORS = {
+export const COLORS = {
   yaleBlue: "#084887",
   offWhite: "#eff1f3",
   grey: "#ababab",
   white: "#ffffff",
   black: "#000000",
+  yellow: "#fdd835",
 }
 
 export const THEME_COLORS = {
   light: {
     "--cl-main": COLORS.offWhite,
+    "--cl-about": COLORS.yellow,
+    "--cl-projects": "white",
+    "--cl-contact": COLORS.offWhite,
     "--text-main": COLORS.black,
     "--text-inverse": COLORS.offWhite,
+    "--cl-accent": COLORS.yaleBlue,
   },
   dark: {
     "--cl-white": COLORS.white,
@@ -162,6 +167,7 @@ const globalStyle = css`
     font: inherit;
     padding: 0.5em 1em;
     border-radius: var(--border-radius);
+    border: 0;
   }
 
   .visually-hidden:not(:focus):not(:active) {

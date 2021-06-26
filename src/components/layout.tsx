@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import GlobalStyle from "../../global-style"
 import Helmet from "react-helmet"
 import styled from "styled-components"
+import { ThemeProvider } from "../features/lightmode/useTheme"
 
 const StyledLayout = styled.div`
   // https://github.com/civiccc/react-waypoint/issues/275
@@ -47,22 +48,24 @@ const Layout: React.FC = ({ children }) => {
       <GlobalStyle />
       {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
       <StyledLayout>
-        {children}
-        <footer>
-          © {new Date().getFullYear()},{" "}
-          <span className="nowrap">Designed &amp; Developed</span>{" "}
-          <span className="nowrap">by Sid Hayoun Lee</span>{" "}
-          <span className="nowrap">
-            with{" "}
-            <span role="img" aria-label="coffee">
-              ☕
-            </span>{" "}
-            and{" "}
-            <span role="img" aria-label="love">
-              ❤️
+        <ThemeProvider>
+          {children}
+          <footer>
+            © {new Date().getFullYear()},{" "}
+            <span className="nowrap">Designed &amp; Developed</span>{" "}
+            <span className="nowrap">by Sid Hayoun Lee</span>{" "}
+            <span className="nowrap">
+              with{" "}
+              <span role="img" aria-label="coffee">
+                ☕
+              </span>{" "}
+              and{" "}
+              <span role="img" aria-label="love">
+                ❤️
+              </span>
             </span>
-          </span>
-        </footer>
+          </footer>
+        </ThemeProvider>
       </StyledLayout>
     </>
   )
