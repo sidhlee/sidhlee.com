@@ -6,19 +6,19 @@ import useScroll from "../hooks/useScroll"
 const StyledNavbar = styled(animated.nav)`
   position: fixed;
   z-index: var(--z-navbar);
+  height: var(--height-navbar);
   top: 0;
   width: 100%;
+  padding: 0 var(--px);
   background: transparent;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 
   ul {
-    height: var(--height-navbar);
-    padding-bottom: 1em;
     display: none;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
   }
 
   a {

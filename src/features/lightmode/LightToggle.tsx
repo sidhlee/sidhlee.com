@@ -5,6 +5,8 @@ import useTheme, { setCustomProperties } from "./useTheme"
 
 const StyledLightToggle = styled.div`
   height: var(--height-navbar);
+  display: flex;
+  align-items: center;
   label {
     display: flex;
   }
