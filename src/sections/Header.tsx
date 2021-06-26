@@ -109,8 +109,8 @@ const StyledHeader = styled("section")<{ $isLight: boolean }>`
     transform: rotate(24deg);
     transform-origin: 60% 100%;
     /* prevent low contrast when piano goes under text  */
-    filter: brightness(0.35);
-
+    filter: ${({ $isLight }) =>
+      $isLight ? "opacity(0.4)" : "brightness(0.35)"};
     .lid,
     .bed {
       flex-shrink: 0;
@@ -130,7 +130,7 @@ const StyledHeader = styled("section")<{ $isLight: boolean }>`
       left: 2rem;
       transform: rotate(-5deg);
       path {
-        fill: ${({ $isLight }) => ($isLight ? "black" : "white")};
+        fill: ${({ $isLight }) => ($isLight ? COLORS.yaleBlue : "white")};
       }
     }
   }

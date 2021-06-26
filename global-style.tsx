@@ -15,12 +15,14 @@ export const COLORS = {
   white: "#ffffff",
   black: "#000000",
   yellow: "#fdd835",
+  wheat: "#EAD2AC",
 }
 
 export const THEME_COLORS = {
   light: {
     "--cl-main": COLORS.offWhite,
-    "--cl-about": "#EEC584",
+    "--cl-about": COLORS.wheat,
+    "--cl-about-dark": "#ecb864",
     "--cl-projects": "white",
     "--cl-skills": "#2D93AD",
     "--cl-contact": COLORS.offWhite,
@@ -260,17 +262,17 @@ const globalStyle = css`
   @keyframes float {
     0% {
       transform: scale(1);
-      opacity: 1;
+      filter: brightness(1);
     }
 
     50% {
       transform: scale(0.98);
-      opacity: 0.8;
+      filter: brightness(0.8);
     }
 
     100% {
       transform: scale(1);
-      opacity: 1;
+      filter: brightness(1);
     }
   }
 
