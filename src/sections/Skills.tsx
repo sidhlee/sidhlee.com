@@ -23,15 +23,16 @@ const StyledSkills = styled("section")`
     flex-wrap: wrap;
     justify-content: center;
     justify-items: center;
+    /* width: fit-content; */
     max-width: 90ch;
 
     /* li:nth-child(2n) {
       position: relative;
       top: 1.5em;
     } */
-    @media (min-width: ${mq.desktop}px) {
+    /* @media (min-width: ${mq.desktop}px) {
       justify-content: space-between;
-    }
+    } */
   }
 `
 

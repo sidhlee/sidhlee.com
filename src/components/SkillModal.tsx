@@ -8,15 +8,12 @@ import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 const StyledSkillModal = styled(animated.article)<{ $isOpen: boolean }>`
   width: 95%;
   max-width: 50ch;
-  max-height: 90vh;
-
   position: fixed;
   z-index: var(--z-modal);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  padding: var(--px);
   border-radius: 5px;
   background: var(--cl-projects);
 
@@ -38,7 +35,9 @@ const StyledSkillModal = styled(animated.article)<{ $isOpen: boolean }>`
     }
   }
   .modal-inner {
-    max-height: calc(90vh - 2 * var(--px));
+    padding: var(--px);
+    /* max-height: calc(90vh - 2 * var(--px)); */
+    max-height: 90vh;
     overflow-y: auto;
     // hide vertical scrollbar
     scrollbar-width: none; /* Firefox ? */
