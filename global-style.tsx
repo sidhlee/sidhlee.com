@@ -84,7 +84,7 @@ const globalStyle = css`
     --ff-body: Roboto, sans-serif;
     --fz-xl: max(2rem, calc(7vw - 20px));
     --fz-h3: max(1.3rem, 2.5vw);
-    --fz-subheading: max(1.05rem, calc(1.2vw + 10px));
+    --fz-subheading: max(1.05rem, calc(1.2vw + 6px));
     --fz-button-md: min(max(0.8rem, 3vw), 1rem);
     --fz-tech-stacks: max(0.8rem, 0.9vw);
     --fz-skill: max(1.2rem, calc(1.2vw + 1rem));
