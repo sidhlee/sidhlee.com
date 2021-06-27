@@ -10,7 +10,7 @@ export const mq = {
 export const COLORS = {
   yaleBlue: "#084887",
   offWhite: "#eff1f3",
-  grey: "#ababab",
+  grey: "#b9b9b9",
   darkGrey: "#333533",
   darkerGrey: "#202020",
   white: "#ffffff",
@@ -33,7 +33,6 @@ export const THEME_COLORS = {
     "--cl-accent": COLORS.pink,
     "--text-main": COLORS.black,
     "--text-inverse": COLORS.offWhite,
-    "--text-muted": "#d6d2d2",
   },
   dark: {
     "--cl-white": COLORS.white,
@@ -87,7 +86,7 @@ const globalStyle = css`
     --fz-subheading: max(1.05rem, calc(1.2vw + 6px));
     --fz-button-md: min(max(0.8rem, 3vw), 1rem);
     --fz-tech-stacks: max(0.8rem, 0.9vw);
-    --fz-skill: max(1.2rem, calc(1.2vw + 1rem));
+    --fz-skill: max(1rem, calc(2.5vw));
     --fz-body: max(1rem, calc(1vw + 5px));
 
     --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

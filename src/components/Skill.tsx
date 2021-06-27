@@ -1,8 +1,7 @@
 import styled from "styled-components"
-import { COLORS } from "../../global-style"
 
 const StyledSkill = styled("li")<{ brandColor: string }>`
-  margin: 0.5em 1em;
+  margin: calc(var(--fz-skill) * 0.6);
   font-family: var(--ff-heading);
   font-size: var(--fz-skill);
   font-style: italic;
@@ -12,7 +11,7 @@ const StyledSkill = styled("li")<{ brandColor: string }>`
     padding: 0.2rem 0.5rem;
     background: #222;
     line-height: 1;
-    text-align: left;
+    text-align: center;
     text-shadow: var(--shadow);
     transition: all 300ms var(--timing-spring);
     &:hover {
