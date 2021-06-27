@@ -1,5 +1,5 @@
 ---
-title: A11y
+title: Accessibility
 related skills: [HTML, CSS, React]
 related projects: []
 icon: "./a11y.png"

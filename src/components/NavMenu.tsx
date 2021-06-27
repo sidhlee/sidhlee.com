@@ -27,7 +27,7 @@ const StyledNavMenu = styled(animated.aside)`
     top: 1rem;
     left: 1rem;
   }
-  --fz: min(max(1.8rem, calc(3vw + 3vh)), 3.5rem);
+  --fz: 5.5vh;
   nav {
     ul {
       height: 40vh;
