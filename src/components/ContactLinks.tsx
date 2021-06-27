@@ -75,9 +75,11 @@ const StyledContactLinks = styled("div")<{ $isLight: boolean }>`
   .connect-list {
     display: flex;
     /* justify-content: space-between; */
+    width: 100%;
+    justify-content: space-between;
 
     .connect-item {
-      width: 24%;
+      width: 2.5rem;
       max-width: 60px;
       height: auto;
       &:not(:last-child) {
@@ -101,13 +103,10 @@ const StyledContactLinks = styled("div")<{ $isLight: boolean }>`
 
       transition: all 250ms ease;
       &:hover {
-        /* a,
-        button {
-          box-shadow: 4px 5px 12px 3px rgba(0, 0, 0, 0.4); */
-        }
         svg {
           fill: ${({ $isLight }) =>
             $isLight ? COLORS.black : "rgba(255, 255, 255, 1)"};
+
           transform: scale(1.05);
         }
       }
