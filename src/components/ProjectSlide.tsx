@@ -8,6 +8,7 @@ import { ReactEventHandlers } from "react-use-gesture/dist/types"
 import ButtonLink from "./ButtonLink"
 import ProjectImages from "./ProjectImages"
 import TechStacks from "./TechStacks"
+import { COLORS } from "../../global-style"
 
 const StyledProjectSlide = styled("article")`
   width: 100%;
@@ -29,14 +30,20 @@ const StyledProjectSlide = styled("article")`
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    .logo {
+    .title-wrapper {
       width: 50%;
+      padding: 0.5rem 0.5rem 0.3rem;
+      background: ${COLORS.darkerGrey};
       max-width: 220px;
       margin-right: 2rem;
     }
 
-    .description-toggler {
+    h3 {
       color: var(--text-main);
+    }
+
+    .description-toggler {
+      color: ${COLORS.offWhite};
       padding: 0.25em 1.5em;
       background: rgba(0, 0, 0, 0.8);
       font-style: italic;
@@ -70,6 +77,7 @@ const StyledProjectSlide = styled("article")`
       background: rgba(0, 0, 0, 0.88);
 
       p {
+        color: ${COLORS.offWhite};
         max-width: 25rem;
       }
     }
@@ -126,6 +134,7 @@ const StyledProjectSlide = styled("article")`
           padding: 0;
           background: transparent;
           p {
+            color: var(--text-main);
             max-width: 100%;
             transform: initial !important; // override react-spring value
           }
@@ -183,16 +192,18 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project, bindDrag }) => {
     <StyledProjectSlide>
       <div className="col">
         <header className="project-header">
-          {logoImage ? (
-            <GatsbyImage
-              className="logo"
-              image={logoGatsbyImage}
-              alt={title}
-              objectFit="contain"
-            />
-          ) : (
-            <h3>{title}</h3>
-          )}
+          <div className="title-wrapper">
+            {logoImage ? (
+              <GatsbyImage
+                className="logo"
+                image={logoGatsbyImage}
+                alt={title}
+                objectFit="contain"
+              />
+            ) : (
+              <h3>{title}</h3>
+            )}
+          </div>
           <button
             className="description-toggler"
             onClick={() => setDescriptionHidden(v => !v)}

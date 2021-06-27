@@ -7,6 +7,52 @@ export const mq = {
   wide: 1600,
 }
 
+export const COLORS = {
+  yaleBlue: "#084887",
+  offWhite: "#eff1f3",
+  grey: "#b9b9b9",
+  darkGrey: "#333533",
+  darkerGrey: "#202020",
+  white: "#ffffff",
+  black: "#000000",
+  yellow: "#fdd835",
+  wheat: "#EAD2AC",
+  pink: "#f7a09c",
+}
+
+export const THEME_COLORS = {
+  light: {
+    "--cl-main": COLORS.offWhite,
+    "--cl-main-light": "#b5e9f7",
+    "--cl-about": COLORS.wheat,
+    "--cl-about-dark": "#ecb864",
+    "--cl-projects": "white",
+    "--cl-skills": "#2D93AD",
+    "--cl-skills-hover": "#8cdef3",
+    "--cl-contact": COLORS.offWhite,
+    "--cl-accent": COLORS.pink,
+    "--text-main": COLORS.black,
+    "--text-inverse": COLORS.offWhite,
+  },
+  dark: {
+    "--cl-white": COLORS.white,
+    "--cl-off-white": COLORS.offWhite,
+    "--cl-main": COLORS.yaleBlue,
+    "--cl-main-light": "#095199",
+    "--cl-about": "#163666",
+    "--cl-about-dark": "#0f2546",
+    "--cl-projects": "#202020",
+    "--cl-projects-light": "#292929",
+    "--cl-skills": COLORS.darkGrey,
+    "--cl-skills-hover": "#252725",
+    "--cl-contact": COLORS.yaleBlue,
+    "--cl-accent": "#fdd835",
+    "--text-main": COLORS.offWhite,
+    "--text-muted": COLORS.grey,
+    "--text-inverse": COLORS.black,
+  },
+}
+
 // workaround for css not formatting inside createGlobalStyle
 // https://github.com/prettier/prettier/pull/9025
 const globalStyle = css`
@@ -22,6 +68,7 @@ const globalStyle = css`
     --cl-projects-light: #292929;
     --cl-skills: #333533;
     --cl-skills-dark: #252725;
+    --cl-skills-hover: #252725;
 
     --cl-contact: var(--cl-main);
     --cl-accent: #fdd835;
@@ -36,10 +83,10 @@ const globalStyle = css`
     --ff-body: Roboto, sans-serif;
     --fz-xl: max(2rem, calc(7vw - 20px));
     --fz-h3: max(1.3rem, 2.5vw);
-    --fz-subheading: max(1.05rem, calc(1.2vw + 10px));
+    --fz-subheading: max(1.05rem, calc(1.2vw + 6px));
     --fz-button-md: min(max(0.8rem, 3vw), 1rem);
     --fz-tech-stacks: max(0.8rem, 0.9vw);
-    --fz-skill: max(1.2rem, calc(1.2vw + 1rem));
+    --fz-skill: max(1rem, calc(2.5vw));
     --fz-body: max(1rem, calc(1vw + 5px));
 
     --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -129,6 +176,7 @@ const globalStyle = css`
     font: inherit;
     padding: 0.5em 1em;
     border-radius: var(--border-radius);
+    border: 0;
   }
 
   .visually-hidden:not(:focus):not(:active) {
@@ -218,17 +266,17 @@ const globalStyle = css`
   @keyframes float {
     0% {
       transform: scale(1);
-      opacity: 1;
+      filter: brightness(1);
     }
 
     50% {
       transform: scale(0.98);
-      opacity: 0.8;
+      filter: brightness(0.9);
     }
 
     100% {
       transform: scale(1);
-      opacity: 1;
+      filter: brightness(1);
     }
   }
 

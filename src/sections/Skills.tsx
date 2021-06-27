@@ -8,28 +8,20 @@ import SkillModal from "../components/SkillModal"
 import { mq } from "../../global-style"
 
 const StyledSkills = styled("section")`
-  min-height: 100vh;
   background: var(--cl-skills);
+  transition: background-color 200ms ease;
 
   .skill-list {
     margin: 0 auto;
     padding-top: var(--pt-section-content);
-    min-height: calc(
-      var(--min-height-section-content) - var(--pt-section-content)
-    );
+    padding-bottom: var(--pt-section-content);
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    justify-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    justify-items: flex-start;
+    width: 80vw;
     max-width: 90ch;
-
-    /* li:nth-child(2n) {
-      position: relative;
-      top: 1.5em;
-    } */
-    @media (min-width: ${mq.desktop}px) {
-      justify-content: space-between;
-    }
   }
 `
 

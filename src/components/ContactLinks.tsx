@@ -12,8 +12,10 @@ import Square from "../images/square.svg"
 import SpringZoom from "../springs/SpringZoom"
 import { useState } from "react"
 import ContactPanel from "./ContactPanel"
+import useTheme from "../features/lightmode/useTheme"
+import { COLORS } from "../../global-style"
 
-const StyledContactLinks = styled("div")`
+const StyledContactLinks = styled("div")<{ $isLight: boolean }>`
   width: 100%;
 
   h3 {
@@ -50,6 +52,9 @@ const StyledContactLinks = styled("div")`
       bottom: 0;
       width: 100%;
       height: 100%;
+      rect {
+        fill: ${({ $isLight }) => ($isLight ? COLORS.pink : COLORS.yellow)};
+      }
     }
   }
   .calendly {
@@ -70,13 +75,15 @@ const StyledContactLinks = styled("div")`
   .connect-list {
     display: flex;
     /* justify-content: space-between; */
+    width: 100%;
+    justify-content: flex-start;
 
     .connect-item {
-      width: 24%;
-      max-width: 60px;
+      width: 7vh;
+      /* max-width: 60px; */
       height: auto;
       &:not(:last-child) {
-        margin-right: 1em;
+        margin-right: 1.5rem;
       }
       a,
       button {
@@ -89,18 +96,17 @@ const StyledContactLinks = styled("div")`
       svg {
         width: 100%;
         height: 100%;
-        fill: rgba(255, 255, 255, 0.7);
+        fill: ${({ $isLight }) =>
+          $isLight ? COLORS.darkGrey : "rgba(255, 255, 255, 0.7)"};
         transition: all 250ms ease;
       }
 
       transition: all 250ms ease;
       &:hover {
-        a,
-        button {
-          box-shadow: 4px 5px 12px 3px rgba(0, 0, 0, 0.4);
-        }
         svg {
-          fill: rgba(255, 255, 255, 1);
+          fill: ${({ $isLight }) =>
+            $isLight ? COLORS.black : "rgba(255, 255, 255, 1)"};
+
           transform: scale(1.05);
         }
       }
@@ -134,11 +140,12 @@ type ContactLinksProps = {}
 
 const ContactLinks: React.FC<ContactLinksProps> = ({}) => {
   const [panelType, setPanelType] = useState<"email" | "phone" | "">("")
+  const { theme } = useTheme()
 
   const closePanel = () => setPanelType("")
 
   return (
-    <StyledContactLinks>
+    <StyledContactLinks $isLight={theme === "light"}>
       <div className="contact-panel-wrapper">
         {/* // force rerender on panelType change */}
         <ContactPanel type={panelType} close={closePanel} />

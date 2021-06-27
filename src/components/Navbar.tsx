@@ -2,20 +2,26 @@ import styled from "styled-components"
 import { useSpring, animated } from "@react-spring/web"
 import { mq } from "../../global-style"
 import useScroll from "../hooks/useScroll"
+import LightToggle from "../features/lightmode/LightToggle"
 
-const StyledNavbar = styled(animated.nav)`
+const StyledNavbar = styled.nav<{ $scrolling: boolean }>`
   position: fixed;
   z-index: var(--z-navbar);
+  height: var(--height-navbar);
   top: 0;
   width: 100%;
+  padding: 0 var(--px);
   background: transparent;
+  display: none;
+  justify-content: flex-end;
+  align-items: center;
+  transition: opacity 200ms ease;
+  opacity: ${({ $scrolling }) => ($scrolling ? 0 : 1)};
 
   ul {
-    height: var(--height-navbar);
-    padding-bottom: 1em;
-    display: none;
+    display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
   }
 
   a {
@@ -37,7 +43,7 @@ const StyledNavbar = styled(animated.nav)`
       left: 0;
       background: var(--cl-accent);
       width: 100%;
-      height: 1px;
+      height: 2px;
       transform: scaleX(0);
       transform-origin: left;
       opacity: 0;
@@ -64,25 +70,21 @@ const StyledNavbar = styled(animated.nav)`
   }
 
   @media (min-width: ${mq.desktop}px) {
-    ul {
-      display: flex;
-    }
+    display: flex;
   }
 `
 
 type NavbarProps = {}
 
 const Navbar: React.FC<NavbarProps> = ({ children }) => {
-  const beingScrolled = useScroll()
+  const scrolling = useScroll()
 
-  const styles = useSpring({
-    opacity: beingScrolled ? 0 : 1,
-    config: {
-      friction: 27,
-    },
-  })
-
-  return <StyledNavbar style={styles}>{children}</StyledNavbar>
+  return (
+    <StyledNavbar $scrolling={scrolling}>
+      {children}
+      <LightToggle />
+    </StyledNavbar>
+  )
 }
 
 export default Navbar

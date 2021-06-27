@@ -12,6 +12,7 @@ const StyledProjects = styled("section")`
   background: var(--cl-projects);
   min-height: 100vh;
   overflow: hidden;
+  transition: background-color 200ms ease;
 
   .projects-content {
     min-height: var(--min-height-section-content);

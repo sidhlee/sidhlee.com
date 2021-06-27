@@ -5,6 +5,7 @@ import Container from "../components/Container"
 
 const StyledContact = styled("section")`
   background: var(--cl-contact);
+  transition: background-color 200ms ease;
 
   .contact-content {
     max-width: 600px;
@@ -39,15 +40,17 @@ type ContactProps = {}
 
 const Contact: React.FC<ContactProps> = ({}) => {
   return (
-    <StyledContact id="contact">
-      <Container>
-        <h2>Contact</h2>
-        <div className="contact-content">
-          <ContactLinks />
-          <ContactForm />
-        </div>
-      </Container>
-    </StyledContact>
+    <>
+      <StyledContact id="contact">
+        <Container>
+          <h2>Contact</h2>
+          <div className="contact-content">
+            <ContactLinks />
+            <ContactForm />
+          </div>
+        </Container>
+      </StyledContact>
+    </>
   )
 }
 
