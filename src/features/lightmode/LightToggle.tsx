@@ -26,6 +26,7 @@ const StyledLightToggle = styled.div<{ $isLight: boolean }>`
       display: inline-block;
       line-height: 1;
       top: 3px;
+      font-size: 1rem;
     }
     .sun {
       left: 3px;
