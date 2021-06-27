@@ -32,7 +32,7 @@ const StyledLightToggle = styled.div<{ $isLight: boolean }>`
       left: 3px;
     }
     .moon {
-      right: 3px;
+      right: 1px;
     }
 
     // circular toggle-switch
