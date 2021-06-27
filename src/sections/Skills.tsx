@@ -10,6 +10,7 @@ import { mq } from "../../global-style"
 const StyledSkills = styled("section")`
   min-height: 100vh;
   background: var(--cl-skills);
+  transition: background-color 200ms ease;
 
   .skill-list {
     margin: 0 auto;

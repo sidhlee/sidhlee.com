@@ -19,6 +19,7 @@ const StyledLightToggle = styled.div<{ $isLight: boolean }>`
     background: ${({ $isLight }) =>
       $isLight ? THEME_COLORS.dark["--cl-main"] : "transparent"};
     border-radius: 100vmax;
+    cursor: pointer;
 
     /* 
     because .sr-only is turned off on "focus" and "active" state, 
@@ -63,7 +64,7 @@ const StyledLightToggle = styled.div<{ $isLight: boolean }>`
       border-radius: 50%;
       /* margin: 3px; */
       margin-left: auto;
-      transition: transform 250ms ease;
+      transition: all 250ms ease;
     }
     input:checked ~ .toggle-switch {
       /* toggle width - switch width - 3 * switch margin */

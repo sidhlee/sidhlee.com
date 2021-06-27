@@ -5,6 +5,7 @@ import Container from "../components/Container"
 
 const StyledContact = styled("section")`
   background: var(--cl-contact);
+  transition: background-color 200ms ease;
 
   .contact-content {
     max-width: 600px;

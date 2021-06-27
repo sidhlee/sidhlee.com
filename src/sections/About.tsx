@@ -10,6 +10,7 @@ import { COLORS } from "../../global-style"
 const StyledAbout = styled("section")<{ $isLight: boolean }>`
   background: var(--cl-about);
   min-height: 100vh;
+  transition: background-color 200ms ease;
 
   /* pull buttons front! */
   a {
