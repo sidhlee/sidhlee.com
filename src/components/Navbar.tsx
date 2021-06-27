@@ -40,7 +40,7 @@ const StyledNavbar = styled(animated.nav)`
       left: 0;
       background: var(--cl-accent);
       width: 100%;
-      height: 1px;
+      height: 2px;
       transform: scaleX(0);
       transform-origin: left;
       opacity: 0;
@@ -81,7 +81,7 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
   const styles = useSpring({
     opacity: beingScrolled ? 0 : 1,
     config: {
-      friction: 27,
+      duration: 200,
     },
   })
 
