@@ -1,13 +1,12 @@
-import { ChangeEvent } from "react"
 import styled from "styled-components"
-import { mq, THEME_COLORS } from "../../../global-style"
-import useTheme, { setCustomProperties } from "./useTheme"
+import { THEME_COLORS } from "../../../global-style"
+import useTheme from "./useTheme"
 
 const StyledLightToggle = styled.div<{ $isLight: boolean }>`
   height: var(--height-navbar);
   display: flex;
   align-items: center;
-  label {
+  button {
     position: relative;
     display: flex;
     --toggle-width: 2.9rem;
@@ -21,25 +20,6 @@ const StyledLightToggle = styled.div<{ $isLight: boolean }>`
     border-radius: 100vmax;
     cursor: pointer;
 
-    /* 
-    because .sr-only is turned off on "focus" and "active" state, 
-    we couldn't add that class to the radio inputs.
-    Instead, we are directly applying all those rules to the input element here
-    so that it stays that way the whole time.
-    */
-    input {
-      overflow: hidden; // remove scroll, remove overflown
-      white-space: nowrap; // prevent wrapping (might create height)
-
-      // clip only applies to abs-positioned elements (abs|fixed)
-      position: absolute; // for clip to work
-      clip: rect(0 0 0 0); // clips instead of removing by hidden
-      clip-path: inset(50%); // works same as above, but more browser support
-
-      // clip fallback
-      height: 1px; // almost-remove (but don't)
-      width: 1px;
-    }
     .sun,
     .moon {
       position: absolute;
@@ -57,7 +37,7 @@ const StyledLightToggle = styled.div<{ $isLight: boolean }>`
     // circular toggle-switch
     .toggle-switch {
       position: relative;
-      z-index: var(--z-nav-menu);
+      z-index: 1;
       display: block;
       background: white;
       --switch-size: 1rem;
@@ -67,10 +47,11 @@ const StyledLightToggle = styled.div<{ $isLight: boolean }>`
       /* margin: 3px; */
       margin-left: auto;
       transition: all 250ms ease;
-    }
-    input#lightToggle:checked ~ .toggle-switch {
       transform: translateX(
-        calc(-1 * (var(--toggle-width) - var(--switch-size) - 8px))
+        ${({ $isLight }) =>
+          $isLight
+            ? "calc(-1 * (var(--toggle-width) - var(--switch-size) - 8px))"
+            : 0}
       );
     }
   }
@@ -79,25 +60,29 @@ const StyledLightToggle = styled.div<{ $isLight: boolean }>`
 type LightToggleProps = {}
 
 const LightToggle: React.FC<LightToggleProps> = ({}) => {
-  const { theme, setTheme } = useTheme()
+  const { theme, toggleTheme } = useTheme()
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const updatedTheme = e.target.checked ? "light" : "dark"
-    setTheme(updatedTheme)
-    setCustomProperties(updatedTheme, THEME_COLORS)
+  const handleClick = () => {
+    toggleTheme()
   }
   return (
     <StyledLightToggle className="LightToggle" $isLight={theme === "light"}>
-      <label htmlFor="lightToggle">
-        <input id="lightToggle" type="checkbox" onChange={handleChange} />
+      <button onClick={handleClick}>
+        <span className="visually-hidden">
+          {theme === "dark" ? "use light theme" : "use dark theme"}
+        </span>
+        <span
+          className="toggle-switch"
+          role="img"
+          aria-label="toggle switch"
+        ></span>
         <span className="sun" role="img" aria-label="sun">
           ☀️
         </span>
         <span className="moon" role="img" aria-label="moon">
           🌛
         </span>
-        <span className="toggle-switch"></span>
-      </label>
+      </button>
     </StyledLightToggle>
   )
 }

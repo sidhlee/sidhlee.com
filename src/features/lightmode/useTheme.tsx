@@ -1,37 +1,55 @@
 import React, { createContext, useContext, useEffect, useState } from "react"
+import { THEME_COLORS } from "../../../global-style"
 
 export type Theme = "dark" | "light"
 
-const ThemeContext = createContext<{
+type ThemeContextValue = {
   theme: Theme
-  setTheme: React.Dispatch<React.SetStateAction<Theme>>
-}>({
-  theme: "dark",
-  setTheme: () => {},
-})
+  toggleTheme: () => void
+}
+// https://kentcdodds.com/blog/how-to-use-react-context-effectively#typescript
+const ThemeContext = createContext<ThemeContextValue | undefined>(undefined)
 
 export const ThemeProvider: React.FC = ({ children }) => {
   const [theme, setTheme] = useState<Theme>("dark")
 
+  // useEffect(() => {
+  //   const root = window.document.documentElement
+
+  //   const initialTheme = root.style.getPropertyValue("--initial-theme") as Theme
+  //   console.log(initialTheme)
+
+  //   setTheme(initialTheme)
+  // }, [])
+
   useEffect(() => {
-    const root = window.document.documentElement
+    setCustomProperties(theme, THEME_COLORS)
+  }, [theme])
 
-    const initialTheme = root.style.getPropertyValue("--initial-theme") as Theme
-
-    setTheme(initialTheme)
-  }, [])
+  const toggleTheme = () => {
+    if (theme === "dark") {
+      setTheme("light")
+    } else if (theme === "light") {
+      setTheme("dark")
+    } else {
+      throw new Error("theme has to be either dark or light")
+    }
+  }
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   )
 }
 
 export default function useTheme() {
-  const { theme, setTheme } = useContext(ThemeContext)
+  const context = useContext(ThemeContext)
+  if (context === undefined) {
+    throw new Error("useTheme must be used within a ThemeProvider")
+  }
 
-  return { theme, setTheme }
+  return context
 }
 
 type ThemeColors = {
@@ -43,10 +61,7 @@ type ThemeColors = {
   }
 }
 
-export function setCustomProperties(
-  targetTheme: Theme,
-  themeColors: ThemeColors
-) {
+function setCustomProperties(targetTheme: Theme, themeColors: ThemeColors) {
   const root = window.document.documentElement
 
   Object.entries(themeColors[targetTheme]).forEach(

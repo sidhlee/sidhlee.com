@@ -40,15 +40,17 @@ type ContactProps = {}
 
 const Contact: React.FC<ContactProps> = ({}) => {
   return (
-    <StyledContact id="contact">
-      <Container>
-        <h2>Contact</h2>
-        <div className="contact-content">
-          <ContactLinks />
-          <ContactForm />
-        </div>
-      </Container>
-    </StyledContact>
+    <>
+      <StyledContact id="contact">
+        <Container>
+          <h2>Contact</h2>
+          <div className="contact-content">
+            <ContactLinks />
+            <ContactForm />
+          </div>
+        </Container>
+      </StyledContact>
+    </>
   )
 }
 

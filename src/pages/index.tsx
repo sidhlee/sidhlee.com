@@ -44,10 +44,10 @@ const IndexPage: React.FC = () => {
             <Contact />
           </CheckScrolled>
         </main>
+        <NavMenu isOpen={isMenuOpen} close={() => setIsMenuOpen(false)}>
+          <NavLinks currentPath={currentPath} />
+        </NavMenu>
       </Layout>
-      <NavMenu isOpen={isMenuOpen} close={() => setIsMenuOpen(false)}>
-        <NavLinks currentPath={currentPath} />
-      </NavMenu>
     </>
   )
 }

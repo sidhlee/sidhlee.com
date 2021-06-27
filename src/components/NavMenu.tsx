@@ -1,15 +1,13 @@
-import { useTransition } from "@react-spring/core"
-import { animated } from "@react-spring/web"
+import { animated, useTransition } from "@react-spring/web"
 import styled from "styled-components"
 import Backdrop from "./Backdrop"
 import GitHubIcon from "../images/icon-github.svg"
 import LinkedInIcon from "../images/icon-linkedin.svg"
 import TwitterIcon from "../images/icon-twitter.svg"
 import LightToggle from "../features/lightmode/LightToggle"
-import useTheme from "../features/lightmode/useTheme"
 import { THEME_COLORS } from "../../global-style"
 
-const StyledNavMenu = styled(animated.aside)<{ $isLight: boolean }>`
+const StyledNavMenu = styled(animated.aside)`
   position: fixed;
   z-index: var(--z-nav-menu);
   right: 0;
@@ -86,6 +84,9 @@ const StyledNavMenu = styled(animated.aside)<{ $isLight: boolean }>`
       }
     }
   }
+  .LightToggle {
+    padding: 0.5rem;
+  }
 `
 
 type NavMenuProps = {
@@ -102,7 +103,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ isOpen, children, close }) => {
     enter: {
       opacity: 1,
       x: "0%",
-      delay: 200,
+      delay: 100,
     },
     leave: {
       opacity: 0,
@@ -115,41 +116,36 @@ const NavMenu: React.FC<NavMenuProps> = ({ isOpen, children, close }) => {
     },
   })
 
-  const { theme } = useTheme()
-
   return (
     <>
-      {transitions(
-        (styles, item) =>
-          item && (
-            <>
-              <StyledNavMenu style={styles} $isLight={theme === "light"}>
-                <span className="heading-xl logo">SL</span>
-                <nav>{children}</nav>
-                <ul className="social-icons">
-                  <li className="connect-item linkedin">
-                    <a
-                      href="https://www.linkedin.com/in/sid-hayoun-lee/"
-                      target="_blank"
-                    >
-                      <LinkedInIcon aria-label="LinkedIn" />
-                    </a>
-                  </li>
-                  <li className="connect-item twitter">
-                    <a href="https://twitter.com/sidhlee" target="_blank">
-                      <TwitterIcon aria-label="Twitter" />
-                    </a>
-                  </li>
-                  <li className="connect-item github">
-                    <a href="https://github.com/sidhlee/" target="_blank">
-                      <GitHubIcon aria-label="GitHub" />
-                    </a>
-                  </li>
-                </ul>
-                <LightToggle />
-              </StyledNavMenu>
-            </>
-          )
+      {transitions((styles, item) =>
+        item ? (
+          <StyledNavMenu style={styles}>
+            <span className="heading-xl logo">SL</span>
+            <nav onClick={close}>{children}</nav>
+            <ul className="social-icons">
+              <li className="connect-item linkedin">
+                <a
+                  href="https://www.linkedin.com/in/sid-hayoun-lee/"
+                  target="_blank"
+                >
+                  <LinkedInIcon aria-label="LinkedIn" />
+                </a>
+              </li>
+              <li className="connect-item twitter">
+                <a href="https://twitter.com/sidhlee" target="_blank">
+                  <TwitterIcon aria-label="Twitter" />
+                </a>
+              </li>
+              <li className="connect-item github">
+                <a href="https://github.com/sidhlee/" target="_blank">
+                  <GitHubIcon aria-label="GitHub" />
+                </a>
+              </li>
+            </ul>
+            <LightToggle />
+          </StyledNavMenu>
+        ) : null
       )}
       <Backdrop isOpen={isOpen} close={close} />
     </>

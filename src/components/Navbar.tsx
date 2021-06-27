@@ -4,7 +4,7 @@ import { mq } from "../../global-style"
 import useScroll from "../hooks/useScroll"
 import LightToggle from "../features/lightmode/LightToggle"
 
-const StyledNavbar = styled(animated.nav)`
+const StyledNavbar = styled.nav<{ $scrolling: boolean }>`
   position: fixed;
   z-index: var(--z-navbar);
   height: var(--height-navbar);
@@ -15,6 +15,8 @@ const StyledNavbar = styled(animated.nav)`
   display: none;
   justify-content: flex-end;
   align-items: center;
+  transition: opacity 200ms ease;
+  opacity: ${({ $scrolling }) => ($scrolling ? 0 : 1)};
 
   ul {
     display: flex;
@@ -75,17 +77,10 @@ const StyledNavbar = styled(animated.nav)`
 type NavbarProps = {}
 
 const Navbar: React.FC<NavbarProps> = ({ children }) => {
-  const beingScrolled = useScroll()
-
-  const styles = useSpring({
-    opacity: beingScrolled ? 0 : 1,
-    config: {
-      duration: 200,
-    },
-  })
+  const scrolling = useScroll()
 
   return (
-    <StyledNavbar style={styles}>
+    <StyledNavbar $scrolling={scrolling}>
       {children}
       <LightToggle />
     </StyledNavbar>
