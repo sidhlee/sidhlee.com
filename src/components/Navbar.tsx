@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { useSpring, animated } from "@react-spring/web"
 import { mq } from "../../global-style"
 import useScroll from "../hooks/useScroll"
+import LightToggle from "../features/lightmode/LightToggle"
 
 const StyledNavbar = styled(animated.nav)`
   position: fixed;
@@ -11,12 +12,12 @@ const StyledNavbar = styled(animated.nav)`
   width: 100%;
   padding: 0 var(--px);
   background: transparent;
-  display: flex;
+  display: none;
   justify-content: flex-end;
   align-items: center;
 
   ul {
-    display: none;
+    display: flex;
     justify-content: flex-end;
     align-items: center;
   }
@@ -67,9 +68,7 @@ const StyledNavbar = styled(animated.nav)`
   }
 
   @media (min-width: ${mq.desktop}px) {
-    ul {
-      display: flex;
-    }
+    display: flex;
   }
 `
 
@@ -85,7 +84,12 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
     },
   })
 
-  return <StyledNavbar style={styles}>{children}</StyledNavbar>
+  return (
+    <StyledNavbar style={styles}>
+      {children}
+      <LightToggle />
+    </StyledNavbar>
+  )
 }
 
 export default Navbar

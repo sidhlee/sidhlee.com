@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react"
 import styled from "styled-components"
-import { THEME_COLORS } from "../../../global-style"
+import { mq, THEME_COLORS } from "../../../global-style"
 import useTheme, { setCustomProperties } from "./useTheme"
 
 const StyledLightToggle = styled.div<{ $isLight: boolean }>`
@@ -43,7 +43,9 @@ const StyledLightToggle = styled.div<{ $isLight: boolean }>`
     .sun,
     .moon {
       position: absolute;
-      top: 0px;
+      display: inline-block;
+      line-height: 1;
+      top: 3px;
     }
     .sun {
       left: 3px;
@@ -55,7 +57,7 @@ const StyledLightToggle = styled.div<{ $isLight: boolean }>`
     // circular toggle-switch
     .toggle-switch {
       position: relative;
-      z-index: 1;
+      z-index: var(--z-nav-menu);
       display: block;
       background: white;
       --switch-size: 1rem;
@@ -66,8 +68,7 @@ const StyledLightToggle = styled.div<{ $isLight: boolean }>`
       margin-left: auto;
       transition: all 250ms ease;
     }
-    input:checked ~ .toggle-switch {
-      /* toggle width - switch width - 3 * switch margin */
+    input#lightToggle:checked ~ .toggle-switch {
       transform: translateX(
         calc(-1 * (var(--toggle-width) - var(--switch-size) - 8px))
       );
@@ -86,7 +87,7 @@ const LightToggle: React.FC<LightToggleProps> = ({}) => {
     setCustomProperties(updatedTheme, THEME_COLORS)
   }
   return (
-    <StyledLightToggle $isLight={theme === "light"}>
+    <StyledLightToggle className="LightToggle" $isLight={theme === "light"}>
       <label htmlFor="lightToggle">
         <input id="lightToggle" type="checkbox" onChange={handleChange} />
         <span className="sun" role="img" aria-label="sun">
