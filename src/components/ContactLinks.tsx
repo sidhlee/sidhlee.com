@@ -76,14 +76,14 @@ const StyledContactLinks = styled("div")<{ $isLight: boolean }>`
     display: flex;
     /* justify-content: space-between; */
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
 
     .connect-item {
-      width: 2.5rem;
-      max-width: 60px;
+      width: 7vh;
+      /* max-width: 60px; */
       height: auto;
       &:not(:last-child) {
-        margin-right: 1em;
+        margin-right: 1.5rem;
       }
       a,
       button {
