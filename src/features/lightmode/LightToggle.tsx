@@ -3,7 +3,7 @@ import { THEME_COLORS } from "../../../global-style"
 import useTheme from "./useTheme"
 
 const StyledLightToggle = styled.div<{ $isLight: boolean }>`
-  height: var(--height-navbar);
+  /* height: var(--height-navbar); */
   display: flex;
   align-items: center;
   button {
