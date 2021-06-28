@@ -51,13 +51,16 @@ const StyledCarouselNav = styled("nav")<{ $isLight: boolean }>`
     padding: 0.25rem;
 
     span {
+      display: inline-block;
+      width: 0.75rem;
+      height: 0.75rem;
       border-radius: 50%;
       background: var(--text-main);
     }
 
     &.active span {
-      box-shadow: 0 0 0px 5px var(--cl-main-light);
-      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+      box-shadow: 0 0 0px 5px var(--cl-main-light),
+        0 0 5px 5px rgba(255, 255, 255, 0.5);
     }
   }
 `

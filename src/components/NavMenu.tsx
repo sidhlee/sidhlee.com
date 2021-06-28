@@ -16,10 +16,10 @@ const StyledNavMenu = styled(animated.aside)`
   width: 80%;
   max-width: 500px;
   background: var(--cl-about);
-  padding: 15vh 5% 3vh;
+  padding: 3rem 1rem 1rem;
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-end; */
+  justify-content: center;
   align-items: flex-end;
   text-align: right;
   .logo {
@@ -29,8 +29,11 @@ const StyledNavMenu = styled(animated.aside)`
   }
   --fz: 5.5vh;
   nav {
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
     ul {
-      height: 40vh;
+      /* height: 40vh; */
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -40,7 +43,7 @@ const StyledNavMenu = styled(animated.aside)`
         a {
           display: block;
           font-size: var(--fz);
-          padding: 0.4em 0.5rem;
+          padding: 0.4rem 0.5rem;
           color: var(--text-main);
           &.active {
             &::after {
@@ -57,16 +60,20 @@ const StyledNavMenu = styled(animated.aside)`
   }
 
   .social-icons {
-    margin-top: auto;
+    margin-top: 2rem;
     display: flex;
     li {
+      margin: 0.5rem;
       a {
         display: block;
-        padding: 0.5rem;
-        --icon-size: calc(var(--fz) * 1.2);
+        --icon-size: calc(var(--fz) * 1.25);
+        --icon-size: 7vh;
+        width: var(--icon-size);
+        height: var(--icon-size);
         svg {
-          width: var(--icon-size);
-          height: var(--icon-size);
+          display: block;
+          width: 100%;
+          height: 100%;
           border-radius: 2px;
         }
       }
@@ -85,6 +92,7 @@ const StyledNavMenu = styled(animated.aside)`
     }
   }
   .LightToggle {
+    margin-top: 1em;
     padding: 0.5rem;
   }
 `

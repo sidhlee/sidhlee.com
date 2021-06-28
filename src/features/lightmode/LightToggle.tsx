@@ -3,7 +3,7 @@ import { THEME_COLORS } from "../../../global-style"
 import useTheme from "./useTheme"
 
 const StyledLightToggle = styled.div<{ $isLight: boolean }>`
-  height: var(--height-navbar);
+  /* height: var(--height-navbar); */
   display: flex;
   align-items: center;
   button {
@@ -25,7 +25,7 @@ const StyledLightToggle = styled.div<{ $isLight: boolean }>`
       position: absolute;
       display: inline-block;
       line-height: 1;
-      top: 3px;
+      top: 2.5px;
       font-size: 1rem;
     }
     .sun {
@@ -77,12 +77,15 @@ const LightToggle: React.FC<LightToggleProps> = ({}) => {
           role="img"
           aria-label="toggle switch"
         ></span>
-        <span className="sun" role="img" aria-label="sun">
-          ☀️
-        </span>
-        <span className="moon" role="img" aria-label="moon">
-          🌛
-        </span>
+        {theme === "light" ? (
+          <span className="moon" role="img" aria-label="moon">
+            🌛
+          </span>
+        ) : (
+          <span className="sun" role="img" aria-label="sun">
+            ☀️
+          </span>
+        )}
       </button>
     </StyledLightToggle>
   )

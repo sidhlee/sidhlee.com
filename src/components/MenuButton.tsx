@@ -31,15 +31,17 @@ const StyledMenuButton = styled("button")<{ $isMenuOpen: boolean }>`
   span,
   &::before,
   &::after {
-    content: "";
+    content: " ";
     display: block;
+    position: relative;
     height: 3px;
     background: var(--text-main);
     transition: all 300ms ease;
   }
 
   &::before {
-    width: 100%;
+    /* prevent parent element from collapsing to 0 width when content is empty on ios */
+    width: 30px;
   }
   span {
     width: 75%;
