@@ -41,7 +41,7 @@ const StyledMenuButton = styled("button")<{ $isMenuOpen: boolean }>`
 
   &::before {
     /* prevent parent element from collapsing to 0 width when content is empty on ios */
-    width: 35px;
+    width: 30px;
   }
   span {
     width: 75%;

@@ -63,13 +63,17 @@ const StyledNavMenu = styled(animated.aside)`
     margin-top: 2rem;
     display: flex;
     li {
+      margin: 0.5rem;
       a {
         display: block;
-        padding: 0.5rem;
-        --icon-size: calc(var(--fz) * 1.2);
+        --icon-size: calc(var(--fz) * 1.25);
+        --icon-size: 7vh;
+        width: var(--icon-size);
+        height: var(--icon-size);
         svg {
-          width: var(--icon-size);
-          height: var(--icon-size);
+          display: block;
+          width: 100%;
+          height: 100%;
           border-radius: 2px;
         }
       }
@@ -88,6 +92,7 @@ const StyledNavMenu = styled(animated.aside)`
     }
   }
   .LightToggle {
+    margin-top: 1em;
     padding: 0.5rem;
   }
 `
