@@ -132,6 +132,7 @@ const useCarousel = (slidesLength: number) => {
       experimental_preventWindowScrollY: true,
       useTouch: true,
       swipeDistance: 30,
+      lockDirection: true,
     }
   )
 
