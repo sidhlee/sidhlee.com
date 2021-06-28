@@ -131,13 +131,12 @@ const About: React.FC<AboutProps> = ({}) => {
               , my name is Sid Lee
             </p>
             <p className="text-lg mt-3">
-              I am a fullstack developer with a passion for building accessible
-              and responsive web applications using HTML, CSS, JavaScript and
-              React. From my previous experience in music and education, I
-              developed strong <strong>communication skills</strong>, creative{" "}
-              <strong>problem-solving</strong> techniques in a collaborative
-              environment, and <strong>a sense of empathy</strong> while
-              mentoring and working with students.
+              I'm a fullstack web developer based in Toronto. Learning new
+              technologies and building applications have been a great source of
+              excitement for me. I have designed and built many user-facing apps
+              and backend servers with HTML, CSS, JavaScript, React and Node.
+              When I'm not writing code, you can find me jamming on my electric
+              piano or drinking tea while reading a paperback.
             </p>
             <div className="about-links">
               <ButtonLink href={resumeFile} download $theme="projects">
