@@ -85,7 +85,7 @@ const globalStyle = css`
     --fz-h3: max(1.3rem, 2.5vw);
     --fz-subheading: max(1.05rem, calc(1.2vw + 6px));
     --fz-button-md: min(max(0.8rem, 3vw), 1rem);
-    --fz-tech-stacks: max(0.8rem, 0.9vw);
+    --fz-tech-stacks: max(0.75rem, 0.9vw);
     --fz-skill: max(1rem, calc(2.5vw));
     --fz-body: max(1rem, calc(1vw + 5px));
 
