@@ -56,7 +56,8 @@ type ProjectsProps = {}
 const Projects: React.FC<ProjectsProps> = ({}) => {
   const projectsData = useStaticQuery<ProjectsQuery>(projectsQuery)
 
-  const projects = projectsData.allMarkdownRemark.edges.map(edge => {
+  const featuredProjects = projectsData.allMarkdownRemark.edges.slice(0, 4)
+  const projects = featuredProjects.map(edge => {
     if (edge?.node.frontmatter) {
       const {
         title,
