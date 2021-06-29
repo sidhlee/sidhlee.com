@@ -56,31 +56,46 @@ type ProjectsProps = {}
 const Projects: React.FC<ProjectsProps> = ({}) => {
   const projectsData = useStaticQuery<ProjectsQuery>(projectsQuery)
 
-  const featuredProjects = projectsData.allMarkdownRemark.edges.slice(0, 4)
-  const projects = featuredProjects.map(edge => {
-    if (edge?.node.frontmatter) {
-      const {
-        title,
-        logoImage,
-        technologies,
-        mobileImage,
-        desktopImage,
-        liveUrl,
-        githubUrl,
-      } = edge.node.frontmatter
+  const featuredProjects = projectsData.allMarkdownRemark.edges
+    .slice(0, 4)
+    .map(edge => {
+      if (edge?.node.frontmatter) {
+        const {
+          title,
+          logoImage,
+          technologies,
+          mobileImage,
+          desktopImage,
+          liveUrl,
+          githubUrl,
+        } = edge.node.frontmatter
 
-      return {
-        title: title || "",
-        logoImage: logoImage,
-        technologies: technologies || [],
-        mobileImage: mobileImage,
-        desktopImage: desktopImage,
-        liveUrl: liveUrl || "",
-        githubUrl: githubUrl || "",
-        description: edge.node.excerpt || "",
+        return {
+          title: title || "",
+          logoImage: logoImage,
+          technologies: technologies || [],
+          mobileImage: mobileImage,
+          desktopImage: desktopImage,
+          liveUrl: liveUrl || "",
+          githubUrl: githubUrl || "",
+          description: edge.node.excerpt || "",
+        }
       }
-    }
-  })
+    })
+
+  const projects = [
+    ...featuredProjects,
+    {
+      title: "See More",
+      logoImage: "../images/gatsby-icon.png",
+      technologies: [],
+      mobileImage: "../images/gatsby-icon.png",
+      desktopImage: "../images/gatsby-icon.png",
+      liveUrl: "#",
+      githubUrl: "#",
+      description: "",
+    },
+  ]
 
   const {
     currentSlideIndex,

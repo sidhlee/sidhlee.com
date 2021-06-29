@@ -188,7 +188,7 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project, bindDrag }) => {
     y: descriptionHidden ? "20%" : "0%",
   })
 
-  return (
+  const slide = (
     <StyledProjectSlide>
       <div className="col">
         <header className="project-header">
@@ -261,6 +261,8 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project, bindDrag }) => {
       </div>
     </StyledProjectSlide>
   )
+
+  return title === "See More" ? <h3>See More</h3> : slide
 }
 
 export default ProjectSlide
