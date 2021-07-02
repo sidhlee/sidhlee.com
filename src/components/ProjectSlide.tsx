@@ -188,6 +188,13 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project, bindDrag }) => {
     y: descriptionHidden ? "20%" : "0%",
   })
 
+  const viewAll = (
+    <div className="view-all">
+      <h3>View All Projects</h3>
+      <ButtonLink to="/project">Go!</ButtonLink>
+    </div>
+  )
+
   const slide = (
     <StyledProjectSlide>
       <div className="col">
@@ -262,7 +269,7 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project, bindDrag }) => {
     </StyledProjectSlide>
   )
 
-  return title === "See More" ? <h3>See More</h3> : slide
+  return title === "See More" ? viewAll : slide
 }
 
 export default ProjectSlide

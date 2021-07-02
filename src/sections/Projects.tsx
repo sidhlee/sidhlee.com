@@ -87,13 +87,6 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
     ...featuredProjects,
     {
       title: "See More",
-      logoImage: "../images/gatsby-icon.png",
-      technologies: [],
-      mobileImage: "../images/gatsby-icon.png",
-      desktopImage: "../images/gatsby-icon.png",
-      liveUrl: "#",
-      githubUrl: "#",
-      description: "",
     },
   ]
 
