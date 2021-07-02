@@ -7,7 +7,9 @@ import ButtonLink from "../components/ButtonLink"
 import { ProjectsQuery } from "../graphqlTypes"
 import ProjectCard from "../features/view-all-projects/ProjectCard"
 
-const StyledProject = styled("div")``
+const StyledProject = styled("div")`
+  min-height: 100vh;
+`
 
 type projectProps = {
   data: ProjectsQuery
@@ -24,7 +26,7 @@ const project: React.FC<projectProps> = ({ data }) => {
     } = edge.node.frontmatter!
 
     return {
-      except: edge.node.excerpt,
+      excerpt: edge.node.excerpt,
       githubUrl,
       liveUrl,
       title,
@@ -32,8 +34,6 @@ const project: React.FC<projectProps> = ({ data }) => {
       technologies,
     }
   })
-
-  console.log(projects)
 
   return (
     <Layout>
@@ -43,10 +43,9 @@ const project: React.FC<projectProps> = ({ data }) => {
           <h1>My Projects</h1>
           <ButtonLink to="/">Back to Main</ButtonLink>
           <ul>
-            {projects.map(project => (
-              <li key={project.title}>
-                {/* TODO: how to handle graphQL "Maybe" type? */}
-                <ProjectCard title={project.title} />
+            {projects.map(({ title, excerpt }) => (
+              <li key={title}>
+                <ProjectCard title={title} excerpt={excerpt} />
               </li>
             ))}
           </ul>
