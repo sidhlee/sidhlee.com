@@ -1,5 +1,5 @@
 ---
-title: Timecraft
+title: Timescraft
 logoImage: "../images/project/timescraft-logo.png"
 technologies: ["TypeScript", "Next.js", "Redux", "PWA"]
 desktopImage: "../images/project/timescraft-desktop.png"

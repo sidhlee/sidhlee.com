@@ -6,16 +6,23 @@ import Container from "../components/Container"
 import ButtonLink from "../components/ButtonLink"
 import { ProjectsQuery } from "../graphqlTypes"
 import ProjectCard from "../features/view-all-projects/ProjectCard"
+import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 
 const StyledProject = styled("div")`
   min-height: 100vh;
+  .project-list {
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2.5rem;
+  }
 `
 
 type projectProps = {
   data: ProjectsQuery
 }
 
-const project: React.FC<projectProps> = ({ data }) => {
+const Projects: React.FC<projectProps> = ({ data }) => {
   const projects = data.allMarkdownRemark.edges.map(edge => {
     const {
       githubUrl,
@@ -42,10 +49,15 @@ const project: React.FC<projectProps> = ({ data }) => {
         <Container>
           <h1>My Projects</h1>
           <ButtonLink to="/">Back to Main</ButtonLink>
-          <ul>
-            {projects.map(({ title, excerpt }) => (
+          <ul className="project-list">
+            {projects.map(({ title, excerpt, desktopImage, technologies }) => (
               <li key={title}>
-                <ProjectCard title={title} excerpt={excerpt} />
+                <ProjectCard
+                  title={title || "untitled"}
+                  excerpt={excerpt}
+                  desktopImage={desktopImage as FileNode}
+                  technologies={technologies}
+                />
               </li>
             ))}
           </ul>
@@ -55,7 +67,7 @@ const project: React.FC<projectProps> = ({ data }) => {
   )
 }
 
-export default project
+export default Projects
 
 export const query = graphql`
   query {

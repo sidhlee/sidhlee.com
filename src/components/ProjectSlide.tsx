@@ -191,7 +191,7 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project, bindDrag }) => {
   const viewAll = (
     <div className="view-all">
       <h3>View All Projects</h3>
-      <ButtonLink to="/project">Go!</ButtonLink>
+      <ButtonLink to="/projects">Go!</ButtonLink>
     </div>
   )
 
