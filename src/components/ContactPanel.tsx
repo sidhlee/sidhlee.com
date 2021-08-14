@@ -86,7 +86,7 @@ const ContactPanel: React.FC<ContactPanelProps> = ({ type, close }) => {
         <p>sid@sidhlee.com</p>
         <div className="buttons">
           <CopyToClipboard
-            text="sidhlee@gmail.com"
+            text="sid@sidhlee.com"
             onCopy={() => setIsCopied(true)}
           >
             <button className="btn-panel">
