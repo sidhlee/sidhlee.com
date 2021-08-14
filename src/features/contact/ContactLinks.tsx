@@ -151,7 +151,7 @@ const ContactLinks: React.FC<ContactLinksProps> = ({}) => {
         <ContactPanel type={panelType} close={closePanel} />
         <div className="contact-image">
           <StaticImage
-            src="../images/sid-big-smile.png"
+            src="../../images/sid-big-smile.png"
             alt="Sid looking really happy with a sandwich in his hand"
           />
           <Square className="square" role="img" aria-label="yellow square" />
