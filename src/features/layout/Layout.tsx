@@ -5,12 +5,17 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import * as React from "react"
+import { useState } from "react"
 import PropTypes from "prop-types"
 import GlobalStyle, { COLORS } from "../../../global-style"
 import Helmet from "react-helmet"
 import styled from "styled-components"
 import { ThemeProvider } from "../lightmode/useTheme"
+import Seo from "../../components/seo"
+import Navbar from "./Navbar"
+import MenuButton from "./MenuButton"
+import NavMenu from "./NavMenu"
+import NavLinks from "./NavLinks"
 
 const StyledLayout = styled.div`
   // https://github.com/civiccc/react-waypoint/issues/275
@@ -35,8 +40,18 @@ const StyledLayout = styled.div`
     }
   }
 `
+type LayoutProps = {
+  currentPath: string
+  navbar?: "fixed" | "static"
+}
 
-const Layout: React.FC = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({
+  children,
+  currentPath,
+  navbar = "fixed",
+}) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
     <>
       <Helmet>
@@ -50,6 +65,17 @@ const Layout: React.FC = ({ children }) => {
       {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
       <StyledLayout>
         <ThemeProvider>
+          <Seo />
+          <Navbar position={navbar}>
+            <NavLinks currentPath={currentPath} />
+          </Navbar>
+          <MenuButton
+            isMenuOpen={isMenuOpen}
+            toggleMenu={() => setIsMenuOpen(v => !v)}
+          />
+          <NavMenu isOpen={isMenuOpen} close={() => setIsMenuOpen(false)}>
+            <NavLinks currentPath={currentPath} />
+          </NavMenu>
           {children}
           <footer>
             © {new Date().getFullYear()},{" "}

@@ -43,7 +43,7 @@ const Projects: React.FC<projectProps> = ({ data }) => {
   })
 
   return (
-    <Layout>
+    <Layout currentPath="/#projects" navbar="static">
       <Seo />
       <StyledProject>
         <Container>
