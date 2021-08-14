@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import ContactForm from "../components/ContactForm"
-import ContactLinks from "../components/ContactLinks"
-import Container from "../components/Container"
+import ContactForm from "./ContactForm"
+import ContactLinks from "./ContactLinks"
+import Container from "../../components/Container"
 
 const StyledContact = styled("section")`
   background: var(--cl-contact);
