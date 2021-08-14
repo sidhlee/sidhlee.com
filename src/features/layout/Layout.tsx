@@ -7,10 +7,10 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
-import GlobalStyle, { COLORS } from "../../global-style"
+import GlobalStyle, { COLORS } from "../../../global-style"
 import Helmet from "react-helmet"
 import styled from "styled-components"
-import { ThemeProvider } from "../features/lightmode/useTheme"
+import { ThemeProvider } from "../lightmode/useTheme"
 
 const StyledLayout = styled.div`
   // https://github.com/civiccc/react-waypoint/issues/275

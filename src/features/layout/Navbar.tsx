@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import { useSpring, animated } from "@react-spring/web"
-import { mq } from "../../global-style"
-import useScroll from "../hooks/useScroll"
-import LightToggle from "../features/lightmode/LightToggle"
+import { mq } from "../../../global-style"
+import useScroll from "../../hooks/useScroll"
+import LightToggle from "../lightmode/LightToggle"
 
 const StyledNavbar = styled.nav<{ $scrolling: boolean }>`
   position: fixed;

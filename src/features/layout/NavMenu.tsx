@@ -1,11 +1,11 @@
 import { animated, useTransition } from "@react-spring/web"
 import styled from "styled-components"
-import Backdrop from "./Backdrop"
-import GitHubIcon from "../images/icon-github.svg"
-import LinkedInIcon from "../images/icon-linkedin.svg"
-import TwitterIcon from "../images/icon-twitter.svg"
-import LightToggle from "../features/lightmode/LightToggle"
-import { THEME_COLORS } from "../../global-style"
+import Backdrop from "../../components/Backdrop"
+import GitHubIcon from "../../images/icon-github.svg"
+import LinkedInIcon from "../../images/icon-linkedin.svg"
+import TwitterIcon from "../../images/icon-twitter.svg"
+import LightToggle from "../lightmode/LightToggle"
+import { THEME_COLORS } from "../../../global-style"
 
 const StyledNavMenu = styled(animated.aside)`
   position: fixed;

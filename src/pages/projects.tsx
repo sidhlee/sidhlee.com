@@ -1,6 +1,6 @@
 import { graphql } from "gatsby"
 import styled from "styled-components"
-import Layout from "../components/layout"
+import Layout from "../features/layout/Layout"
 import Seo from "../components/seo"
 import Container from "../components/Container"
 import ButtonLink from "../components/ButtonLink"

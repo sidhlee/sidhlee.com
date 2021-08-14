@@ -1,11 +1,11 @@
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
-import ButtonLink from "../components/ButtonLink"
-import Container from "../components/Container"
-import Square from "../images/square.svg"
-import resumeFile from "../download/sid-lee-resume.pdf"
-import useTheme from "../features/lightmode/useTheme"
-import { COLORS } from "../../global-style"
+import ButtonLink from "../../components/ButtonLink"
+import Container from "../../components/Container"
+import Square from "../../images/square.svg"
+import resumeFile from "../../download/sid-lee-resume.pdf"
+import useTheme from "../lightmode/useTheme"
+import { COLORS } from "../../../global-style"
 
 const StyledAbout = styled("section")<{ $isLight: boolean }>`
   background: var(--cl-about);
