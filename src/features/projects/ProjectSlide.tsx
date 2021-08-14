@@ -5,10 +5,10 @@ import styled from "styled-components"
 import { FaGithub } from "react-icons/fa"
 import { animated, useSpring } from "react-spring"
 import { ReactEventHandlers } from "react-use-gesture/dist/types"
-import ButtonLink from "./ButtonLink"
+import ButtonLink from "../../components/ButtonLink"
 import ProjectImages from "./ProjectImages"
 import TechStacks from "./TechStacks"
-import { COLORS } from "../../global-style"
+import { COLORS } from "../../../global-style"
 
 const StyledProjectSlide = styled("article")`
   width: 100%;

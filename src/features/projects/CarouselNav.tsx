@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa"
-import useTheme from "../features/lightmode/useTheme"
+import useTheme from "../lightmode/useTheme"
 
 const StyledCarouselNav = styled("nav")<{ $isLight: boolean }>`
   position: relative;

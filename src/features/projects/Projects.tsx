@@ -2,11 +2,11 @@ import { graphql, useStaticQuery } from "gatsby"
 import { useState, useEffect } from "react"
 import styled from "styled-components"
 import { useTransition, animated } from "react-spring"
-import CarouselNav from "../components/CarouselNav"
-import Container from "../components/Container"
-import ProjectSlide, { Project } from "../components/ProjectSlide"
-import { ProjectsQuery } from "../graphqlTypes"
-import useCarousel from "../hooks/useCarousel"
+import CarouselNav from "./CarouselNav"
+import Container from "../../components/Container"
+import ProjectSlide, { Project } from "./ProjectSlide"
+import { ProjectsQuery } from "../../graphqlTypes"
+import useCarousel from "../../hooks/useCarousel"
 
 const StyledProjects = styled("section")`
   background: var(--cl-projects);
