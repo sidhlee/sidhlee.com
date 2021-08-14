@@ -72,7 +72,7 @@ export default Projects
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/projects/" } }
+      filter: { fileAbsolutePath: { regex: "/content/projects/" } }
       sort: { fields: frontmatter___sortIndex }
     ) {
       edges {
