@@ -5,7 +5,7 @@ import Seo from "../components/seo"
 import Container from "../components/Container"
 import ButtonLink from "../components/ButtonLink"
 import { ProjectsQuery } from "../graphqlTypes"
-import ProjectCard from "../features/view-all-projects/ProjectCard"
+import ProjectCard from "../features/projects/ProjectCard"
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 
 const StyledProject = styled("div")`
