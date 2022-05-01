@@ -9,12 +9,12 @@ export default function useDevRole() {
 
   useEffect(() => {
     if (isFirst) isFirst = false
-    const id = window.setInterval(
+    const id = window?.setInterval(
       () => setRoleIndex(i => (i + 1) % roleTexts.length),
       5000
     )
 
-    return () => window.clearInterval(id)
+    return () => window?.clearInterval(id)
   }, [])
 
   const transitions = useTransition(roleIndex, {

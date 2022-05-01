@@ -62,7 +62,7 @@ type ThemeColors = {
 }
 
 function setCustomProperties(targetTheme: Theme, themeColors: ThemeColors) {
-  const root = window.document.documentElement
+  const root = window?.document.documentElement
 
   Object.entries(themeColors[targetTheme]).forEach(
     ([cssVarName, colorValue]) => {
