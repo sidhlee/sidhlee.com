@@ -1,11 +1,15 @@
 import { graphql, useStaticQuery } from "gatsby"
 import { useState } from "react"
 import styled from "styled-components"
-import Container from "../components/Container"
-import Skill from "../components/Skill"
-import { File, MarkdownRemarkFrontmatter, SkillsQuery } from "../graphqlTypes"
-import SkillModal from "../components/SkillModal"
-import { mq } from "../../global-style"
+import Container from "../../components/Container"
+import Skill from "./Skill"
+import {
+  File,
+  MarkdownRemarkFrontmatter,
+  SkillsQuery,
+} from "../../graphqlTypes"
+import SkillModal from "./SkillModal"
+import { mq } from "../../../global-style"
 
 const StyledSkills = styled("section")`
   background: var(--cl-skills);

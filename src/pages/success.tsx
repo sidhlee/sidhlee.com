@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import ButtonLink from "../components/ButtonLink"
 import Container from "../components/Container"
-import Layout from "../components/layout"
+import Layout from "../features/layout/Layout"
 import Seo from "../components/seo"
 
 const StyledSuccess = styled("div")`

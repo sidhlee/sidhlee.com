@@ -70,6 +70,10 @@ You can easily generate types for your graphql queries with [GraphQL Code Genera
        plugins:
          - typescript
          - typescript-operations
+        config:
+          # override the type value of Maybe with generic
+          # https://github.com/dotansimha/graphql-code-generator/issues/3919
+          maybeValue: T
    ```
 
 3. Run

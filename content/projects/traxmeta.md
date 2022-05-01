@@ -1,9 +1,9 @@
 ---
 title: Traxmeta
-logoImage: "../images/project/traxmeta-logo.png"
+logoImage: "../../src/images/project/traxmeta-logo.png"
 technologies: [Sass, REST API, OOP, jQuery, TypeScript]
-desktopImage: "../images/project/traxmeta-desktop.png"
-mobileImage: "../images/project/traxmeta-mobile.png"
+desktopImage: "../../src/images/project/traxmeta-desktop.png"
+mobileImage: "../../src/images/project/traxmeta-mobile.png"
 liveUrl: "https://traxmeta.netlify.app/"
 githubUrl: "https://github.com/sidhlee/traxmeta/tree/local-dev"
 sortIndex: 10

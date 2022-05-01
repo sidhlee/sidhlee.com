@@ -4,7 +4,7 @@ import { useTransition, animated } from "@react-spring/web"
 let isFirst = true
 
 export default function useDevRole() {
-  const roleTexts = ["Front-end", "Full-stack"]
+  const roleTexts = ["Front-end", "Back-end", "Full-stack"]
   const [roleIndex, setRoleIndex] = useState(0)
 
   useEffect(() => {

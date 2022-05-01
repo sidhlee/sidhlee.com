@@ -1,32 +1,20 @@
 import { useState } from "react"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import Header from "../sections/Header"
-import About from "../sections/About"
-import Projects from "../sections/Projects"
-import Skills from "../sections/Skills"
-import Contact from "../sections/Contact"
-import Navbar from "../components/Navbar"
-import MenuButton from "../components/MenuButton"
-import NavMenu from "../components/NavMenu"
-import NavLinks from "../components/NavLinks"
+import Layout from "../features/layout/Layout"
+
+import Header from "../features/hero/Header"
+import About from "../features/about/About"
+import Projects from "../features/projects/Projects"
+import Skills from "../features/skills/Skills"
+import Contact from "../features/contact/Contact"
+
 import CheckScrolled from "../components/CheckScrolled"
 
 const IndexPage: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [currentPath, setCurrentPath] = useState("/")
 
   return (
     <>
-      <Layout>
-        <Seo />
-        <Navbar>
-          <NavLinks currentPath={currentPath} />
-        </Navbar>
-        <MenuButton
-          isMenuOpen={isMenuOpen}
-          toggleMenu={() => setIsMenuOpen(v => !v)}
-        />
+      <Layout currentPath={currentPath}>
         <CheckScrolled onEnter={() => setCurrentPath("/")}>
           <Header />
         </CheckScrolled>
@@ -44,9 +32,6 @@ const IndexPage: React.FC = () => {
             <Contact />
           </CheckScrolled>
         </main>
-        <NavMenu isOpen={isMenuOpen} close={() => setIsMenuOpen(false)}>
-          <NavLinks currentPath={currentPath} />
-        </NavMenu>
       </Layout>
     </>
   )

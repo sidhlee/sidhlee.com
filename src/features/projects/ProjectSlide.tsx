@@ -5,10 +5,10 @@ import styled from "styled-components"
 import { FaGithub } from "react-icons/fa"
 import { animated, useSpring } from "react-spring"
 import { ReactEventHandlers } from "react-use-gesture/dist/types"
-import ButtonLink from "./ButtonLink"
+import ButtonLink from "../../components/ButtonLink"
 import ProjectImages from "./ProjectImages"
 import TechStacks from "./TechStacks"
-import { COLORS } from "../../global-style"
+import { COLORS } from "../../../global-style"
 
 const StyledProjectSlide = styled("article")`
   width: 100%;
@@ -188,7 +188,14 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project, bindDrag }) => {
     y: descriptionHidden ? "20%" : "0%",
   })
 
-  return (
+  const viewAll = (
+    <div className="view-all">
+      <h3>View All Projects</h3>
+      <ButtonLink to="/projects">Go!</ButtonLink>
+    </div>
+  )
+
+  const slide = (
     <StyledProjectSlide>
       <div className="col">
         <header className="project-header">
@@ -261,6 +268,8 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project, bindDrag }) => {
       </div>
     </StyledProjectSlide>
   )
+
+  return title === "See More" ? viewAll : slide
 }
 
 export default ProjectSlide

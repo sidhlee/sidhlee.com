@@ -2,11 +2,11 @@ import { graphql, useStaticQuery } from "gatsby"
 import { useState, useEffect } from "react"
 import styled from "styled-components"
 import { useTransition, animated } from "react-spring"
-import CarouselNav from "../components/CarouselNav"
-import Container from "../components/Container"
-import ProjectSlide, { Project } from "../components/ProjectSlide"
-import { ProjectsQuery } from "../graphqlTypes"
-import useCarousel from "../hooks/useCarousel"
+import CarouselNav from "./CarouselNav"
+import Container from "../../components/Container"
+import ProjectSlide, { Project } from "./ProjectSlide"
+import { ProjectsQuery } from "../../graphqlTypes"
+import useCarousel from "../../hooks/useCarousel"
 
 const StyledProjects = styled("section")`
   background: var(--cl-projects);
@@ -56,30 +56,39 @@ type ProjectsProps = {}
 const Projects: React.FC<ProjectsProps> = ({}) => {
   const projectsData = useStaticQuery<ProjectsQuery>(projectsQuery)
 
-  const projects = projectsData.allMarkdownRemark.edges.map(edge => {
-    if (edge?.node.frontmatter) {
-      const {
-        title,
-        logoImage,
-        technologies,
-        mobileImage,
-        desktopImage,
-        liveUrl,
-        githubUrl,
-      } = edge.node.frontmatter
+  const featuredProjects = projectsData.allMarkdownRemark.edges
+    .slice(0, 4)
+    .map(edge => {
+      if (edge?.node.frontmatter) {
+        const {
+          title,
+          logoImage,
+          technologies,
+          mobileImage,
+          desktopImage,
+          liveUrl,
+          githubUrl,
+        } = edge.node.frontmatter
 
-      return {
-        title: title || "",
-        logoImage: logoImage,
-        technologies: technologies || [],
-        mobileImage: mobileImage,
-        desktopImage: desktopImage,
-        liveUrl: liveUrl || "",
-        githubUrl: githubUrl || "",
-        description: edge.node.excerpt || "",
+        return {
+          title: title || "",
+          logoImage: logoImage,
+          technologies: technologies || [],
+          mobileImage: mobileImage,
+          desktopImage: desktopImage,
+          liveUrl: liveUrl || "",
+          githubUrl: githubUrl || "",
+          description: edge.node.excerpt || "",
+        }
       }
-    }
-  })
+    })
+
+  const projects = [
+    ...featuredProjects,
+    {
+      title: "See More",
+    },
+  ]
 
   const {
     currentSlideIndex,
@@ -154,7 +163,7 @@ export default Projects
 const projectsQuery = graphql`
   query Projects {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/projects/" } }
+      filter: { fileAbsolutePath: { regex: "/content/projects/" } }
       sort: { fields: frontmatter___sortIndex }
     ) {
       edges {

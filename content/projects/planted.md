@@ -1,9 +1,9 @@
 ---
 title: Planted
-logoImage: "../images/project/planted-logo.png"
+logoImage: "../../src/images/project/planted-logo.png"
 technologies: [Css, Sass, Responsive Design, A11y]
-desktopImage: "../images/project/planted-desktop.png"
-mobileImage: "../images/project/planted-mobile.png"
+desktopImage: "../../src/images/project/planted-desktop.png"
+mobileImage: "../../src/images/project/planted-mobile.png"
 liveUrl: "https://responsive-multipage-site.netlify.app/"
 githubUrl: "https://github.com/sidhlee/multi-page-website"
 sortIndex: 40

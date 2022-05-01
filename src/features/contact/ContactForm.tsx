@@ -1,6 +1,6 @@
 import { useState } from "react"
 import styled from "styled-components"
-import Button from "./Button"
+import Button from "../../components/Button"
 
 const StyledContactForm = styled("div")`
   width: 100%;

@@ -7,13 +7,13 @@ import {
   FaRegCalendarPlus,
   FaTwitterSquare,
 } from "react-icons/fa"
-import ButtonLink from "../components/ButtonLink"
-import Square from "../images/square.svg"
-import SpringZoom from "../springs/SpringZoom"
+import ButtonLink from "../../components/ButtonLink"
+import Square from "../../images/square.svg"
+import SpringZoom from "../../springs/SpringZoom"
 import { useState } from "react"
 import ContactPanel from "./ContactPanel"
-import useTheme from "../features/lightmode/useTheme"
-import { COLORS } from "../../global-style"
+import useTheme from "../lightmode/useTheme"
+import { COLORS } from "../../../global-style"
 
 const StyledContactLinks = styled("div")<{ $isLight: boolean }>`
   width: 100%;
@@ -151,7 +151,7 @@ const ContactLinks: React.FC<ContactLinksProps> = ({}) => {
         <ContactPanel type={panelType} close={closePanel} />
         <div className="contact-image">
           <StaticImage
-            src="../images/sid-big-smile.png"
+            src="../../images/sid-big-smile.png"
             alt="Sid looking really happy with a sandwich in his hand"
           />
           <Square className="square" role="img" aria-label="yellow square" />

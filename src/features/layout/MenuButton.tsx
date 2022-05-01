@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import { mq } from "../../global-style"
+import { mq } from "../../../global-style"
 
 const closeButtonCss = css`
   &::before {

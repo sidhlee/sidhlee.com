@@ -2,7 +2,7 @@ import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { animated, useTransition } from "react-spring"
 import { FaTimes } from "react-icons/fa"
-import Backdrop from "./Backdrop"
+import Backdrop from "../../components/Backdrop"
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks"
 
 const StyledSkillModal = styled(animated.article)<{ $isOpen: boolean }>`

@@ -88,6 +88,7 @@ const globalStyle = css`
     --fz-tech-stacks: max(0.75rem, 0.9vw);
     --fz-skill: max(1rem, calc(2.5vw));
     --fz-body: max(1rem, calc(1vw + 5px));
+    --fz-card-heading: max(2.5rem, 2.75vw);
 
     --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 

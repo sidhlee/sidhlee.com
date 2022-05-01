@@ -1,9 +1,9 @@
 ---
-title: Timecraft
-logoImage: "../images/project/timescraft-logo.png"
+title: Timescraft
+logoImage: "../../src/images/project/timescraft-logo.png"
 technologies: ["TypeScript", "Next.js", "Redux", "PWA"]
-desktopImage: "../images/project/timescraft-desktop.png"
-mobileImage: "../images/project/timescraft-mobile.png"
+desktopImage: "../../src/images/project/timescraft-desktop.png"
+mobileImage: "../../src/images/project/timescraft-mobile.png"
 liveUrl: "https://timescraft.netlify.app/"
 githubUrl: "https://github.com/sidhlee/timescraft"
 sortIndex: 20

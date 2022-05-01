@@ -1,11 +1,16 @@
 import styled from "styled-components"
 import { useSpring, animated } from "@react-spring/web"
-import { mq } from "../../global-style"
-import useScroll from "../hooks/useScroll"
-import LightToggle from "../features/lightmode/LightToggle"
+import { mq } from "../../../global-style"
+import useScroll from "../../hooks/useScroll"
+import LightToggle from "../lightmode/LightToggle"
 
-const StyledNavbar = styled.nav<{ $scrolling: boolean }>`
-  position: fixed;
+const StyledNavbar = styled.nav<{
+  $scrolling: boolean
+  $position: "fixed" | "static"
+}>`
+  position: ${({ $position }) =>
+    $position === "fixed" ? "fixed" : "absolute"};
+
   z-index: var(--z-navbar);
   height: var(--height-navbar);
   top: 0;
@@ -74,13 +79,15 @@ const StyledNavbar = styled.nav<{ $scrolling: boolean }>`
   }
 `
 
-type NavbarProps = {}
+type NavbarProps = {
+  position: "fixed" | "static"
+}
 
-const Navbar: React.FC<NavbarProps> = ({ children }) => {
+const Navbar: React.FC<NavbarProps> = ({ children, position }) => {
   const scrolling = useScroll()
 
   return (
-    <StyledNavbar $scrolling={scrolling}>
+    <StyledNavbar $scrolling={scrolling} $position={position}>
       {children}
       <LightToggle />
     </StyledNavbar>
