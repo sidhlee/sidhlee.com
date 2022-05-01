@@ -112,7 +112,7 @@ const About: React.FC<AboutProps> = ({}) => {
         <div className="about-content">
           <div className="about-image">
             <StaticImage
-              src="../images/headshot1-bw.png"
+              src="../../images/headshot1-bw.png"
               alt="Sid smiling"
               objectFit="contain"
             />
