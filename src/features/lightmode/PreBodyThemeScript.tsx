@@ -10,7 +10,7 @@ const PreBodyThemeScript = () => {
   const COLORS = {}
 
   function getInitialTheme(): Theme {
-    const persistedThemePreference = window.localStorage.getItem("theme")
+    const persistedThemePreference = window?.localStorage.getItem("theme")
     const hasPersistedThemePreference =
       typeof persistedThemePreference === "string"
 
@@ -25,5 +25,5 @@ const PreBodyThemeScript = () => {
 
   const theme = getInitialTheme()
 
-  const root = document.documentElement
+  const root = document?.documentElement
 })()
