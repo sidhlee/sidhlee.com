@@ -22,7 +22,7 @@ type successProps = {}
 
 const success: React.FC<successProps> = ({}) => {
   return (
-    <Layout>
+    <Layout currentPath="/success/">
       <Seo />
       <StyledSuccess>
         <Container>
