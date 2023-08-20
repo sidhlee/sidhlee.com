@@ -132,16 +132,16 @@ const About: React.FC<AboutProps> = ({}) => {
             </p>
             <p className="text-lg mt-3">
               I'm an experienced Software Engineer who's pretty handy with
-              Python Django, React, and GraphQL. I've managed to slash malicious
-              activity by a whopping 99% and led a successful data migrations.
-              On the side, I've also been playing the role of a Full-Stack Web
-              Developer/Mentor, handling many interesting projects and helping
-              folks grow. Prior to my journey into the tech world, I was deeply
-              passionate about music, pursuing a career as a Professional
-              Musician. Later, I ventured into education as a Music Professor at
-              a university in Seoul, South Korea. These experiences have shaped
-              me and instilled in me a genuine commitment to delivering
-              excellence in all that I do.
+              Python Django, React, and GraphQL. I've delivered a feature to
+              reduce malicious activity by 99% and led a successful data
+              migrations. On the side, I've also been playing the role of a
+              Full-Stack Web Developer/Mentor, handling many interesting
+              projects and helping folks grow. Prior to my journey into the tech
+              world, I was deeply passionate about music, pursuing a career as a
+              Professional Musician. Later, I ventured into education as a Music
+              Professor at a university in Seoul, South Korea. These experiences
+              have shaped me and instilled in me a genuine commitment to
+              delivering excellence in all that I do.
             </p>
             <div className="about-links">
               <ButtonLink href={resumeFile} download $theme="projects">
