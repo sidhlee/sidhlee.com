@@ -2,6 +2,7 @@ import { Waypoint } from "react-waypoint"
 
 type CheckScrolledProps = {
   onEnter: () => void
+  children?: React.ReactNode
 }
 
 const CheckScrolled: React.FC<CheckScrolledProps> = ({ onEnter, children }) => {

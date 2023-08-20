@@ -167,9 +167,10 @@ const Header: React.FC<HeaderProps> = ({}) => {
                   <span>Web Developer</span>
                 </p>
                 <p className="sub-headline">
-                  With a background in music and passion for creativity, I build
-                  accessible and responsive web applications that offer great
-                  value and experience to the user.
+                  With experience in building large-scale microservice backend
+                  and React frontend, I have collaborated with diverse
+                  stakeholders to deliver engineering solutions, serving over 4
+                  million users.
                 </p>
                 <animated.div style={buttonStyles}>
                   <SpringZoom>

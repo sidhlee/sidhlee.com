@@ -3,7 +3,7 @@ import styled from "styled-components"
 import ButtonLink from "../../components/ButtonLink"
 import Container from "../../components/Container"
 import Square from "../../images/square.svg"
-import resumeFile from "../../download/sid-lee-resume.pdf"
+import resumeFile from "../../download/sid_lee_software_engineer_resume_aug_2023.pdf"
 import useTheme from "../lightmode/useTheme"
 import { COLORS } from "../../../global-style"
 
@@ -131,12 +131,17 @@ const About: React.FC<AboutProps> = ({}) => {
               , my name is Sid Lee
             </p>
             <p className="text-lg mt-3">
-              I'm a fullstack web developer based in Toronto. Learning new
-              technologies and building applications have been a great source of
-              excitement for me. I have designed and built many user-facing apps
-              and backend servers with HTML, CSS, JavaScript, React and Node.
-              When I'm not writing code, you can find me jamming on my electric
-              piano or drinking tea while reading a paperback.
+              I'm an experienced Software Engineer who's pretty handy with
+              Python Django, React, and GraphQL. I've managed to slash malicious
+              activity by a whopping 99% and led a successful data migrations.
+              On the side, I've also been playing the role of a Full-Stack Web
+              Developer/Mentor, handling many interesting projects and helping
+              folks grow. Prior to my journey into the tech world, I was deeply
+              passionate about music, pursuing a career as a Professional
+              Musician. Later, I ventured into education as a Music Professor at
+              a university in Seoul, South Korea. These experiences have shaped
+              me and instilled in me a genuine commitment to delivering
+              excellence in all that I do.
             </p>
             <div className="about-links">
               <ButtonLink href={resumeFile} download $theme="projects">

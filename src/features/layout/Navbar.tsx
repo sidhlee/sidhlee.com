@@ -81,6 +81,7 @@ const StyledNavbar = styled.nav<{
 
 type NavbarProps = {
   position: "fixed" | "static"
+  children?: React.ReactNode
 }
 
 const Navbar: React.FC<NavbarProps> = ({ children, position }) => {

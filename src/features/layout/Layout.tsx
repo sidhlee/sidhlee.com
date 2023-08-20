@@ -43,6 +43,7 @@ const StyledLayout = styled.div`
 type LayoutProps = {
   currentPath: string
   navbar?: "fixed" | "static"
+  children?: React.ReactNode
 }
 
 const Layout: React.FC<LayoutProps> = ({
