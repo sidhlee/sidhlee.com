@@ -22,7 +22,7 @@ export type ButtonProps = {
   $lg?: boolean
   $size?: ButtonSize
   $outline?: boolean
-  $theme: SectionTheme
+  $theme?: SectionTheme
   type?: "button" | "submit" | undefined
   children?: React.ReactNode
 }

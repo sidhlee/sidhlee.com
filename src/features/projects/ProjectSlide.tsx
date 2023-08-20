@@ -269,7 +269,7 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({ project, bindDrag }) => {
     </StyledProjectSlide>
   )
 
-  return title === "See More" ? viewAll : slide
+  return slide
 }
 
 export default ProjectSlide

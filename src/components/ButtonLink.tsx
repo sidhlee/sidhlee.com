@@ -66,7 +66,7 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({
   $sm,
   $outline,
   $size,
-  $theme,
+  $theme = "about",
   download,
 }) => {
   const [{ scale, scaleX, transformOrigin }, api] = useSpring(() => ({
