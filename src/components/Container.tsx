@@ -9,7 +9,9 @@ const StyledContainer = styled("div")`
   padding: var(--py) var(--px);
 `
 
-type ContainerProps = {}
+type ContainerProps = {
+  children: React.ReactNode
+}
 
 const Container: React.FC<ContainerProps> = ({ children }) => {
   return <StyledContainer>{children}</StyledContainer>

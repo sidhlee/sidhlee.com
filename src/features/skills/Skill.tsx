@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const StyledSkill = styled("li")<{ brandColor: string }>`
+const StyledSkill = styled("li")<{ $brandColor: string }>`
   margin: calc(var(--fz-skill) * 0.6);
   font-family: var(--ff-heading);
   font-size: var(--fz-skill);
@@ -15,8 +15,8 @@ const StyledSkill = styled("li")<{ brandColor: string }>`
     text-shadow: var(--shadow);
     transition: all 300ms var(--timing-spring);
     &:hover {
-      color: ${({ brandColor }) =>
-        brandColor ? brandColor : "var(--cl-white)"};
+      color: ${({ $brandColor }) =>
+        $brandColor ? $brandColor : "var(--cl-white)"};
       transform: scale(1.1);
       text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
       box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -37,7 +37,7 @@ const Skill: React.FC<SkillProps> = ({
   setCurrentSkill,
 }) => {
   return (
-    <StyledSkill brandColor={brandColor}>
+    <StyledSkill $brandColor={brandColor}>
       <button onClick={setCurrentSkill}>{title}</button>
     </StyledSkill>
   )

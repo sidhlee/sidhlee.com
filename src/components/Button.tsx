@@ -22,8 +22,9 @@ export type ButtonProps = {
   $lg?: boolean
   $size?: ButtonSize
   $outline?: boolean
-  $theme?: SectionTheme
+  $theme: SectionTheme
   type?: "button" | "submit" | undefined
+  children?: React.ReactNode
 }
 
 const outlineCss = css`
@@ -75,7 +76,7 @@ const getButtonThemeCss = (theme: SectionTheme | undefined) => {
   }
 }
 
-export const buttonCss = css<ButtonProps>`
+export const buttonCss = css<any>`
   position: relative; // for animating nested span
   flex: 1 0 auto;
   display: flex;
@@ -95,11 +96,10 @@ export const buttonCss = css<ButtonProps>`
   white-space: nowrap;
   margin: 0.5rem;
   /* box-shadow: 4px 4px 0 0 rgba(255, 255, 255, 0.7); */
-  transition: all 250ms ease;  
+  transition: all 250ms ease;
 
   svg {
-      margin-right: 0.5em;
-    }
+    margin-right: 0.5em;
   }
 
   ${({ $theme }) => getButtonThemeCss($theme)}
@@ -107,7 +107,7 @@ export const buttonCss = css<ButtonProps>`
   ${props => (props.$outline ? outlineCss : null)}  
 
   @media(max-width: 500px) {
-    margin: .25em;
+    margin: 0.25em;
   }
 `
 
@@ -115,9 +115,9 @@ export const StyledButton = styled("button")<ButtonProps>`
   ${buttonCss}
 `
 
-const Button: React.FC<ButtonProps> = ({ children, type }) => {
+const Button: React.FC<ButtonProps> = ({ children, type, $theme }) => {
   return (
-    <StyledButton type={type}>
+    <StyledButton type={type} $theme={$theme}>
       <span>{children}</span>
     </StyledButton>
   )
