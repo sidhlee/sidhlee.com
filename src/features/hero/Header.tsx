@@ -145,13 +145,8 @@ const StyledHeader = styled("section")<{ $isLight: boolean }>`
 type HeaderProps = {}
 
 const Header: React.FC<HeaderProps> = ({}) => {
-  const {
-    h1Styles,
-    introStyles,
-    bgStyles,
-    buttonStyles,
-    pianoStyles,
-  } = useHeaderChain()
+  const { h1Styles, introStyles, bgStyles, buttonStyles, pianoStyles } =
+    useHeaderChain()
 
   const { theme } = useTheme()
 
@@ -163,7 +158,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
     <StyledHeader $isLight={theme === "light"}>
       <Container>
         <header>
-          <animated.h1 style={h1Styles}>Sid Lee</animated.h1>
+          <animated.h1 style={h1Styles}>Sid H. Lee</animated.h1>
           <div className="Header-content">
             <div className="Header-content-inner">
               <animated.div className="intro" style={introStyles}>

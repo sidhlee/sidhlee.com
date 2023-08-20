@@ -83,12 +83,7 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
       }
     })
 
-  const projects = [
-    ...featuredProjects,
-    {
-      title: "See More",
-    },
-  ]
+  const projects = [...featuredProjects]
 
   const {
     currentSlideIndex,

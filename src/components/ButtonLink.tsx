@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { useSpring, animated } from "react-spring"
 import { buttonCss, ButtonProps, SectionTheme } from "./Button"
-import { Link } from "gatsby"
+import { Link as GatsbyLink } from "gatsby"
 import { COLORS } from "../../global-style"
 
 const getBackgroundCss = (section: SectionTheme | undefined) => {
@@ -19,7 +19,14 @@ const getBackgroundCss = (section: SectionTheme | undefined) => {
   }
 }
 
-const StyledLink = styled(Link)`
+interface IStyledLink {
+  $theme: SectionTheme
+  $sm?: boolean
+  $outline?: boolean
+  $size?: string
+}
+
+const StyledLink = styled.div<IStyledLink>`
   ${buttonCss}
   .link-text {
     position: relative;
@@ -49,6 +56,7 @@ interface ButtonLinkProps extends ButtonProps {
   to?: string
   href?: string
   download?: boolean
+  children?: React.ReactNode
 }
 
 const ButtonLink: React.FC<ButtonLinkProps> = ({
@@ -58,7 +66,7 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({
   $sm,
   $outline,
   $size,
-  $theme,
+  $theme = "about",
   download,
 }) => {
   const [{ scale, scaleX, transformOrigin }, api] = useSpring(() => ({
@@ -87,7 +95,6 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({
   if (to) {
     buttonLink = (
       <StyledLink
-        to={to}
         $sm={$sm}
         $outline={$outline}
         $size={$size}
@@ -95,13 +102,15 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <animated.span className="link-text" style={{ scale }}>
-          {children}
-        </animated.span>
-        <animated.span
-          className="link-bg"
-          style={{ scaleX, transformOrigin }}
-        ></animated.span>
+        <GatsbyLink to={to}>
+          <animated.span className="link-text" style={{ scale }}>
+            {children}
+          </animated.span>
+          <animated.span
+            className="link-bg"
+            style={{ scaleX, transformOrigin }}
+          ></animated.span>
+        </GatsbyLink>
       </StyledLink>
     )
   } else if (href) {
