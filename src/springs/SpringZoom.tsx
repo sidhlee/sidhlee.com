@@ -1,3 +1,4 @@
+import { KeyboardEvent } from "react"
 import styled from "styled-components"
 import { useSpring, animated } from "react-spring"
 
@@ -10,6 +11,7 @@ const AnimatedStyledZoomOnHover = animated(StyledSpringZoom)
 type SpringZoomProps = {
   tabindex?: number
   ariaLabel?: string
+  children?: React.ReactNode
 }
 
 const SpringZoom: React.FC<SpringZoomProps> = ({
