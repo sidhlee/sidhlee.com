@@ -100,6 +100,7 @@ const StyledNavMenu = styled(animated.aside)`
 type NavMenuProps = {
   isOpen: boolean
   close: () => void
+  children?: React.ReactNode
 }
 
 const NavMenu: React.FC<NavMenuProps> = ({ isOpen, children, close }) => {
@@ -153,7 +154,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ isOpen, children, close }) => {
             </ul>
             <LightToggle />
           </StyledNavMenu>
-        ) : null
+        ) : null,
       )}
       <Backdrop isOpen={isOpen} close={close} />
     </>

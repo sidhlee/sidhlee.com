@@ -10,7 +10,7 @@ type ThemeContextValue = {
 // https://kentcdodds.com/blog/how-to-use-react-context-effectively#typescript
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined)
 
-export const ThemeProvider: React.FC = ({ children }) => {
+export const ThemeProvider = ({ children }: any) => {
   const [theme, setTheme] = useState<Theme>("dark")
 
   // useEffect(() => {
@@ -67,6 +67,6 @@ function setCustomProperties(targetTheme: Theme, themeColors: ThemeColors) {
   Object.entries(themeColors[targetTheme]).forEach(
     ([cssVarName, colorValue]) => {
       root.style.setProperty(cssVarName, colorValue)
-    }
+    },
   )
 }

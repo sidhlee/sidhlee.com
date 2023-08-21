@@ -11,7 +11,7 @@ export default function useDevRole() {
     if (isFirst) isFirst = false
     const id = window?.setInterval(
       () => setRoleIndex(i => (i + 1) % roleTexts.length),
-      5000
+      3000,
     )
 
     return () => window?.clearInterval(id)
@@ -34,7 +34,7 @@ export default function useDevRole() {
       await next({
         opacity: 0,
         transform: "scale(1) translate(100%, 0%)",
-        delay: 3400,
+        delay: 1400,
         config: { friction: 30, tension: 200 },
       })
     },
@@ -56,7 +56,7 @@ export default function useDevRole() {
       >
         {roleTexts[item]}
       </animated.span>
-    ) : null
+    ) : null,
   )
 
   return role
