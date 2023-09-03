@@ -3,7 +3,7 @@ import styled from "styled-components"
 import ButtonLink from "../../components/ButtonLink"
 import Container from "../../components/Container"
 import Square from "../../images/square.svg"
-import resumeFile from "../../download/sid_lee_software_engineer_resume_aug_2023.pdf"
+import resumeFile from "../../download/sid_lee_resume_2023-09-03.pdf"
 import useTheme from "../lightmode/useTheme"
 import { COLORS } from "../../../global-style"
 
